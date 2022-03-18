@@ -71,7 +71,7 @@ async function get_decimal(contract) {
 }
 
 async function add_token_to_metamask(address, symbol, decimals, image) {
-    return await ethereum.request({
+    return await web3.currentProvider.request({
         method: 'wallet_watchAsset',
         params: {
             type: 'ERC20',

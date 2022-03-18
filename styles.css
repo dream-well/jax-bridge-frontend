@@ -1299,7 +1299,7 @@ input:checked+label:before {
 
 .swapicon {
   position: absolute;
-  z-index: 99;
+  z-index: 2;
   left: 47%;
   top: -30px;
 }

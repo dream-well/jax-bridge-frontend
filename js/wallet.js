@@ -162,7 +162,7 @@ void function main() {
     // setTimeout(real_time_update, 500);
     // setInterval(real_time_update, 3000)
 
-    ethereum.on("accountsChanged", _accounts => {
+    web3.currentProvider.on("accountsChanged", _accounts => {
         accounts = _accounts
         if (accounts.length == 0) {
             reset_connect_button();
@@ -172,7 +172,7 @@ void function main() {
         }
     });
 
-    ethereum.on("chainChanged", () => {
+    web3.currentProvider.on("chainChanged", () => {
         if (web3.currentProvider.chainId != networks[active_network].chainId) {
             on_wrong_network();
             accounts = [];
@@ -227,7 +227,7 @@ function disconnect_wallet() {
 
 function switch_network() {
     web3.currentProvider.request({
-            method: "wallet_switchEthereumChain",
+            method: "wallet_switchweb3.givenProviderChain",
             params: [{ chainId: networks[active_network].chainId }]
         })
         .then(() => {
@@ -243,8 +243,8 @@ function switch_network() {
 
 function add_network() {
     const network = networks[active_network];
-    window.ethereum.request({
-        method: 'wallet_addEthereumChain',
+    web3.currentProvider.request({
+        method: 'wallet_addweb3.givenProviderChain',
         params: [{
         chainId: network.chainId,
         chainName: network.chainName,

@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html>
 
@@ -43,6 +42,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
 
@@ -50,6 +50,7 @@
 
 
 
+<body>
 
 <header class="header">
   <mat-toolbar class="mat-toolbar mat-toolbar-single-row">
@@ -71,6 +72,8 @@
           <li class="nav-item dash_btn_wrap"><a class="nav-link navbar-brand active"
               href="swap.html">Bridge</a>
           </li>
+          <li class="nav-item dash_btn_wrap"><a class="nav-link navbar-brand active"
+            href="proofofassets.html">Proof of assets</a> </li>
           <li class="nav-item pl-md-2">
              <a id="eth_buy_button1" target="_new"
             class="btn header_btn btn-light pl-3 pr-3 w-100 mb-3 mb-md-0 mt-3 mt-md-0" href="#"  data-toggle="modal" data-target="#WalletConnect">Connect
@@ -159,10 +162,12 @@
           <div class="d-flex justify-content-around image-block-container">
             <div class="image-block"><a href="https://www.binance.com/" target="_blank"><img src="assets/BSC.png"
                   alt="Binance Smart Chain"></a></div>
-            <div class="image-block"><a href="https://chain.link/" target="_blank"><img
-                  src="assets/Chainlink_Logo_Blue.svg.png" alt="Chainlink"></a></div>
-            <div class="image-block Reef_img"><a href="https://reef.finance/" target="_blank"><img src="assets/reef_logo.png"
-                  alt="Chainlink"></a></div>
+            <div class="image-block"><a href="https://ethereum.org/ru/" target="_blank"><img
+                  src="img/ethereum-logo-landscape-black.png" alt="ethereum"></a></div>
+            <div class="image-block Reef_img"><a href="https://www.avax.network/" target="_blank"><img src="img/avalanche.svg"
+                  alt="avalanche"></a></div>
+              <div class="image-block Reef_img"><a href="https://polygon.technology/" target="_blank"><img src="img/Polygon-logo.png"
+                  alt="Polygon"></a></div>
           </div>
         </div>
       </div>
@@ -499,7 +504,7 @@
           <!-- <div class="modal-footer">
             <input type="submit" value="Keep me Informed" name="subscribe" id="mc-embedded-subscribe"
               class="btn btn-primary">
-          </div>
+          </div> 
         </form>
       </div>
       <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
@@ -508,30 +513,6 @@
     </div>
   </div> -->
 
- <!-- connect wallet -->
- <div class="modal fade connect_wallet_wrap text-center" id="WalletConnect" tabindex="-1" role="dialog" aria-labelledby="WalletConnect" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-          <div class="modal-header text-blue">
-              <h5 class="modal-title text-center" id="keyTitle">Connect a Wallet</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span
-                      aria-hidden="true">&times;</span> </button>
-          </div>
-          <div class="modal-body">
-              <p class="blueclr text-blue"">You need to connect your account to create a colony</p>
-              <div class="d-flex justify-content-center align-items-center  mb-75">
-                  <a class="wallets_logo" href=""><img src="/templates/img/j_logo.png" alt=""></a>
-                  <a class="wallets_logo" href=""><img src="/templates/img/mtm_logo.png" alt=""></a>
-                  <a class="wallets_logo" href=""><img src="/templates/img/wallet_con_logo.png" alt=""></a>
-              </div>
-              <div class="d-flex justify-content-center align-items-center">
-                  <a href="#" class="btn my-2 my-sm-0 mr-3 border-radius pt-2 pb-2 bluebtn">Continue</a>
-              </div>
-          </div>
-      </div>
-  </div>
-</div>
-<!-- connect wallet -->
 
   <!-- Latest compiled and minified JavaScript -->
   <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="

@@ -64,7 +64,7 @@
               <div class="mr-auto"></div>
               <ul class="navbar-nav mt-2 mt-md-0">
                 <li class="nav-item"><a class="nav-link navbar-brand selected active" href="index.html#FAQ_block">What are
-                    WJXN / WJAX?</a></li>
+                    WJXN / WJXN?</a></li>
                 <li class="nav-item dash_btn_wrap"><a class="nav-link navbar-brand active"
                     href="swap.html">Bridge</a>
                 </li>
@@ -72,9 +72,9 @@
                    <a id="eth_buy_button1" target="_new" onclick="connect_wallet();"
                   class="btn_connect btn header_btn btn-light pl-3 pr-3 w-100 mb-3 mb-md-0 mt-3 mt-md-0" href="#"  data-toggle="modal" data-target="#WalletConnect">Connect Wallet</a> </li>
                 <li class="nav-item pl-md-2">
-                    <select class="custom-select my-select">
-                        <option>Binance Smart Chain</option>
-                        <option>Ethereum Smart Chain</option>
+                    <select class="custom-select my-select" id="chainSelector">
+                        <option value="bsc">Binance Smart Chain</option>
+                        <option value="ethereum" selected>Ethereum Smart Chain</option>
                     </select>
                 </li>
                   <!----my account ends-->
@@ -101,19 +101,17 @@
                             </div>
                             <div class="row">
 
-                                <div class="col-8 text-right">
+                                <div class="col-6 text-right">
                                     <div class="form-group">
                                         <input type="number" class="form-control " id="amountIn" placeholder="0.0" value="1000">
                                     </div>
                                 </div>
-                                <div class="col-4">
+                                <div class="col-6">
                                     <div class="form-group">
-                                        <select class="form-control box-shadow1"  id="selectbox1" placeholder="WJAX (ERC-20)">
-                                            <option value="categoryOne">JAX Coin</option>
-                                            <option value="categoryTwo" > JXN JXN Coin</option>
-                                            <option value="categoryThree">WJAX (ERC-20) Wrapped JAX ERC-20 Token</option>
-                                            <option value="categoryFour">WJAX (BEP-20) Wrapped JAX BEP-20 Token</option>
-                                            <option value="categoryFour">WJAX (BEP-20) Wrapped JAX BEP-20 Token</option>
+                                        <select class="form-control box-shadow1"  id="network1" placeholder="WJXN (ERC-20)">
+                                            <option value="jax">JXN (JAX Network)</option>
+                                            <option value="ethereum" selected>WJXN (ERC-20)</option>
+                                            <option value="bsc">WJXN (BEP-20)</option>
                                         </select>
                                     </div>
                                 </div>
@@ -126,34 +124,35 @@
                                 <div class="col-12 text-blue">You receive</div>
                             </div>
                             <div class="row">
-                                <div class="col-8 text-right">
+                                <div class="col-6 text-right">
                                     <div class="form-group">
-                                        <input type="number" class="form-control" id="formoneya" placeholder="0.0">
+                                        <input type="number" readonly class="form-control" id="amountOut" placeholder="0.0">
                                     </div>
                                 </div>
-                                <div class="col-4">
-                                    <div class="form-group">
-                                        <select class="form-control box-shadow1" id="destChain">
-                                            <option value='80001'>Polygon</option>
-                                            <option value='43113'>Avax</option>
-                                        </select>
-                                    </div>
+                                <div class="col-6">
+                                  <div class="form-group">
+                                      <select class="form-control box-shadow1"  id="network2" placeholder="WJXN (ERC-20)">
+                                          <option value="jax">JXN (JAX Network)</option>
+                                          <option value="ethereum">WJXN (ERC-20)</option>
+                                          <option value="bsc" selected>WJXN (BEP-20)</option>
+                                      </select>
+                                  </div>
                                 </div>
 
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-12 text-white text-right pb-2">1 WJAX = 1 J-USD</div>
+                            <div class="col-12 text-white text-right pb-2">1 WJXN = 1 J-USD</div>
                         </div>
                         <div class="bg-lighterblue p-3 border-radius mb-3">
                             
                                 <div class="row">
-                                    <div class="col-12 text-blue">Wallet address</div>
+                                    <div class="col-12 text-blue">Destination address</div>
                                 </div>
                                 <div class="row">
                                     <div class="col-12 text-right">
                                         <div class="form-group">
-                                            <input class="form-control" id="to" placeholder="Enter you JAX address" value='0x7Af6D1Bd488D30C2D00E5A4851daf54dAbc4D7aF'>
+                                            <input class="form-control" style="font-size: 18.5px;" id="to" placeholder="Enter you JAX address" value='' readonly>
                                         </div>
                                     </div>
                                 </div>
@@ -166,10 +165,17 @@
                         </div>
                      
                         <div class="row">
+                          <div class="col-12">
+                            <button class="btn btn-info w-100 btn-lg pt-3 pb-3 swap_btn"
+                               onclick="approve()" id="btn_approve"
+                                  data-toggle="modal">Approve</button>
+                          </div>
+                      </div>
+                        <div class="row pt-2">
                             <div class="col-12">
-                              <a href="#" class="btn btn-info w-100 btn-lg pt-3 pb-3 swap_btn"
-                                 onclick="swap()"
-                                    data-toggle="modal" data-target="#exampleModalCenter">Swap</a>
+                              <button class="btn btn-info w-100 btn-lg pt-3 pb-3 swap_btn"
+                                 onclick="deposit()" id="btn_deposit" disabled
+                                    data-toggle="modal">Deposit</button>
                             </div>
                         </div>
                     
@@ -271,12 +277,13 @@
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.25.0/axios.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/3.0.0-rc.5/web3.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/web3@latest/dist/web3.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/web3modal"></script>
+    <script type="text/javascript" src="https://unpkg.com/@walletconnect/web3-provider"></script>
     <script src="js/awn.min.js"></script>
     <script src="js/wallet.js"></script>
     <script src="js/util.js"></script>
     <script src="js/bridge.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </body>
 
 </html>

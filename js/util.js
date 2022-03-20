@@ -1,6 +1,7 @@
 
 function parseUnit(number, decimal = 18) {
-    return BN(number).mul(BN(10).pow(BN(decimal))).toString();
+    if(!number) number = "0";
+    return BN(web3.utils.toWei(number+'')).mul(BN(10).pow(BN(decimal))).div(BN(web3.utils.toWei('1'))).toString();
 }
 
 function formatUnit(number, decimal = 18, fractionDigits = 6) {
@@ -10,20 +11,35 @@ function formatUnit(number, decimal = 18, fractionDigits = 6) {
     return Number(number);
 }
 
-function callSmartContract(contract, func, ...args) {
+function callSmartContract(contract, func, args = [], options) {
     if(!contract) return false;
     if(!contract.methods[func]) return false;
     return contract.methods[func](...args).call();
 }
 
-async function runSmartContract(contract, func, ...args) {
+function runSmartContract(contract, func, args = [], options) {
     if(accounts.length == 0) return false;
     if(!contract) return false;
     if(!contract.methods[func]) return false;
-    return contract.methods[func](...args).send({ from: accounts[0] })
+    const promiEvent = contract.methods[func](...args).send({ from: accounts[0] });
+    promiEvent
+        .then(receipt => {
+            notifier.success(`Transaction Completed <br/>
+                TxInfo: <a target='_blank' href='${blockExplorer('tx', receipt.transactionHash)}'>View</a>
+            `, {durations: {success: 6000}});
+        })
+        .catch((err) => {
+            if(err.message.startsWith("Internal JSON-RPC error.")) {
+                err = JSON.parse(e.message.substr(24));
+            }   
+            notifier.warning(`Transaction Failed <br/>
+                ${err.message}
+            `, {durations: {success: 0}});
+        })
+    return promiEvent;        
 }
 
-async function estimateGas(contract, func, ...args) {
+async function estimateGas(contract, func, args = [], options) {
     try {
         const gasAmount = await contract.methods[func](...args).estimateGas({from: accounts[0]});
         return {
@@ -43,10 +59,13 @@ async function estimateGas(contract, func, ...args) {
 }
 
 async function approve_token(token_name, contract, spender, amount) {
-    const promise = runSmartContract(contract, "approve", spender, amount);
-    notifier.async(promise, null, null, `Approving ${token_name}`, {labels: {
-        async: "Please wait..."
-    }});
+    const promise = runSmartContract(contract, "approve", [spender, amount]);
+    notifier.async(promise, null, null, `Approving ${token_name}`, {
+        labels: {
+            async: "Please wait..."
+        },
+        // position: window.innerWidth < 600 ? "bottom-right" : "top-right"
+    });
     try{
         await promise;
     }catch(e){
@@ -58,8 +77,8 @@ async function approve_token(token_name, contract, spender, amount) {
 async function get_balance(contract, decimal) {
     let balance = -1;
     if(accounts.length) {
-        balance = await callSmartContract(contract, 'balanceOf', accounts[0]);
-        balance = formatUnit(balance, decimal ?? await get_decimal(contract));
+        balance = await callSmartContract(contract, 'balanceOf', [accounts[0]]);
+        balance = formatUnit(balance, decimal ? decimal : await get_decimal(contract));
     }
     return balance;
 }
@@ -83,4 +102,65 @@ async function add_token_to_metamask(address, symbol, decimals, image) {
             },
         },
     });
+}
+
+
+async function get_pancake_amount_out(token1, token2, amountIn) {
+    if(!web3_provider) return 0;
+    if(amountIn == 0) return 0;
+    let amounts = await callSmartContract(
+        contracts_provider.pancakeRouter,
+        "getAmountsOut",
+        [amountIn, [token1, token2]]
+    );
+    return amounts[1];
+}
+
+async function get_pancake_amount_in(token1, token2, amountOut) {
+    if(!web3_provider) return 0;
+    if(amountOut == 0) return 0;
+    let amounts = await callSmartContract(
+        contracts_provider.pancakeRouter,
+        "getAmountsIn",
+        [amountOut, [token1, token2]]
+    );
+    return amounts[0];
+}
+
+async function get_amount_out(reserve1, reserve2, amountIn) {
+    if(!web3_provider) return 0;
+    if(amountIn == 0) return 0;
+    let amountOut = await callSmartContract(
+        contracts_provider.pancakeRouter,
+        "getAmountOut",
+        [amountIn, reserve1, reserve2]
+    );
+    return amountOut;
+}
+
+function blockExplorer(type, hash) {
+    return networks[active_network()].blockExplorer + '/' + type + '/' + hash;
+}
+
+function validateInput(amount, decimal = 18) {
+    if(Number(amount) == NaN)
+        return 0;
+    if(Number(amount) < 0) return 0;
+    amount = floor(amount, decimal);
+    return amount;
+}
+
+function floor(number, decimal) {
+
+    const num =  formatUnit(parseUnit(number, decimal), decimal, decimal);
+    return num;
+}
+
+
+function ceil(number, decimal) {
+
+    let num =  formatUnit(parseUnit(number, decimal), decimal, decimal);
+    if(num < number)
+        num += formatUnit("1", decimal, decimal);
+    return num;
 }

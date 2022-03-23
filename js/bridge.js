@@ -1,5 +1,5 @@
 let contract_addresses = {
-    jaxBridge: '0x3F2Ced500f79B1FEe271932365Fa99021498e828',
+    jaxBridge: '0x629f2afB1F06cdfB2FA7415aca81f2f361F95F1D',
     wjxn: '0xA25946ec9D37dD826BbE0cbDbb2d79E69834e41e'
 }
 
@@ -36,15 +36,15 @@ async function deposit() {
     const func = 'deposit';
     // address to, uint destChainId, uint amount, uint nonce, bytes calldata signature
     let contract = new web3.eth.Contract(jaxBridgeABI, contract_addresses.jaxBridge);
-    const nonce = await callSmartContract(contract, "nonces", accounts[0]);
+    const nonce = await callSmartContract(contract, "nonces", [accounts[0]]);
 
     const args = [to, destChainId, amountIn, nonce];
-    const {success, gas, message} = await estimateGas(contract, func, ...args);
+    const {success, gas, message} = await estimateGas(contract, func, args);
     if(!success) {
         notifier.warning(message);
         return;
     }
-    await notifier.async(runSmartContract(contract, func, ...args)
+    await notifier.async(runSmartContract(contract, func, args)
         , null, null, `deposit`,
         {labels: {async: "Please wait..."}});
     

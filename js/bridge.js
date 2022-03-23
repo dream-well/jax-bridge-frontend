@@ -20,7 +20,9 @@ async function deposit() {
     let network1 = $("#network1").val();
     let network2 = $("#network2").val();
     if(network1 == "jax") {
-
+        const path = location.pathname.split("/");
+        path.pop();
+        location.href = path.join("/") + '/payment.html';
         return;
     }
     if(accounts.length == 0){

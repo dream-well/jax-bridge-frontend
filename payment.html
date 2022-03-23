@@ -22,7 +22,7 @@
     <meta property="og:description" content="Wrapped JAXNET" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="en_US" />
-    <meta property="og:image" content="https://www.testyariksite.fun/assets/fav_wjxn.png" />
+    <meta property="og:image" content="https://www.testyariksite.funassets/fav_wjxn.png" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -33,7 +33,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link href="/styles.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
     <!-- font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -71,6 +71,16 @@
                         </li>
                         <li class="nav-item dash_btn_wrap"><a class="nav-link navbar-brand active"
                             href="proofofassets.html">Proof of assets</a> </li>
+                        <li class="nav-item pl-md-2">
+                            <a id="eth_buy_button1" target="_new" onclick="connect_wallet();"
+                            class="btn_connect btn header_btn btn-light pl-3 pr-3 w-100 mb-3 mb-md-0 mt-3 mt-md-0" href="#"  data-toggle="modal" data-target="#WalletConnect">Connect Wallet</a> 
+                        </li>
+                        <li class="nav-item pl-md-2">
+                            <select class="custom-select my-select" id="chainSelector">
+                                <option value="bsc">Binance Smart Chain</option>
+                                <option value="ethereum" selected>Ethereum Smart Chain</option>
+                            </select>
+                        </li>
                        
                     </ul>
                 </div>
@@ -97,7 +107,7 @@
                                 <div class="col-12 center-content">
                                     <div class="form-group">
                                         <span class="w_adrres_form">0.000001 WJAX (ERC-20) <span class="cop_s"><img
-                                                    src="/assets/Layer.png" alt=""></span></span>
+                                                    src="assets/Layer.png" alt=""></span></span>
                                     </div>
                                 </div>
                             </div>
@@ -116,15 +126,16 @@
                             <div class="row">
                                 <div class="col-12 center-content">
                                     <div class="form-group ad_form_nw">
-                                        <span class="w_adrres_form">bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh<span
-                                                class="cop_s"><img src="/assets/Layer.png" alt=""></span></span>
+                                        <span class="w_adrres_form" style="font-size: 18px;">
+                                            <span  id="depositAddress">&nbsp;</span><span
+                                                class="cop_s"><img src="assets/Layer.png" alt=""></span></span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="row center-content mb-15 qr_wrap_bock">
                             <div class="qr_code_block">
-                                <img src="/assets/rick 1.png" alt="">
+                                <img src="assets/rick 1.png" alt="">
                             </div>
                         </div>
                          <div class="bg-lighterblue p-3 border-radius mb-3 center-content mb-15">
@@ -237,8 +248,15 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
-    <script src="main.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.25.0/axios.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/web3@latest/dist/web3.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/web3modal"></script>
+    <script type="text/javascript" src="https://unpkg.com/@walletconnect/web3-provider"></script>
+    <script src="js/awn.min.js"></script>
+    <script src="js/wallet.js"></script>
+    <script src="js/util.js"></script>
+    <script src="js/payment.js"></script>
 </body>
 
 </html>

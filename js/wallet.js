@@ -18,27 +18,27 @@ let web3Modal
 let provider;
 
 let networks = {
-    ethereum: {
-        chainId: 0x1,
-        symbol: 'ETH'
-    },
     // ethereum: {
-    //     chainId: 0x4,
-    //     symbol: 'ETH',
-    //     blockExplorer: 'https://rinkeby.etherscan.io',
+    //     chainId: 0x1,
+    //     symbol: 'ETH'
     // },
-    // bsc: {
-    //     chainId: 0x61,
-    //     chainName: 'Binance Smart Chain Testnet',
-    //     blockExplorer: 'https://testnet.bscscan.com',
-    //     symbol: 'BNB'
-    // },
+    ethereum: {
+        chainId: 0x4,
+        symbol: 'ETH',
+        blockExplorer: 'https://rinkeby.etherscan.io',
+    },
     bsc: {
-        chainId: 0x38,
-        chainName: 'Binance Smart Chain Mainnet',
-        blockExplorer: 'https://bscscan.com',
+        chainId: 0x61,
+        chainName: 'Binance Smart Chain Testnet',
+        blockExplorer: 'https://testnet.bscscan.com',
         symbol: 'BNB'
     },
+    // bsc: {
+    //     chainId: 0x38,
+    //     chainName: 'Binance Smart Chain Mainnet',
+    //     blockExplorer: 'https://bscscan.com',
+    //     symbol: 'BNB'
+    // },
     polygonmainnet: {
         chainId: 0x89,
         symbol: 'MATIC'
@@ -215,21 +215,6 @@ void function main() {
     on_wallet_disconnected();
 
     BN = (str) => (new web3.utils.BN(str));
-    var hover = false;
-    $(".dropdown").hover(
-        function() {
-            if (accounts.length == 0) return;
-            hover = true;
-            $(this).children("ul").slideDown('medium');
-        },
-        function() {
-            hover = false;
-            setTimeout(() => {
-                if (hover) return;
-                $(this).children("ul").slideUp('medium');
-            }, 500);
-        }
-    )
 
     init_listners();
 
@@ -245,11 +230,9 @@ void function main() {
     });
 
     init_web3();
-
-
-    // if(typeof ethereum != "undefined" && ethereum.selectedAddress)
-    //     connect_wallet();
     connect_wallet();
+
+    $("#chainSelector").on("change", switch_network);
 }()
 
 function init_listners() {

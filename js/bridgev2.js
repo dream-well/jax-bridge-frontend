@@ -104,7 +104,7 @@ async function update_state() {
             amountOut = amountIn - 50;
     }
     if(network1 == "jax") {
-        amountOut = amountIn - 1;
+        amountOut = amountIn - 50;
     }
     if(amountOut < 0) amountOut = 0;
     $("#amountOut").val(amountOut);

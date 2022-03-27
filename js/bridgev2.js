@@ -1,5 +1,5 @@
 let contract_addresses = {
-    jaxBridge: '0x86fCf637AfdF4B62e0FF3d8D275BB0C70213D675',
+    jaxBridge: '0x020b367ab75d58e11b4b2218fc5604502f4c9afa',
     wjxn: '0xa25946ec9d37dd826bbe0cbdbb2d79e69834e41e'
 }
 
@@ -44,6 +44,7 @@ async function deposit() {
     await notifier.async(runSmartContract(contract, func, args)
         , null, null, `Create request`,
         {labels: {async: "Please wait..."}});
+    
     
 }
 

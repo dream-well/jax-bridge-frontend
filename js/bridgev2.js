@@ -3,6 +3,8 @@ const maxUint = "0x" + "f".repeat(64);
 
 let deposit_address_id;
 let request_id;
+let fee_percent = 0.05;
+let minimum_fee_amount = 50;
 
 void async function main() {
     $("#amountIn").on('input', update_state)
@@ -37,19 +39,22 @@ async function deposit() {
 
     const msgHash = web3.eth.accounts.hashMessage(msg)
 
-    const args = [request_id, msgHash, deposit_address_id, to, from];
+    const args = [request_id, amountIn, deposit_address_id, to, from];
     const {success, gas, message} = await estimateGas(contract, func, args);
     if(!success) {
         notifier.warning(message);
         return;
     }
-    await notifier.async(runSmartContract(contract, func, args)
+    const promi = runSmartContract(contract, func, args);
+    await notifier.async(promi
         , null, null, `Create request`,
         {labels: {async: "Please wait..."}});
-    
-    const path = location.pathname.split("/");
-    path.pop();
-    location.href = path.join("/") + '/deposit.html' + '?id=' + request_id;
+    promi.then(() => {
+        const path = location.pathname.split("/");
+        path.pop();
+        location.href = path.join("/") + '/deposit.html' + '?id=' + request_id;
+        
+    })
     
 }
 
@@ -98,11 +103,14 @@ async function update_state() {
     network2 = $("#network2").val();
     let amountIn = $("#amountIn").val();
     let amountOut;
+    let fee_amount = amountIn * fee_percent;
+    if(fee_amount < minimum_fee_amount) fee_amount = minimum_fee_amount;
+    fee_amount = parseInt(fee_amount);
     if(network1 == "ethereum") {
         if(network2 == "bsc")
             amountOut = amountIn;
         else
-            amountOut = amountIn - 50;
+            amountOut = Math.max(amountIn - fee_amount, 0);
     }
     if(network1 == "bsc") {
         if(network1 == "ethereum")
@@ -111,7 +119,7 @@ async function update_state() {
             amountOut = amountIn - 50;
     }
     if(network1 == "jax") {
-        amountOut = amountIn - 50;
+        amountOut = Math.max(amountIn - fee_amount, 0);
     }
     if(amountOut < 0) amountOut = 0;
     $("#amountOut").val(amountOut);

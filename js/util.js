@@ -164,3 +164,9 @@ function ceil(number, decimal) {
         num += formatUnit("1", decimal, decimal);
     return num;
 }
+
+function goto404() {
+    const path = location.pathname.split("/");
+    path.pop();
+    location.href = path.join("/") + '/404.html';
+}

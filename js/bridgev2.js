@@ -1,11 +1,8 @@
-let contract_addresses = {
-    jaxBridge: '0x020b367ab75d58e11b4b2218fc5604502f4c9afa',
-    wjxn: '0xa25946ec9d37dd826bbe0cbdbb2d79e69834e41e'
-}
 
-let jaxBridgeABI = [{"inputs":[],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"uint256","name":"request_id","type":"uint256"}],"name":"Approve_Request","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"uint256","name":"request_id","type":"uint256"},{"indexed":false,"internalType":"uint256","name":"amount","type":"uint256"},{"indexed":false,"internalType":"string","name":"from","type":"string"}],"name":"Create_Request","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"uint256","name":"request_id","type":"uint256"}],"name":"Reject_Request","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"uint256","name":"request_id","type":"uint256"},{"indexed":false,"internalType":"address","name":"from","type":"address"},{"indexed":false,"internalType":"uint256","name":"amount","type":"uint256"}],"name":"Release","type":"event"},{"inputs":[],"name":"admin","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"request_id","type":"uint256"}],"name":"approve_request","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"amount","type":"uint256"},{"internalType":"address","name":"to","type":"address"},{"internalType":"string","name":"from","type":"string"}],"name":"create_request","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"deposit","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"deposit_addresses","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"request_id","type":"uint256"}],"name":"reject_request","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"request_id","type":"uint256"},{"internalType":"string","name":"txHash","type":"string"}],"name":"release","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"requests","outputs":[{"internalType":"uint256","name":"amount","type":"uint256"},{"internalType":"uint256","name":"deposit_address_id","type":"uint256"},{"internalType":"uint256","name":"valid_until","type":"uint256"},{"internalType":"address","name":"to","type":"address"},{"internalType":"enum JaxBridgeV2.RequestStatus","name":"status","type":"uint8"},{"internalType":"string","name":"from","type":"string"},{"internalType":"string","name":"txHash","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"},{"internalType":"uint256","name":"","type":"uint256"}],"name":"user_requests","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"withdraw","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"token","type":"address"},{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"withdrawByAdmin","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"wjxn","outputs":[{"internalType":"contract IERC20","name":"","type":"address"}],"stateMutability":"view","type":"function"}];
-let erc20ABI = [{ "inputs": [], "stateMutability": "payable", "type": "constructor" }, { "anonymous": false, "inputs": [{ "indexed": true, "internalType": "address", "name": "owner", "type": "address" }, { "indexed": true, "internalType": "address", "name": "spender", "type": "address" }, { "indexed": false, "internalType": "uint256", "name": "value", "type": "uint256" }], "name": "Approval", "type": "event" }, { "anonymous": false, "inputs": [{ "indexed": true, "internalType": "address", "name": "previousOwner", "type": "address" }, { "indexed": true, "internalType": "address", "name": "newOwner", "type": "address" }], "name": "OwnershipTransferred", "type": "event" }, { "anonymous": false, "inputs": [{ "indexed": true, "internalType": "address", "name": "from", "type": "address" }, { "indexed": true, "internalType": "address", "name": "to", "type": "address" }, { "indexed": false, "internalType": "uint256", "name": "value", "type": "uint256" }], "name": "Transfer", "type": "event" }, { "inputs": [{ "internalType": "address", "name": "owner", "type": "address" }, { "internalType": "address", "name": "spender", "type": "address" }], "name": "allowance", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "spender", "type": "address" }, { "internalType": "uint256", "name": "amount", "type": "uint256" }], "name": "approve", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "account", "type": "address" }], "name": "balanceOf", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [], "name": "decimals", "outputs": [{ "internalType": "uint8", "name": "", "type": "uint8" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "spender", "type": "address" }, { "internalType": "uint256", "name": "subtractedValue", "type": "uint256" }], "name": "decreaseAllowance", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [], "name": "getOwner", "outputs": [{ "internalType": "address", "name": "", "type": "address" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "spender", "type": "address" }, { "internalType": "uint256", "name": "addedValue", "type": "uint256" }], "name": "increaseAllowance", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [], "name": "name", "outputs": [{ "internalType": "string", "name": "", "type": "string" }], "stateMutability": "view", "type": "function" }, { "inputs": [], "name": "owner", "outputs": [{ "internalType": "address", "name": "", "type": "address" }], "stateMutability": "view", "type": "function" }, { "inputs": [], "name": "renounceOwnership", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "_tx_fee", "type": "uint256" }], "name": "setTransactionFee", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "_wallet", "type": "address" }], "name": "setTransactionFeeWallet", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [], "name": "symbol", "outputs": [{ "internalType": "string", "name": "", "type": "string" }], "stateMutability": "view", "type": "function" }, { "inputs": [], "name": "totalSupply", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [], "name": "transaction_fee", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [], "name": "transaction_fee_decimal", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "recipient", "type": "address" }, { "internalType": "uint256", "name": "amount", "type": "uint256" }], "name": "transfer", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "sender", "type": "address" }, { "internalType": "address", "name": "recipient", "type": "address" }, { "internalType": "uint256", "name": "amount", "type": "uint256" }], "name": "transferFrom", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "newOwner", "type": "address" }], "name": "transferOwnership", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [], "name": "tx_fee_wallet", "outputs": [{ "internalType": "address", "name": "", "type": "address" }], "stateMutability": "view", "type": "function" },{"inputs":[{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"burn","outputs":[],"stateMutability":"nonpayable","type":"function"}]
 const maxUint = "0x" + "f".repeat(64);
+
+let deposit_address_id;
+let request_id;
 
 void async function main() {
     $("#amountIn").on('input', update_state)
@@ -33,9 +30,14 @@ async function deposit() {
     const func = 'create_request';
     // address to, uint destChainId, uint amount, uint nonce, bytes calldata signature
     let contract = new web3.eth.Contract(jaxBridgeABI, contract_addresses.jaxBridge);
-    const nonce = await callSmartContract(contract, "nonces", [accounts[0]]);
+    const msg = web3.utils.soliditySha3(
+        {t: 'uint', v: request_id},
+        {t: 'uint', v: amountIn},
+      ).toString('hex');
 
-    const args = [amountIn, to, from];
+    const msgHash = web3.eth.accounts.hashMessage(msg)
+
+    const args = [request_id, msgHash, deposit_address_id, to, from];
     const {success, gas, message} = await estimateGas(contract, func, args);
     if(!success) {
         notifier.warning(message);
@@ -45,6 +47,9 @@ async function deposit() {
         , null, null, `Create request`,
         {labels: {async: "Please wait..."}});
     
+    const path = location.pathname.split("/");
+    path.pop();
+    location.href = path.join("/") + '/deposit.html' + '?id=' + request_id;
     
 }
 
@@ -61,6 +66,7 @@ async function check_allowance() {
 }
 
 async function check_status() {
+    update_status();
     let network1 = $("#network1").val();
     if(network1 == "jax") {
         $("#btn_deposit").attr("disabled", false);
@@ -115,4 +121,13 @@ function accountChanged() {
     let account = accounts[0];
     $("#to").val(account);
     check_status();
+}
+
+async function update_status() {
+    let contract = new web3.eth.Contract(jaxBridgeABI, contract_addresses.jaxBridge);
+    request_id = await callSmartContract(contract, "get_new_request_id");
+    deposit_address_id = await callSmartContract(contract, "get_free_deposit_address_id")
+    let deposit_address = await callSmartContract(contract, "deposit_addresses", deposit_address_id);
+    $("#depositAddress").val(deposit_address);
+    console.log(request_id, deposit_address_id, deposit_address);
 }

@@ -64,17 +64,19 @@
               <div class="mr-auto"></div>
               <ul class="navbar-nav mt-2 mt-md-0">
                 <li class="nav-item"><a class="nav-link navbar-brand selected active" href="index.html#FAQ_block">What are
-                    WJXN / WJXN?</a></li>
+                    WJXN / WJAX?</a></li>
                 <li class="nav-item dash_btn_wrap"><a class="nav-link navbar-brand active"
                     href="swap.html">Bridge</a>
                 </li>
+                <li class="nav-item dash_btn_wrap"><a class="nav-link navbar-brand active"
+                  href="proofofassets.html">Proof of assets</a> </li>
                 <li class="nav-item pl-md-2">
                    <a id="eth_buy_button1" target="_new" onclick="connect_wallet();"
                   class="btn_connect btn header_btn btn-light pl-3 pr-3 w-100 mb-3 mb-md-0 mt-3 mt-md-0" href="#"  data-toggle="modal" data-target="#WalletConnect">Connect Wallet</a> </li>
                 <li class="nav-item pl-md-2">
                     <select class="custom-select my-select" id="chainSelector" disabled>
                         <option value="bsc" selected>Binance Smart Chain</option>
-                        <option value="ethereum">Ethereum Smart Chain</option>
+                        <!--<option value="ethereum">Ethereum Smart Chain</option>-->
                     </select>
                 </li>
                   <!----my account ends-->
@@ -84,8 +86,8 @@
           </nav>
           <!---->
         </mat-toolbar>
-      
-      
+
+
       </header>
     <!-- Begin page content -->
     <main role="main">
@@ -108,16 +110,16 @@
                                 </div>
                                 <div class="col-6">
                                     <div class="form-group">
-                                        <select class="form-control box-shadow1"  id="network1" placeholder="WJXN (ERC-20)">
+                                        <select class="form-control box-shadow1"  id="network1" placeholder="JXN (JAX Network)">
                                             <option value="jax" selected>JXN (JAX Network)</option>
-                                            <option value="ethereum">WJXN (ERC-20)</option>
-                                            <option value="bsc">WJXN (BEP-20)</option>
+                                            <!-- <option value="ethereum">WJXN (ERC-20)</option>
+                                            <option value="bsc">WJXN (BEP-20)</option> -->
                                         </select>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="bg-lighterblue p-3 border-radius mb-3 position-relative"> 
+                        <div class="bg-lighterblue p-3 border-radius mb-3 position-relative">
                             <span  class="swapicon p-2 border-radius bg-blue text-white"><a href="#" class="text-white"><i
                                         class="fa fa-arrow-down"></i></a></span>
                             <div class="row">
@@ -132,9 +134,9 @@
                                 <div class="col-6">
                                   <div class="form-group">
                                       <select class="form-control box-shadow1"  id="network2" placeholder="WJXN (ERC-20)">
-                                          <option value="jax">JXN (JAX Network)</option>
-                                          <option value="ethereum">WJXN (ERC-20)</option>
-                                          <option value="bsc" selected>WJXN (BEP-20)</option>
+                                          <!-- <option value="jax">JXN (JAX Network)</option> -->
+                                          <!--<option value="ethereum">WJXN (ERC-20)</option>-->
+                                          <option value="bsc" selected>WJXN BEP-20 (BSC)</option>
                                       </select>
                                   </div>
                                 </div>
@@ -142,31 +144,58 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-12 text-white text-right pb-2">1 WJXN = 1 J-USD</div>
+                            <div class="col-12 text-white text-right pb-2">1 WJXN = 1 JXN</div>
                         </div>
                         <div class="bg-lighterblue p-3 border-radius mb-3">
-                            
+
+                          <div class="row">
+                              <div class="col-12 text-blue">Your (Source) JXN address (Jax.Network)</div>
+                          </div>
+                          <div class="row">
+                              <div class="col-12 text-right">
+                                  <div class="form-group">
+                                      <input class="form-control" style="font-size: 18.5px;" id="from" placeholder="Enter your JXN address" value=''>
+                                  </div>
+                              </div>
+                          </div>
+
+                      </div>
+                        <div class="bg-lighterblue p-3 border-radius mb-3">
+
                                 <div class="row">
-                                    <div class="col-12 text-blue">Destination address</div>
+                                    <div class="col-12 text-blue">Destination address (BSC)</div>
                                 </div>
                                 <div class="row">
                                     <div class="col-12 text-right">
                                         <div class="form-group">
-                                            <input class="form-control" style="font-size: 18.5px;" id="to" placeholder="Enter you JAX address" value='' readonly>
+                                            <input class="form-control" style="font-size: 18.5px;" id="to" placeholder="Enter you BSC address" value='' readonly>
                                         </div>
                                     </div>
                                 </div>
-                           
+
                         </div>
+
+                      <!--  <div class="bg-lighterblue p-3 border-radius mb-3">
+
+                                <div class="row">
+                                    <div class="col-12 text-blue">Email address (optional)</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 text-right">
+                                        <div class="form-group">
+                                            <input class="form-control" style="font-size: 18.5px;" id="to" placeholder="Enter your email address" value=''>
+                                        </div>
+                                    </div>
+                                </div>
+
+                        </div>-->
                         <div class="row">
-                            <div class="col-12 text-white text-right pb-2">Exchange fee: <span>1</span>
-                               </div>
-                             <div class="col-12 text-white text-right pb-2"> Network fee: <span>1</span></div>  
+                             <div class="col-12 text-white text-right pb-2"> BRIDGE fee: <span>0.5% (min. 50 WJXN)</span></div>
                         </div>
-                     
+
                         <div class="row">
                           <div class="col-12">
-                            <button class="btn btn-info w-100 btn-lg pt-3 pb-3 swap_btn"
+                            <button class="btn btn-info w-100 btn-lg pt-3 pb-3 swap_btn" style="display:none"
                                onclick="approve()" id="btn_approve"
                                   data-toggle="modal">Approve</button>
                           </div>
@@ -175,10 +204,10 @@
                             <div class="col-12">
                               <button class="btn btn-info w-100 btn-lg pt-3 pb-3 swap_btn"
                                  onclick="deposit()" id="btn_deposit" disabled
-                                    data-toggle="modal">Deposit</button>
+                                    data-toggle="modal">Create Request</button>
                             </div>
                         </div>
-                    
+
                     </div>
                 </div>
             </div>
@@ -256,7 +285,7 @@
     <!-- <div class="modal-footer">
             <input type="submit" value="Keep me Informed" name="subscribe" id="mc-embedded-subscribe"
               class="btn btn-primary">
-          </div> 
+          </div>
         </form>
       </div>
       <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
@@ -283,7 +312,8 @@
     <script src="js/awn.min.js"></script>
     <script src="js/wallet.js?v2"></script>
     <script src="js/util.js"></script>
-    <script src="js/bridge.js?v2"></script>
+    <script src="js/contract.js?v2"></script>
+    <script src="js/bridgev2.js?v2"></script>
 </body>
 
 </html>

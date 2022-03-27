@@ -1881,3 +1881,7 @@ tbody::before
   border: 1px solid #e7a634; 
   background-color: transparent !important;
 }
+
+.and_l_wrap {
+ margin-top: 55px;
+}

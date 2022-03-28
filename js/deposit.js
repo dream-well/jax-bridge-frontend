@@ -39,7 +39,7 @@ async function get_request_info(request_id) {
         console.log(deposit_address);
         $("#from").html(from);
         $("#depositAddress").html(deposit_address);
-        due_timestamp = valid_until - 12 * 3600;
+        due_timestamp = valid_until ;
     }catch(e) {
         goto404();
     }

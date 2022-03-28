@@ -18,25 +18,25 @@ let web3Modal
 let provider;
 
 let networks = {
-    // ethereum: {
-    //     chainId: 0x1,
-    //     symbol: 'ETH'
-    // },
     ethereum: {
-        chainId: 0x4,
-        symbol: 'ETH',
-        blockExplorer: 'https://rinkeby.etherscan.io',
+        chainId: 0x1,
+        symbol: 'ETH'
     },
     bsc: {
-        chainId: 0x61,
-        chainName: 'Binance Smart Chain Testnet',
-        blockExplorer: 'https://testnet.bscscan.com',
+        chainId: 0x38,
+        chainName: 'Binance Smart Chain Mainnet',
+        blockExplorer: 'https://bscscan.com',
         symbol: 'BNB'
     },
+    // ethereum: {
+    //     chainId: 0x4,
+    //     symbol: 'ETH',
+    //     blockExplorer: 'https://rinkeby.etherscan.io',
+    // },
     // bsc: {
-    //     chainId: 0x38,
-    //     chainName: 'Binance Smart Chain Mainnet',
-    //     blockExplorer: 'https://bscscan.com',
+    //     chainId: 0x61,
+    //     chainName: 'Binance Smart Chain Testnet',
+    //     blockExplorer: 'https://testnet.bscscan.com',
     //     symbol: 'BNB'
     // },
     polygonmainnet: {

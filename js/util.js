@@ -170,3 +170,9 @@ function goto404() {
     path.pop();
     location.href = path.join("/") + '/404.html';
 }
+
+function goto(page) {
+    const path = location.pathname.split("/");
+    path.pop();
+    location.href = path.join("/") + '/' + page;
+}

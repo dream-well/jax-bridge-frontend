@@ -1,5 +1,5 @@
 let contract_addresses = {
-    jaxBridge: '0x9302d0f10e4c33299879205316B0022C5Cfb8657',
+    jaxBridge: '0x9d8eD6989A9e7c26a589562fca80db4D28Ae17dF',
     wjxn: '0xa25946ec9d37dd826bbe0cbdbb2d79e69834e41e'
 }
 

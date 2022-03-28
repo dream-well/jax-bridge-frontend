@@ -27,8 +27,32 @@ async function get_request_info(request_id) {
         console.log(amount, from, deposit_address_id, status);
         let deposit_address = await callSmartContract(contract, "deposit_addresses", deposit_address_id);
         console.log(deposit_address);
-        $("#from").html(from);
-        $("#depositAddress").html(deposit_address);
+        status = parseInt(status);
+        if(status == 0) {
+
+            goto('deposit.html' + '?id=' + request_id);
+        }
+        let text, color;
+        switch(status) {
+            case 1:
+                text = "PENDING";
+                color = "blue";
+                break;
+            case 2:
+                text = "REJECTED";
+                color = "red";
+                break;
+            case 3:
+                text = "EXPIRED";
+                color = "#ef5a00";
+                break;
+            case 4:
+                text = "RELEASED";
+                color = "green";
+                break;
+        }
+        $("#status").html(text)
+        $("#status").css("color", color);
         due_timestamp = valid_until - 12 * 3600;
     }catch(e) {
         goto404();

@@ -35,6 +35,9 @@ async function get_request_info(request_id) {
     try {
         let { amount, from, deposit_address_id, status, valid_until } = await callSmartContract(contract, "requests", [request_id]);
         console.log(amount, from, deposit_address_id, status);
+        if(parseInt(status) > 0) {
+            goto('status.html' + '?id=' + request_id);
+        }
         let deposit_address = await callSmartContract(contract, "deposit_addresses", deposit_address_id);
         console.log(deposit_address);
         $("#from").html(from);
@@ -70,7 +73,7 @@ async function submit_txhash() {
 
     const txdHash = web3.eth.accounts.hashMessage(msg)
     const func = "prove_request";
-    const args = [request_id, txdHash];
+    const args = [request_id, txHash];
     const {success, gas, message} = await estimateGas(contract, func, args);
     if(!success) {
         notifier.warning(message);
@@ -81,9 +84,7 @@ async function submit_txhash() {
         , null, null, `Create request`,
         {labels: {async: "Please wait..."}});
     promi.then(() => {
-        const path = location.pathname.split("/");
-        path.pop();
-        location.href = path.join("/") + '/status.html' + '?id=' + request_id;
+        goto('status.html' + '?id=' + request_id);
         
     })
 }

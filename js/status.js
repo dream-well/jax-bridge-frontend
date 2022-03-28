@@ -35,7 +35,7 @@ async function get_request_info(request_id) {
         let text, color;
         switch(status) {
             case 1:
-                text = "PENDING";
+                text = "Processing Deposit";
                 color = "blue";
                 break;
             case 2:

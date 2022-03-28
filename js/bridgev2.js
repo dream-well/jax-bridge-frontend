@@ -47,7 +47,7 @@ async function deposit() {
     }
     const promi = runSmartContract(contract, func, args);
     await notifier.async(promi
-        , null, null, `Create request`,
+        , null, null, `Creating request`,
         {labels: {async: "Please wait..."}});
     promi.then(() => {
         const path = location.pathname.split("/");

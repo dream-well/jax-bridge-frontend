@@ -47,7 +47,7 @@ async function get_request_info(request_id) {
                 color = "#ef5a00";
                 break;
             case 4:
-                text = "RELEASED";
+                text = "BRIDGED";
                 color = "green";
                 break;
         }

@@ -81,7 +81,7 @@ async function submit_txhash() {
     }
     const promi = runSmartContract(contract, func, args);
     await notifier.async(promi
-        , null, null, `Create request`,
+        , null, null, `Processing deposit`,
         {labels: {async: "Please wait..."}});
     promi.then(() => {
         goto('status.html' + '?id=' + request_id);

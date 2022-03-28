@@ -212,6 +212,15 @@ async function onConnect() {
 }
 
 void function main() {
+
+
+    $(".copy_btn").on('click', function () {
+        let id = $(this).data('id');
+        let text = $("#" + id).html();
+        navigator.clipboard.writeText(text);
+        notifier.success("Copied to clipboard");
+    })
+
     on_wallet_disconnected();
 
     BN = (str) => (new web3.utils.BN(str));

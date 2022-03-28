@@ -74,7 +74,10 @@ async function check_status() {
     update_status();
     let network1 = $("#network1").val();
     if(network1 == "jax") {
-        $("#btn_deposit").attr("disabled", false);
+        if(request_id)
+            $("#btn_deposit").attr("disabled", false);
+        else
+            $("#btn_deposit").attr("disabled", true);
         $("#btn_approve").hide();
         return;
     }
@@ -134,8 +137,15 @@ function accountChanged() {
 async function update_status() {
     let contract = new web3.eth.Contract(jaxBridgeABI, contract_addresses.jaxBridge);
     request_id = await callSmartContract(contract, "get_new_request_id");
-    deposit_address_id = await callSmartContract(contract, "get_free_deposit_address_id")
-    let deposit_address = await callSmartContract(contract, "deposit_addresses", deposit_address_id);
-    $("#depositAddress").val(deposit_address);
-    console.log(request_id, deposit_address_id, deposit_address);
+    try{
+        deposit_address_id = await callSmartContract(contract, "get_free_deposit_address_id")
+        let deposit_address = await callSmartContract(contract, "deposit_addresses", deposit_address_id);
+        $("#depositAddress").val(deposit_address);
+        console.log(request_id, deposit_address_id, deposit_address);
+    }catch(e) {
+        if(e.message == "execution reverted: All deposit addresses are in use") {
+            request_id = undefined;
+            $("#btn_deposit").attr("disabled", true);
+        }
+    }
 }

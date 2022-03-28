@@ -71,7 +71,7 @@ async function check_allowance() {
 }
 
 async function check_status() {
-    update_status();
+    await update_status();
     let network1 = $("#network1").val();
     if(network1 == "jax") {
         if(request_id)

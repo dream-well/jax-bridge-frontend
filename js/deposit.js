@@ -41,6 +41,7 @@ async function get_request_info(request_id) {
         let deposit_address = await callSmartContract(contract, "deposit_addresses", deposit_address_id);
         console.log(deposit_address);
         $("#from").html(from);
+        $("#amount").html(amount);
         $("#depositAddress").html(deposit_address);
         due_timestamp = valid_until ;
     }catch(e) {

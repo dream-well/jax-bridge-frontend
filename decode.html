@@ -91,21 +91,21 @@
       </header>
     <!-- Begin page content -->
     <main role="main">
-        <div class="container pt-5 pb-5">
+        <div class="container pt-2 pb-2">
             <div class="row justify-content-center">
-                <div class="col-12 col-md-6">
+                <div class="col-12 col-md-8">
                     <div class="bg-blue border-radius p-3 exchange mb-3">
-                        <h4 class="text-white">Calculating TxdHash</h4>
+                        <h4 class="text-white">Decode raw data</h4>
 
                         <div class="bg-lighterblue p-3 border-radius mb-3">
 
                           <div class="row">
-                              <div class="col-12 text-blue">TxHash</div>
+                              <div class="col-12 text-blue">Data</div>
                           </div>
                           <div class="row">
                               <div class="col-12 text-right">
                                   <div class="form-group">
-                                      <input class="form-control" style="font-size: 18.5px;" id="rawdata" placeholder="Enter your JXN address" value=''>
+                                      <input class="form-control" style="font-size: 18.5px;" id="rawdata" placeholder="Enter raw data" value=''>
                                   </div>
                               </div>
                           </div>
@@ -114,12 +114,12 @@
                         <div class="bg-lighterblue p-3 border-radius mb-3">
 
                                 <div class="row">
-                                    <div class="col-12 text-blue">TxdHash</div>
+                                    <div class="col-12 text-blue">Data</div>
                                 </div>
                                 <div class="row">
                                     <div class="col-12 text-right">
                                         <div class="form-group">
-                                            <input class="form-control" style="font-size: 18.5px;" id="decoded" placeholder="Enter you BSC address" value='' readonly>
+                                            <textarea class="form-control" style="font-size: 18.5px; height: 400px;" id="decoded" placeholder="Decoded data" value='' readonly cols="10"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -143,14 +143,7 @@
                         <div class="row">
                         </div>
 
-                        <div class="row pt-2">
-                            <div class="col-12">
-                              <button class="btn btn-info w-100 btn-lg pt-3 pb-3 swap_btn"
-                                 onclick="deposit()" id="btn_deposit"
-                                    data-toggle="modal">Hash</button>
-                            </div>
-                        </div>
-
+                       
                     </div>
                 </div>
             </div>
@@ -257,7 +250,7 @@
     <script src="js/wallet.js?v2"></script>
     <script src="js/util.js"></script>
     <script src="js/contract.js?v2"></script>
-    <script src="js/decode.js"></script>
+    <script src="js/decode.js?v2"></script>
 </body>
 
 </html>

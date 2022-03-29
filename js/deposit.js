@@ -1,4 +1,8 @@
 let due_timestamp;
+var qrcode = new QRCode("qrcode", {
+	width : 160,
+	height : 160
+});
 
 void async function main() {
     $("#link").html(location.href);
@@ -39,8 +43,14 @@ async function get_request_info(request_id) {
         $("#amount").html(amount);
         $("#depositAddress").html(deposit_address);
         due_timestamp = valid_until ;
+        generate_qrcode({
+            coinName: 'jxn',
+            address: deposit_address,
+            shardID: 0,
+            amount: amount * 1e8
+        })
     }catch(e) {
-        goto404();
+        // goto404();
     }
 
 }
@@ -83,4 +93,8 @@ async function submit_txhash() {
         goto('status.html' + '?id=' + request_id);
         
     })
+}
+
+function generate_qrcode(data) {
+    qrcode.makeCode(JSON.stringify(data));
 }

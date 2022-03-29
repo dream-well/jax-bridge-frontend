@@ -50,6 +50,9 @@ async function estimateGas(contract, func, args = [], options) {
         if(e.message.startsWith("Internal JSON-RPC error.")) {
             e = JSON.parse(e.message.substr(24));
         }
+        else if(e.message.startsWith("execution reverted")) {
+            e = JSON.parse(e.message.substr(e.message.indexOf("\n")+1)).originalError;
+        }
         return {
             success: false,
             gas: -1,

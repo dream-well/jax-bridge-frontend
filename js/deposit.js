@@ -47,7 +47,7 @@ async function get_request_info(request_id) {
             coinName: 'jxn',
             address: deposit_address,
             shardID: 0,
-            amount: amount * 1e8
+            amount: amount
         })
     }catch(e) {
         // goto404();

@@ -26,6 +26,7 @@ let networks = {
         chainId: 0x38,
         chainName: 'Binance Smart Chain Mainnet',
         blockExplorer: 'https://bscscan.com',
+        url: 'https://bscrpc.com',
         symbol: 'BNB'
     },
     // ethereum: {

@@ -30,6 +30,7 @@ async function accountChanged() {
 }
 
 async function get_request_info(request_id) {
+    const web3 = new Web3(networks.bsc.url);
     let contract = new web3.eth.Contract(jaxBridgeABI, contract_addresses.jaxBridge);
     try {
         let { amount, from, deposit_address_id, status, valid_until } = await callSmartContract(contract, "requests", [request_id]);

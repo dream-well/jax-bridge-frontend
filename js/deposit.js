@@ -38,7 +38,7 @@ async function get_request_info(request_id) {
         if(parseInt(status) > 0) {
             goto('status.html' + '?id=' + request_id);
         }
-        let deposit_address = await callSmartContract(contract, "deposit_addresses", parseInt(deposit_address_id));
+        let deposit_address = await callSmartContract(contract, "deposit_addresses", [deposit_address_id]);
         console.log(deposit_address);
         $("#from").html(from);
         $("#amount").html(amount);

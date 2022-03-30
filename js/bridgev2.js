@@ -4,7 +4,7 @@ const maxUint = "0x" + "f".repeat(64);
 let deposit_address_id;
 let request_id;
 let fee_percent = 0.0;
-let minimum_fee_amount = 50;
+let minimum_fee_amount = 5;
 
 void async function main() {
     $("#amountIn").on('input', update_state)

@@ -25,6 +25,10 @@ async function deposit() {
     }
     const amountIn = $("#amountIn").val();
     const from = $("#from").val();
+    if(!validate_source_address()) {
+        notifier.warning("Invalid source address");
+        return;
+    }
     const to = $("#to").val();
     let destChainId;
     if(network2 == "bsc" || network2 == "ethereum") {
@@ -150,4 +154,29 @@ async function update_status() {
             $("#btn_deposit").attr("disabled", true);
         }
     }
+}
+
+async function save_email() {
+    const email = $("#email").val();
+    if(validate_email(email)) {
+        axios.post("")
+    }
+}
+
+function validate_email(email) 
+{
+ if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))
+  {
+    return (true)
+  }
+    // alert("You have entered an invalid email address!")
+    return (false)
+}
+// 17CDWGCQxMHmNfRGMe5uSYVTx15GwV3JRH
+function validate_source_address() {
+    let address = $("#from").val();
+    if(address.length != 34) return false;
+    if(address[0] != '1') return false;
+    let v = normalize(address);
+    return validate(v);
 }

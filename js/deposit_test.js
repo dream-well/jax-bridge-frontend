@@ -24,7 +24,7 @@ function parseQuery() {
     if(Object.keys(params).includes("id")){
         request_id = params.id;
         get_status();
-    }
+    }   
     else
         goto404();
 }
@@ -84,6 +84,8 @@ async function _jax_bsc() {
         if(parseInt(status) > 0) {
             goto('status_test.html' + '?id=' + request_id + "&mode=" + mode);
         }
+        $("#shardId").html("Shard" + shard_id);
+        $("#shardId").show();
         let deposit_address = await callSmartContract(contract, "deposit_addresses", [deposit_address_id]);
         console.log(deposit_address);
         $("#from").html(from);

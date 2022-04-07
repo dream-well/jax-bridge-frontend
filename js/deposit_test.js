@@ -18,6 +18,9 @@ function parseQuery() {
     const paramList = query.split("&");
     const params = paramList.reduce((a, b) => Object.assign(a, {[b.split('=')[0]]: b.split('=')[1] }), {});
     mode = params.mode;
+    if(mode == "jax_bsc") {
+        $("#tokenName").html("JAX");
+    }
     if(Object.keys(params).includes("id")){
         request_id = params.id;
         get_status();

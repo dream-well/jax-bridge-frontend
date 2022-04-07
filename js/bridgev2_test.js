@@ -19,6 +19,12 @@ void async function main() {
     $("#network2").on('change', check_visible);
     $("#network1").on('change', network1_changed);
     init_swap_inn_block();
+    $("#swap_network").click(() => {
+        let network1 = get_network1();
+        let network2 = get_network2();
+        $("#network1").val(network2);
+        $("#network2").val(network1);
+    })
 }()
 
 function init_swap_inn_block() {

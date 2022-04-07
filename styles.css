@@ -27,7 +27,7 @@ body {
   /* height: 289px; */
   /* Vertically center the text there */
   background-color: #f5f5f5;
-  flex-shrink: 0;
+  flex-shrink:  0; 
 }
 
 main {
@@ -1777,10 +1777,12 @@ align-items: center;
   align-content: center;
   justify-content: center;
 }
+
 .transaction_img_wrap img {
   max-width: 120px;
 
 }
+
 .mb-240 {
   margin-bottom: 240px;
 }
@@ -1788,23 +1790,34 @@ align-items: center;
 .conf_procces_wrap a {
   text-decoration: underline;
 }
+
 .conf_procces_wrap a:hover {
   text-decoration: none;
 }
+
 .progress_inner {
   max-width: 710px;
   width: 100%;
 }
+
 .progress-bar {
   background-color: #E7A634 !important;
-  animation: 10s linear 0s  alternate;
+  animation: 10s linear 0s alternate;
   width: 100%;
 }
+
 .conf_progress {
   animation-name: move_progress;
 }
-@keyframes move_progress { 
-  from { width: 0%; } to { width: 100%; }  
+
+@keyframes move_progress {
+  from {
+    width: 0%;
+  }
+
+  to {
+    width: 100%;
+  }
 }
 
 .tr_amount_inner_wrap {
@@ -1813,35 +1826,51 @@ align-items: center;
   border-radius: 5px;
 
 }
+
 .curr_logo {
   width: 25px;
+  position: relative;
+    top: -2px;
 }
+
 .mtm.curr_logo {
   width: 35px;
 }
-.tr_amount_inner_wrap .table td, .table th {
+
+.tr_amount_inner_wrap .table td,
+.table th {
   border-top: none;
 }
+
 .tr_amount_inner_wrap thead tr {
   border-bottom: 1px solid rgba(0, 0, 0, .3);
 }
-.tr_amount_inner_wrap .table{
+
+.tr_amount_inner_wrap .table {
   text-align: center;
   margin-bottom: 0;
 }
+
 .sub_table_amount {
   font-size: 12px;
 }
+
 .network_progress {
   animation-name: move_progress;
 }
-.tr_network_progress .table td, .table th, .table thead th {
-  border:none;
+
+.tr_network_progress .table td,
+.table th,
+.table thead th {
+  border: none;
 }
-.table td, .table th {
+
+.table td,
+.table th {
   vertical-align: middle;
   position: relative;
 }
+
 .prg_confi {
   position: absolute;
   left: 0;
@@ -1849,24 +1878,27 @@ align-items: center;
   top: -10px;
   font-size: 13px;
 }
+
 .prg_confi a {
   text-decoration: underline;
 }
+
 .prg_confi a:hover {
   text-decoration: none;
 }
-tbody::before
-{
+
+tbody::before {
   content: '';
   display: block;
-  height: 20px;
+  /* height: 20px; */
 
 }
 
 .table tbody+tbody {
   border-top: 1px solid rgba(255, 255, 255, .3);
-  
+
 }
+
 /* .tr_network_progress .network_progress {
   min-width: 100px;
 } */
@@ -1877,7 +1909,50 @@ tbody::before
 .nav-pills img {
   width: 20px;
 }
-.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
-  border: 1px solid #e7a634; 
+
+.nav-pills .nav-link.active,
+.nav-pills .show>.nav-link {
+  border: 1px solid #e7a634;
   background-color: transparent !important;
 }
+
+.token_address_wrap {
+  border-radius: 5px;
+  padding: 5px;
+  background: #fff;
+}
+
+.blue_inner_text {
+  background: #152172;
+  box-shadow: 2px 2px 2px rgb(0 0 0 / 10%);
+  border-radius: 5px;
+  color: #fff;
+  cursor: default;
+  color: #fff;
+}
+
+.tab-content {
+  color: #fff;
+}
+.copy_link_mess {
+  line-height: 40px;
+  border-radius: 5px;
+  background: #1DA1F2;
+  color: #fff;
+  position: fixed;
+  padding: 0 15px;
+  z-index: 99;
+  bottom: 30px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  /* margin-left: -120px; */
+  width: 85px;
+  display: none;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 15px
+}
+.text_copy_link {
+  cursor: pointer;
+}
+.bridgetabs.table-dark { background: #0d0e3d!important}
+.bridgetabs.table-dark td { border:none}

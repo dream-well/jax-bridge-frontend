@@ -45,7 +45,7 @@ async function deposit() {
         const request_id = e.events.Deposit.returnValues.request_id;
         const path = location.pathname.split("/");
         path.pop();
-        location.href = path.join("/") + '/statusbsc.html' + '?id=' + request_id + '&srcChain=' + network1 + '&destChain=' + network2;
+        location.href = path.join("/") + '/statusbsc.html' + '?id=' + parseInt(request_id) + '&srcChain=' + network1.trim() + '&destChain=' + network2.trim();
         
     })
     

@@ -352,7 +352,7 @@ async function bridge_jax_bsc(shard_id, amountIn, to, from) {
     
 }
 
-function bridge_bsc_jax(shard_id, amountIn, to) {
+async function bridge_bsc_jax(shard_id, amountIn, to) {
     let contract = new web3.eth.Contract(abis.bsc_jax, contract_addresses.bsc_jax);
     let func = "create_request";
     let args = [shard_id, amountIn, to];
@@ -367,7 +367,7 @@ function bridge_bsc_jax(shard_id, amountIn, to) {
     })
 }
 
-function bridge_bsc_jxn(amountIn, to) {
+async function bridge_bsc_jxn(amountIn, to) {
     let contract = new web3.eth.Contract(abis.bsc_jxn, contract_addresses.bsc_jxn);
     let func = "create_request";
     let args = [amountIn, to];

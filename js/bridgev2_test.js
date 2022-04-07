@@ -357,10 +357,13 @@ function bridge_bsc_jax(shard_id, amountIn, to) {
     let func = "create_request";
     let args = [shard_id, amountIn, to];
     const promi = runSmartContract(contract, func, args);
+    await notifier.async(promi
+        , null, null, `Creating request`,
+        {labels: {async: "Please wait..."}});
     promi.then(tx => {
         const request_id = tx.events.Create_Request.returnValues.request_id;
         console.log(request_id);
-        goto('statustest.html' + '?id=' + request_id + "&mode=jxn_bsc_jax");
+        goto('status_test.html' + '?id=' + request_id + "&mode=jxn_bsc_jax");
     })
 }
 
@@ -369,10 +372,13 @@ function bridge_bsc_jxn(amountIn, to) {
     let func = "create_request";
     let args = [amountIn, to];
     const promi = runSmartContract(contract, func, args);
+    await notifier.async(promi
+        , null, null, `Creating request`,
+        {labels: {async: "Please wait..."}});
     promi.then(tx => {
         const request_id = tx.events.Create_Request.returnValues.request_id;
         console.log(request_id);
-        goto('statustest.html' + '?id=' + request_id + "&mode=jxn_bsc_jax");
+        goto('status_test.html' + '?id=' + request_id + "&mode=jxn_bsc_jax");
     })
 }
 

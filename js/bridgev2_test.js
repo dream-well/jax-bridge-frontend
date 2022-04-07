@@ -9,15 +9,14 @@ let minimum_fee_amount = 15;
 void async function main() {
     $("#amountIn").on('input', update_state)
     // $("#network1").on('change', update_state)
-    $("#network2").on('change', update_state)
     // update_state();
     setInterval(update_state, 3000);
     update_state();
 
     $("#fee").html(minimum_fee_amount);
     check_visible();
-    $("#network2").on('change', check_visible);
     $("#network1").on('change', network1_changed);
+    $("#network2").on('change', network2_changed);
     init_swap_inn_block();
     $("#swap_network").click(() => {
         let network1 = get_network1();
@@ -79,6 +78,19 @@ function network1_changed() {
         else
             $("#network2").val("jax");
     }   
+    update_state();
+    check_visible();
+}
+
+function network2_changed() {
+    let network1 = $("#network1").val();
+    let network2 = $("#network2").val();
+    if(network1.indexOf('jax') == 0 && network2.indexOf('jax') == 0) {
+        $("#network1").val('bsc');
+    }
+    else if(network1 == network2){
+        $("#network1").val(get_token() == 'jax' ? 'jax1' : 'jax');
+    }
     update_state();
     check_visible();
 }

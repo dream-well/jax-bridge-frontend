@@ -1472,7 +1472,7 @@ input:checked+label:before {
 .swap_coin_wrap_block {
   display: flex;
   justify-content: center;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 .swap_coin_wrap_block_inn {

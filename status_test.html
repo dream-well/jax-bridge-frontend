@@ -59,18 +59,16 @@
                         class="navbar-toggler-icon"></span></button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="mr-auto"></div>
-        <ul class="navbar-nav mt-2 mt-md-0">
+        <!-- <ul class="navbar-nav mt-2 mt-md-0">
           <li class="nav-item pl-md-2"> <a id="eth_buy_button1" target="_new" onclick="connect_wallet();"
                             class="btn_connect btn header_btn btn-light pl-3 pr-3 w-100 mb-3 mb-md-0 mt-3 mt-md-0" href="#"  data-toggle="modal" data-target="#WalletConnect">Connect Wallet</a> </li>
           <li class="nav-item pl-md-2">
             <select class="custom-select my-select" id="chainSelector">
-              <option value=""></option>
-              <option value="avatestnet">Avalanche Smart Chain</option>
-              <option value="bsc">Binance Smart Chain</option>
+              <option value="bsc" selected>Binance Smart Chain</option>
+              <option value="ethereum">Ethereum Smart Chain</option>
             </select>
-            
           </li>
-        </ul>
+        </ul> -->
       </div>
     </nav>
     <!---->
@@ -93,12 +91,12 @@
                                     </div>
                                 </div>
                                 <div class="form-group  col-12 center-content">
-                                   <span class="time_payment"> <span id="link">https://wrapped.jax.net/status.html</span>&nbsp; <img data-id="link" src="img/copy.svg" class="copy_btn" width="20"></span>
+                                   <span class="time_payment"> <span id="link">https://wrapped.jax.net/status.html</span> <img data-id="link" src="img/copy.svg" class="copy_btn" width="20"></span>
                                 </div>
                              </div>
 							</div>
               <div class="bg-lighterblue p-3 border-radius mb-3 center-content mb-15">
-                 <div class="row">  
+                 <div class="row">
                      <div class="col-12 text-blue">
                          <div class="row center-content">
                              <div class="col-12 text-blue">Your request ID</div>
@@ -118,7 +116,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group  col-12 center-content">
-                                   <span class="time_payment" id="status"> Checking ...</span>
+                                   <span class="time_payment" id="status"> &nbsp;</span>
                                 </div>
                              </div>
 							</div>
@@ -234,6 +232,6 @@
 <script src="js/wallet_test.js"></script>
 <script src="js/util.js"></script>
 <script src="js/contract-test.js"></script>
-<script src="js/statusbsc.js"></script>
+<script src="js/status_test.js?v1"></script>
 </body>
 </html>

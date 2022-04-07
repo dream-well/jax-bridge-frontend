@@ -24,11 +24,8 @@ async function deposit() {
     const amountIn = $("#amountIn").val();
     const from = $("#from").val();
     const to = $("#to").val();
-    let destChainId;
-    if(network2 == "bsc" || network2 == "ethereum") {
-        destChainId = networks[network2].chainId;
-    }
-    else destChainId = 0;
+    let srcChainId = networks[network1].chainId;
+    let destChainId = networks[network2].chainId;
     const func = 'deposit';
     // address to, uint destChainId, uint amount, uint nonce, bytes calldata signature
     let contract = new web3.eth.Contract(jaxBridgeEvmABI, contract_addresses.jaxBridgeEVM);
@@ -44,10 +41,11 @@ async function deposit() {
     await notifier.async(promi
         , null, null, `Depositing`,
         {labels: {async: "Please wait..."}});
-    promi.then(() => {
+    promi.then((e) => {
+        const request_id = e.events.Deposit.returnValues.request_id;
         const path = location.pathname.split("/");
         path.pop();
-        location.href = path.join("/") + '/statusbsc.html' + '?id=' + request_id;
+        location.href = path.join("/") + '/statusbsc.html' + '?id=' + request_id + '&srcChain=' + network1 + '&destChain=' + network2;
         
     })
     
@@ -104,14 +102,14 @@ async function update_state() {
     let fee_amount = amountIn * fee_percent;
     if(fee_amount < minimum_fee_amount) fee_amount = minimum_fee_amount;
     fee_amount = parseInt(fee_amount);
-    if(network1 == "ethereum") {
+    if(network1 == "avatestnet") {
         if(network2 == "bsc")
             amountOut = Math.max(amountIn - fee_amount, 0);
         else
             amountOut = Math.max(amountIn - fee_amount, 0);
     }
     if(network1 == "bsc") {
-        if(network1 == "ethereum")
+        if(network1 == "avatestnet")
             amountOut = amountIn;
         else
             amountOut = amountIn - 50;

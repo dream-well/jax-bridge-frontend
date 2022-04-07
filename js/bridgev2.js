@@ -66,8 +66,9 @@ async function deposit() {
 
 async function approve() {
     let contract = new web3.eth.Contract(erc20ABI, contract_addresses.wjxn);
-    if((await check_allowance()) != true)
-        approve_token("WJXN", contract, contract_addresses.jaxBridge, maxUint);
+    if((await check_allowance()) != true) 
+        await approve_token("WJXN", contract, contract_addresses.jaxBridge, maxUint);
+    check_allowance();
 }
 
 async function check_allowance() {

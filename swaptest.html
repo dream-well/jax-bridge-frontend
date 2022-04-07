@@ -75,8 +75,8 @@
                   class="btn_connect btn header_btn btn-light pl-3 pr-3 w-100 mb-3 mb-md-0 mt-3 mt-md-0" href="#"  data-toggle="modal" data-target="#WalletConnect">Connect Wallet</a> </li>
                 <li class="nav-item pl-md-2">
                     <select class="custom-select my-select" id="chainSelector" disabled>
-                        <option value="bsc">Binance Smart Chain</option>
-                        <option value="avatestnet" selected>Avalanche Smart Chain</option>
+                        <option value="bsc" selected>Binance Smart Chain</option>
+                        <!--<option value="ethereum">Ethereum Smart Chain</option>-->
                     </select>
                 </li>
                   <!----my account ends-->
@@ -95,8 +95,25 @@
             <div class="row justify-content-center">
                 <div class="col-12 col-md-6">
                     <div class="bg-blue border-radius p-3 exchange mb-3">
-                        <h4 class="text-white">Deposit</h4>
-
+                        <h4 class="text-white">Create request</h4>
+                        <div class="swap_coin_wrap_block pt-2">
+                          <div class="swap_coin_wrap_block_inn">
+                              <div class="swap_inn_block active" data-token="jax">
+                                  <span>JAX</span><span><svg width="17" height="12" viewBox="0 0 17 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                      <path d="M5.9585 7.65H0V9.35H5.9585V11.9L9.35 8.5L5.9585 5.1V7.65ZM11.0415 6.8V4.25H17V2.55H11.0415V0L7.65 3.4L11.0415 6.8Z" fill="#152172"/>
+                                      </svg>
+                                      </span>
+                                      <span>WJAX</span>
+                              </div>
+                              <div class="swap_inn_block" data-token="jxn">
+                                  <span>JXN</span><span><svg width="17" height="12" viewBox="0 0 17 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                      <path d="M5.9585 7.65H0V9.35H5.9585V11.9L9.35 8.5L5.9585 5.1V7.65ZM11.0415 6.8V4.25H17V2.55H11.0415V0L7.65 3.4L11.0415 6.8Z" fill="#152172"/>
+                                      </svg>
+                                      </span>
+                                  <span>WJXN</span>
+                              </div>
+                          </div>
+                        </div>
                         <div class="bg-lighterblue p-3 border-radius mb-3">
                             <div class="row">
                                 <div class="col-12 text-blue">You send</div>
@@ -111,9 +128,12 @@
                                 <div class="col-6">
                                     <div class="form-group">
                                         <select class="form-control box-shadow1"  id="network1" placeholder="JXN (JAX Network)">
-                                            <!-- <option value="jax" selected>JXN (JAX Network)</option> -->
-                                          <option value="avatestnet" selected>WJXN (AVAX-C Chain)</option>
-                                          <option value="bsc">WJXN BEP-20 (BSC)</option>
+                                            <option class="option-jxn" style="display:none" value="jax">JAX Network (Beacon)</option>
+                                            <option class="option-jax" value="jax1" selected>JAX Network (Shard1)</option>
+                                            <option class="option-jax" value="jax2" >JAX Network (Shard2)</option>
+                                            <option class="option-jax" value="jax3" >JAX Network (Shard3)</option>
+                                            <option class="option-jax" value="jax4" >JAX Network (Shard4)</option>
+                                            <option value="bsc">BEP-20 (BSC)</option>
                                         </select>
                                     </div>
                                 </div>
@@ -134,9 +154,12 @@
                                 <div class="col-6">
                                   <div class="form-group">
                                       <select class="form-control box-shadow1"  id="network2" placeholder="WJXN (ERC-20)">
-                                          <!-- <option value="jax">JXN (JAX Network)</option> -->
-                                          <option value="avatestnet">WJXN (AVAX-C CHAIN)</option>
-                                          <option value="bsc" selected>WJXN BEP-20 (BSC)</option>
+                                        <option class="option-jxn" style="display:none" value="jax">JAX Network (Beacon)</option>
+                                        <option class="option-jax" value="jax1" selected>JAX Network (Shard1)</option>
+                                        <option class="option-jax" value="jax2" >JAX Network (Shard2)</option>
+                                        <option class="option-jax" value="jax3" >JAX Network (Shard3)</option>
+                                        <option class="option-jax" value="jax4" >JAX Network (Shard4)</option>
+                                        <option value="bsc" selected>BEP-20 (BSC)</option>
                                       </select>
                                   </div>
                                 </div>
@@ -146,22 +169,49 @@
                         <div class="row">
                             <div class="col-12 text-white text-right pb-2">1 WJXN = 1 JXN</div>
                         </div>
-                        <div class="bg-lighterblue p-3 border-radius mb-3">
+                        <div class="bg-lighterblue p-3 border-radius mb-3 address jxn-bsc">
+
+                          <div class="row">
+                              <div class="col-12 text-blue">Your (Source) JXN address (Jax.Network)</div>
+                          </div>
+                          <div class="row">
+                              <div class="col-12 text-right">
+                                  <div class="form-group">
+                                      <input class="form-control" style="font-size: 18.5px;" id="from" placeholder="Enter your JXN address" value=''>
+                                  </div>
+                              </div>
+                          </div>
+
+                      </div>
+                        <div class="bg-lighterblue p-3 border-radius mb-3 address jxn-bsc">
 
                                 <div class="row">
-                                    <div class="col-12 text-blue">Destination address</div>
+                                    <div class="col-12 text-blue">Destination address (BSC)</div>
                                 </div>
                                 <div class="row">
                                     <div class="col-12 text-right">
                                         <div class="form-group">
-                                            <input class="form-control" style="font-size: 18.5px;" id="to" placeholder="Enter you BSC address" value='' readonly>
+                                            <input class="form-control" style="font-size: 18.5px;" id="to" placeholder="Enter your BSC address" value='' readonly>
                                         </div>
                                     </div>
                                 </div>
 
                         </div>
+                      <div class="bg-lighterblue p-3 border-radius mb-3 address bsc-jxn" >
 
-                      <!--  <div class="bg-lighterblue p-3 border-radius mb-3">
+                        <div class="row">
+                            <div class="col-12 text-blue">Destination address (Jax Network)</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 text-right">
+                                <div class="form-group">
+                                    <input class="form-control" style="font-size: 18.5px;" id="to" placeholder="Enter your Jax Network address" value=''>
+                                </div>
+                            </div>
+                        </div>
+
+                      </div>
+                       <!-- <div class="bg-lighterblue p-3 border-radius mb-3">
 
                                 <div class="row">
                                     <div class="col-12 text-blue">Email address (optional)</div>
@@ -169,14 +219,14 @@
                                 <div class="row">
                                     <div class="col-12 text-right">
                                         <div class="form-group">
-                                            <input class="form-control" style="font-size: 18.5px;" id="to" placeholder="Enter your email address" value=''>
+                                            <input class="form-control" style="font-size: 18.5px;" id="email" placeholder="Enter your email address" value=''>
                                         </div>
                                     </div>
                                 </div>
 
-                        </div>-->
+                        </div> -->
                         <div class="row">
-                             <div class="col-12 text-white text-right pb-2"> BRIDGE fee: <span>50 WJXN</span></div>
+                             <div class="col-12 text-white text-right pb-2"> BRIDGE fee: <span id="fee">...</span>&nbsp;WJXN</div>
                         </div>
 
                         <div class="row">
@@ -190,7 +240,7 @@
                             <div class="col-12">
                               <button class="btn btn-info w-100 btn-lg pt-3 pb-3 swap_btn"
                                  onclick="deposit()" id="btn_deposit" disabled
-                                    data-toggle="modal">Deposit</button>
+                                    data-toggle="modal">Create Request</button>
                             </div>
                         </div>
 
@@ -296,10 +346,11 @@
     <script type="text/javascript" src="https://unpkg.com/web3modal"></script>
     <script type="text/javascript" src="https://unpkg.com/@walletconnect/web3-provider"></script>
     <script src="js/awn.min.js"></script>
-    <script src="js/wallet_test.js?v2"></script>
+    <script src="js/wallet_test.js"></script>
     <script src="js/util.js"></script>
     <script src="js/contract-test.js"></script>
-    <script src="js/bridgebsc.js?v2"></script>
+    <script src="js/bitcoin_validator.js?v1"></script>
+    <script src="js/bridgev2_test.js"></script>
 </body>
 
 </html>

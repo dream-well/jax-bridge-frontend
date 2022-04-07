@@ -43,6 +43,19 @@ let networks = {
         blockExplorer: 'https://testnet.bscscan.com',
         symbol: 'BNB'
     },
+    rinkeby: {
+        chainId: 0x4,
+        symbol: 'ETH',
+        url: "https://rinkeby.infura.io/v3/6797126c4f0942d99b649046e1ade16d",
+        blockExplorer: 'https://rinkeby.etherscan.io',
+    },
+    bsctestnet: {
+        chainId: 0x61,
+        chainName: 'Binance Smart Chain Testnet',
+        url: "https://data-seed-prebsc-2-s3.binance.org:8545/",
+        blockExplorer: 'https://testnet.bscscan.com',
+        symbol: 'BNB'
+    },
     polygonmainnet: {
         chainId: 0x89,
         symbol: 'MATIC'
@@ -53,9 +66,19 @@ let networks = {
     },
     avatestnet: {
         chainId: 0xa869,
-        symbol: 'AVAX'
+        symbol: 'AVAX',
+        url: "https://api.avax-test.network/ext/bc/C/rpc",
+        blockExplorer: 'https://testnet.explorer.avax.network'
     },
 
+}
+
+let chains = {
+    1: "ethereum",
+    4: "rinkeby",
+    56: "bscmainnet",
+    97: "bsctestnet",
+    43113: "avatestnet"
 }
 
 let tokens = {
@@ -252,6 +275,7 @@ function init_listners() {
 }
 
 function connect_wallet() {
+    if($("#chainSelector").length == 0) return;
     if(!web3){
         onConnect();
         return;
@@ -309,6 +333,7 @@ function disconnect_wallet() {
 }
 
 function switch_network() {
+    if(!active_network()) return;
     web3.currentProvider.request({
             method: "wallet_switchEthereumChain",
             params: [{ chainId: '0x' + networks[active_network()].chainId.toString(16) }]

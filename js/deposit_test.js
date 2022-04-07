@@ -139,7 +139,7 @@ async function submit_txhash() {
         , null, null, `Processing deposit`,
         {labels: {async: "Please wait..."}});
     promi.then(() => {
-        goto('status_test.html' + '?id=' + request_id);
+        goto('status_test.html' + '?id=' + request_id+ "&mode=" + mode);
         
     })
 }

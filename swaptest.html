@@ -133,16 +133,16 @@
                                           <option class="option-jax" value="jax2" >Jax.Network (Shard-2)</option>
                                           <option class="option-jax" value="jax3" >Jax.Network (Shard-3)</option>
                                           <!-- <option class="option-jax" value="jax4" >Jax.Network (Shard4)</option> -->
-                                          <option value="wjxn">WJXN BEP-20 (BSC)</option>
-                                          <option value="bsc" selected>WJAX BEP-20 (BSC)</option>
+                                          <!-- <option value="wjxn">WJXN BEP-20 (BSC)</option> -->
+                                          <option class="option-bsc" value="bsc" selected>WJAX BEP-20 (BSC)</option>
                                       </select>
                                   </div>
                               </div>
                           </div>
                       </div>
                       <div class="bg-lighterblue p-3 border-radius mb-3 position-relative">
-                          <span  class="swapicon p-2 border-radius bg-blue text-white"><a href="#" class="text-white"><i
-                                      class="fa fa-arrow-down"></i></a></span>
+                          <span id="swap_network" class="swapicon p-2 border-radius bg-blue text-white"><span class="text-white"><i
+                                      class="fa fa-arrow-down"></i></span></span>
                           <div class="row">
                               <div class="col-12 text-blue">You receive</div>
                           </div>
@@ -160,8 +160,8 @@
                                       <option class="option-jax" value="jax2" >Jax.Network (Shard-2)</option>
                                       <option class="option-jax" value="jax3" >Jax.Network (Shard3-)</option>
                                       <!-- <option class="option-jax" value="jax4" >Jax.Network (Shard4)</option> -->
-                                      <option value="wjxn" selected>WJXN BEP-20 (BSC)</option>
-                                      <option value="bsc"> WJAX BEP-20 (BSC)</option>
+                                      <!-- <option value="wjxn" selected>WJXN BEP-20 (BSC)</option> -->
+                                      <option class="option-bsc" value="bsc">WJAX BEP-20 (BSC)</option>
                                     </select>
                                 </div>
                               </div>
@@ -169,7 +169,7 @@
                           </div>
                       </div>
                       <div class="row">
-                          <div class="col-12 text-white text-right pb-2">1 WJXN = 1 JXN</div>
+                          <div class="col-12 text-white text-right pb-2">1 W<span class='tokenName'>JAX</span> = 1 <span class='tokenName'>JAX</span></div>
                       </div>
                       <div class="bg-lighterblue p-3 border-radius mb-3 address jxn-bsc">
 
@@ -228,7 +228,7 @@
 
                       </div> -->
                       <div class="row">
-                           <div class="col-12 text-white text-right pb-2"> BRIDGE fee: <span id="fee">...</span>&nbsp;WJXN</div>
+                           <div class="col-12 text-white text-right pb-2"> BRIDGE fee: <span id="fee">..  .</span>&nbsp;W<span class="tokenName">JAX</span></div>
                       </div>
 
                       <div class="row">
@@ -537,7 +537,7 @@
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.25.0/axios.min.js"></script>
-    <script type="text/javascript" src="https://unpkg.com/web3@latest/dist/web3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.2-rc.0/web3.min.js" integrity="sha512-REWiGZVmhU2S5eIov/DuNrsq4djWnPaAHSvXrbLLLaI0r/gW+wh1utIzxt0iB4IQLgXhNDj5mR0YMBjrkKhVMA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script type="text/javascript" src="https://unpkg.com/web3modal"></script>
     <script type="text/javascript" src="https://unpkg.com/@walletconnect/web3-provider"></script>
     <script src="js/awn.min.js"></script>

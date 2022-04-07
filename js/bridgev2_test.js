@@ -49,6 +49,8 @@ function init_swap_inn_block() {
                 $("#network1").trigger("change");
             }
         }
+        $('.tokenName').html(get_token().toUpperCase());
+        $('.option-bsc').html('W' + get_token().toUpperCase() + ' BEP-20 (BSC)');
         network1_changed();
         update_state(); 
     })

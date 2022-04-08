@@ -235,7 +235,7 @@ async function update_state() {
         if(network1 == "ethereum")
             amountOut = amountIn;
         else
-            amountOut = amountIn - 50;
+            amountOut = amountIn - fee_amount;
     }
     if(network1.indexOf("jax") == 0) {
         amountOut = Math.max(amountIn - fee_amount, 0);

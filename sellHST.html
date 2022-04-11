@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Wrapped JAXNET</title>
+    <meta name="keywords" content="Wrapped JAXNET" />
+    <meta name="Description" content="Wrapped JAXNET" />
+
+    <!-- <link rel="canonical" href="https://www.wbtc.network" /> -->
+    <meta name="robots" content="index, follow" />
+    <!-- ggl -->
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id"
+        content="752931159953-uak1oaagrno65pmabrkat2m4leroqfam.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <!-- ggl -->
+
+    <!-- Facebook -->
+    <meta property="og:title" content="Wrapped JAXNET" />
+    <meta property="og:site_name" content="Wrapped JAXNET" />
+    <meta property="og:url" content=" https://www.testyariksite.fun/" />
+    <meta property="og:description" content="Wrapped JAXNET" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content="https://www.testyariksite.fun/assets/fav_wjxn.png" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="ttps://www.testyariksite.fun/" />
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="styles.css" rel="stylesheet">
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- Font Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link href="css/awn.min.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+    <header class="header">
+        <mat-toolbar class="mat-toolbar mat-toolbar-single-row">
+          <nav class="navbar navbar-expand-md navbar-dark">
+            <div class="d-flex flex-column">
+              <!----><a class="navbar-brand logo_img" href="index.html" > <img src="assets/wrappedwjxn-white.png" alt="WJXN logo"></a>
+              <!---->
+              <div>
+                <!---->
+              </div>
+            </div><button aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"
+              class="navbar-toggler" data-target="#navbarCollapse" data-toggle="collapse" type="button"><span
+                class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+              <div class="mr-auto"></div>
+              <ul class="navbar-nav mt-2 mt-md-0">
+                <li class="nav-item"><a class="nav-link navbar-brand selected active" href="index.html#FAQ_block">What are
+                    WJXN / WJAX?</a></li>
+                <li class="nav-item dash_btn_wrap"><a class="nav-link navbar-brand active"
+                    href="swap.html">Bridge</a>
+                </li>
+                <li class="nav-item dash_btn_wrap"><a class="nav-link navbar-brand active"
+                  href="proofofassets.html">Proof of assets</a> </li>
+                <li class="nav-item pl-md-2">
+                   <a id="eth_buy_button1" target="_new" onclick="connect_wallet();"
+                  class="btn_connect btn header_btn btn-light pl-3 pr-3 w-100 mb-3 mb-md-0 mt-3 mt-md-0" href="#"  data-toggle="modal" data-target="#WalletConnect">Connect Wallet</a> </li>
+                <li class="nav-item pl-md-2">
+                    <select class="custom-select my-select" id="chainSelector" disabled>
+                        <option value="bsc" selected>Binance Smart Chain</option>
+                        <!--<option value="ethereum">Ethereum Smart Chain</option>-->
+                    </select>
+                </li>
+                  <!----my account ends-->
+                </form>
+              </ul>
+            </div>
+          </nav>
+          <!---->
+        </mat-toolbar>
+
+
+      </header>
+    <!-- Begin page content -->
+    <main role="main">
+        <div class="container pt-5 pb-5">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-6">
+                    <div class="bg-blue  exchange border-radius p-3 mb-3">
+                        <h4 class="text-white">Sell HST</h4>
+                        <div class="bg-lighterblue p-3 border-radius mb-3">
+                            <div class="row">
+
+                                <div class="col-12">
+                                    <label for="foramount" class="text-blue">You receive</label>
+                                    <div class="input-group mb-3">
+
+                                        <input type="number" class="form-control" placeholder="0.00" aria-label="0.00"
+                                            aria-describedby="basic-addon2">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text" id="basic-addon2"><img src="img/jxnLogo.png"
+                                                    class="pr-1" /> <strong
+                                                    style="font-size: 22px;">WJXN</strong></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- <div class="row">
+                            <div class="col-12 text-blue mt-2" id="balance_1">
+								 <select id="myDropdown2" style="width:100%"> 
+									   <option value="1" class="text-blue"  data-imagesrc="img/binance.svg" data-description="">Binance Smart Chain</option>
+                  
+                    <option value="1" class="text-blue"  data-imagesrc="img/ethereum.svg" data-description="">Ethereum Mainnet</option>
+							</select>		
+                            </div>
+                        </div>-->
+                        </div>
+                        <div class="border p-3 border-radius mb-3 position-relative">
+                            <div class="row">
+                                <div class="col-12 text-white pb-3" id="balance_2">You send
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-7">
+
+                                    <h4 class="text-white font-weight-bold pl-2">0.00000000 </h4>
+
+                                </div>
+                                <div class="col-5 text-right">
+                                    <h4 class="text-white d-inline-block"><img src="img/hst.png" class="pr-1" />
+                                        <strong>HST</strong></h4>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12">
+
+                                <button style="" class="btn w-100 btn-lg pt-3 pb-3 btn-info">Swap</button>
+                            </div>
+                            <!-- data-toggle="modal" data-target="#exampleModalCenter" -->
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <h4><a href="#" class="btn-link text-white">Get HST</a></h4>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col col-md-12 footer-content logo_img">
+                    <img src="assets/wrappedwjxn-white.png">
+                    <p>Wrapped JAXNET unleashes the power of DeFi to JAX and JXN</p>
+                </div>
+              
+            </div>
+        </div>
+        <div class="copy_link_mess">COPIED</div>
+    </footer>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.25.0/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.2-rc.0/web3.min.js" integrity="sha512-REWiGZVmhU2S5eIov/DuNrsq4djWnPaAHSvXrbLLLaI0r/gW+wh1utIzxt0iB4IQLgXhNDj5mR0YMBjrkKhVMA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="text/javascript" src="https://unpkg.com/web3modal"></script>
+    <script type="text/javascript" src="https://unpkg.com/@walletconnect/web3-provider"></script>
+    <script src="js/awn.min.js"></script>
+    <script src="js/wallet.js?v2"></script>
+    <script src="js/util.js"></script>
+    <script src="js/contract.js?v2"></script>
+    <script src="js/bitcoin_validator.js?v1"></script>
+    <script src="js/bridgev2.js?v5"></script>
+    <script>
+      jQuery(document).ready(function($){
+      
+      $('.text_copy_link').click(function() { 
+          var $text_copy = $(this);
+            var $temp = $("<input>");
+            $("body").append($temp);
+            $temp.val($text_copy.text()).select();
+            document.execCommand("copy");
+            $temp.remove();
+            $('.copy_link_mess').fadeIn(400);
+          setTimeout(function(){$('.copy_link_mess').fadeOut(400);},5000);
+      
+      });
+      });
+      </script>
+</body>
+
+</html>

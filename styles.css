@@ -214,9 +214,19 @@ h4 {
 
 /*  */
 
-
+/* 
 .navbar {
   height: 130px;
+} */
+@media (max-width: 767px){
+  .navbar-nav {
+    text-align: right;
+    padding: 5px;
+  }
+  .tab-content {
+    overflow-y: scroll;
+  }
+  
 }
 
 .navbar-brand {
@@ -445,7 +455,23 @@ h4 {
   position: relative;
   z-index: 5;
 }
-
+@media (max-width: 570px){
+  .intro {
+    padding-bottom: 100px;
+  }
+  .sect_one_btn_wrap>a {
+    margin-bottom: 10px;
+  }
+  .Reef_img {
+    max-width: 100% !important;
+  }
+  .image-block-container {
+    flex-direction: column;
+  }
+  .navbar-brand {
+    padding-left: 0;
+  }
+}
 .intro h1 {
   color: #e7a634;
   text-align: left;

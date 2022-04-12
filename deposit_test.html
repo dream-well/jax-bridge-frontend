@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 
@@ -67,12 +66,13 @@
                     <ul class="navbar-nav mt-2 mt-md-0">
                         <li class="nav-item pl-md-2">
                             <a id="eth_buy_button1" target="_new" onclick="connect_wallet();"
-                            class="btn_connect btn header_btn btn-light pl-3 pr-3 w-100 mb-3 mb-md-0 mt-3 mt-md-0" href="#"  data-toggle="modal" data-target="#WalletConnect">Connect Wallet</a>
+                                class="btn_connect btn header_btn btn-light pl-3 pr-3 w-100 mb-3 mb-md-0 mt-3 mt-md-0"
+                                href="#" data-toggle="modal" data-target="#WalletConnect">Connect Wallet</a>
                         </li>
                         <li class="nav-item pl-md-2">
                             <select class="custom-select my-select" id="chainSelector">
                                 <option value="bsc" selected>Binance Smart Chain</option>
-                              <!--  <option value="ethereum">Ethereum Smart Chain</option>-->
+                                <!--  <option value="ethereum">Ethereum Smart Chain</option>-->
                             </select>
                         </li>
 
@@ -90,28 +90,32 @@
             <div class="row justify-content-center">
 
                 <div class="col-12 col-md-6">
-                    <h4 class="text-white center-content mb-15">Please send the exact amount from your wallet to the address mentioned below. We are not responsible for fund loss due to incorrect transactions.</h4>
+                    <h4 class="text-white center-content mb-15">Please send the exact amount from your wallet to the
+                        address mentioned below. We are not responsible for fund loss due to incorrect transactions.
+                    </h4>
                     <div class="bg-blue border-radius p-3 exchange mb-3">
-                      <div class="bg-lighterblue p-3 border-radius mb-3 center-content mb-15">
-                          <div class="row">
-                              <div class="col-12 text-blue">Your Request Link:</div>
-                          </div>
-                          <div class="row">
-                              <div class="col-12 center-content">
-                                  <div class="form-group">
-                                      <span class="w_adrres_form" style="overflow-wrap: break-word; font-size:14px; line-height:20px;"><span id="link" >&nbsp;</span>&nbsp;<span class="cop_s"><img
-                                                class="copy_btn" data-id="link"  src="assets/Layer.png" alt=""></span></span>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="row">
-                              <div class="col-12 center-content">
-                                  <div class="blockC_type">
-                                      Use this incase you wish to continue with this bridge transaction later.
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
+                        <div class="bg-lighterblue p-3 border-radius mb-3 center-content mb-15">
+                            <div class="row">
+                                <div class="col-12 text-blue">Your Request Link:</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 center-content">
+                                    <div class="form-group">
+                                        <span class="w_adrres_form"
+                                            style="overflow-wrap: break-word; font-size:14px; line-height:20px;"><span
+                                                id="link">&nbsp;</span>&nbsp;<span class="cop_s"><img class="copy_btn"
+                                                    data-id="link" src="assets/Layer.png" alt=""></span></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 center-content">
+                                    <div class="blockC_type">
+                                        Use this incase you wish to continue with this bridge transaction later.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="bg-lighterblue p-3 border-radius mb-3 center-content mb-15">
                             <div class="row">
                                 <div class="col-12 text-blue" id="shardId" style="display:none">Shard1</div>
@@ -122,45 +126,53 @@
                             <div class="row">
                                 <div class="col-12 center-content mb-3">
                                     <div class="form-group">
-                                        <span class="w_adrres_form"> <span id="amount"> Loading ... </span>&nbsp;<span id="tokenName">JXN</span> <span class="cop_s"><img
-                                            class="copy_btn" data-id="amount" src="assets/Layer.png" alt=""></span></span>
+                                        <span class="w_adrres_form"> <span id="amount"> Loading ... </span>&nbsp;<span
+                                                id="tokenName">JXN</span> <span class="cop_s"><img class="copy_btn"
+                                                    data-id="amount" src="assets/Layer.png" alt=""></span></span>
                                     </div>
                                 </div>
                             </div>
-                          
-                       
+
+
                             <div class="row">
                                 <div class="col-12 text-blue">SEND ONLY FROM YOUR ADDRESS</div>
                             </div>
                             <div class="row">
                                 <div class="col-12 center-content  mb-3">
                                     <div class="form-group">
-                                        <span class="w_adrres_form" style="overflow-wrap: break-word; font-size:14px;"><span id="from"></span>
-                                            <span >&nbsp;</span></span>
+                                        <span class="w_adrres_form"
+                                            style="overflow-wrap: break-word; font-size:14px;"><span id="from"></span>
+                                            <span>&nbsp;</span></span>
                                     </div>
                                 </div>
                             </div>
-                       
+
                             <div class="row">
                                 <div class="col-12 text-blue">TO THE ADDRESS</div>
                             </div>
                             <div class="row">
                                 <div class="col-12 center-content">
                                     <div class="form-group">
-                                         <span class="w_adrres_form" style="overflow-wrap: break-word; font-size:18.5px;"><span id="depositAddress"></span>
-                                            <span >&nbsp;</span><span
-                                                class="cop_s"><img class="copy_btn" data-id="depositAddress"  src="assets/Layer.png" alt=""></span></span>
+                                        <span class="w_adrres_form"
+                                            style="overflow-wrap: break-word; font-size:18.5px;"><span
+                                                id="depositAddress"></span>
+                                            <span>&nbsp;</span><span class="cop_s"><img class="copy_btn"
+                                                    data-id="depositAddress" src="assets/Layer.png"
+                                                    alt=""></span></span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="row center-content mb-15 qr_wrap_bock">
-                            <div class="qr_code_block" id="qrcode" style="border-radius:4px;position:relative; width: 190px; height: 190px; background-color: white; display: flex;">
-                                <div id="loading" style="text-align: center;width: 100%;display: flex;align-content: center;justify-content: center;align-items: center;position: absolute;left: 0;height: 100%;top: -4px;">Loading...
+                            <div class="qr_code_block" id="qrcode"
+                                style="border-radius:4px;position:relative; width: 190px; height: 190px; background-color: white; display: flex;">
+                                <div id="loading"
+                                    style="text-align: center;width: 100%;display: flex;align-content: center;justify-content: center;align-items: center;position: absolute;left: 0;height: 100%;top: -4px;">
+                                    Loading...
                                 </div>
                             </div>
                         </div>
-                         <div class="bg-lighterblue p-3 border-radius mb-3 center-content mb-15">
+                        <div class="bg-lighterblue p-3 border-radius mb-3 center-content mb-15">
                             <div class="row">
                                 <div class="col-12 text-blue">
                                     <div class="row center-content">
@@ -168,34 +180,35 @@
                                     </div>
                                 </div>
                                 <div class="form-group  col-12 center-content">
-                                   <span class="time_payment" id="countdown"> 24:00:00</span>
+                                    <span class="time_payment" id="countdown"> 24:00:00</span>
                                 </div>
-                                <div class="col-12 text-blue lght_text">to send funds, otherwise the transaction will be canceled automatically</div>
+                                <div class="col-12 text-blue lght_text">to send funds, otherwise the transaction will be
+                                    canceled automatically</div>
                             </div>
 
-                         </div>
-                         <div class="bg-lighterblue p-3 border-radius mb-3">
+                        </div>
+                        <div class="bg-lighterblue p-3 border-radius mb-3">
 
-                                 <div class="row">
-                                     <div class="col-12 text-blue">Deposit TxHash</div>
-                                 </div>
-                                 <div class="row">
-                                     <div class="col-12 text-right">
-                                         <div class="form-group">
-                                             <input class="form-control" style="font-size: 18.5px;" id="txHash" placeholder="Enter you Deposit TxHash" value=''>
-                                         </div>
-                                     </div>
-                                 </div>
+                            <div class="row">
+                                <div class="col-12 text-blue">Deposit TxHash</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 text-right">
+                                    <div class="form-group">
+                                        <input class="form-control" style="font-size: 18.5px;" id="txHash"
+                                            placeholder="Enter you Deposit TxHash" value=''>
+                                    </div>
+                                </div>
+                            </div>
 
-                         </div>
-                         <div class="row pt-2">
-                             <div class="col-12">
-                               <button class="btn btn-warning w-100 btn-lg pt-3 pb-3"
-                                  onclick="submit_txhash()" id="btn_deposit"
-                                     data-toggle="modal">PROCESS DEPOSIT</button>
-                             </div>
-                         </div>
-                     </div>
+                        </div>
+                        <div class="row pt-2">
+                            <div class="col-12">
+                                <button class="btn btn-warning w-100 btn-lg pt-3 pb-3" onclick="submit_txhash()"
+                                    id="btn_deposit" data-toggle="modal">PROCESS DEPOSIT</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -291,12 +304,18 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"
+        integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.25.0/axios.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.2-rc.0/web3.min.js" integrity="sha512-REWiGZVmhU2S5eIov/DuNrsq4djWnPaAHSvXrbLLLaI0r/gW+wh1utIzxt0iB4IQLgXhNDj5mR0YMBjrkKhVMA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.2-rc.0/web3.min.js"
+        integrity="sha512-REWiGZVmhU2S5eIov/DuNrsq4djWnPaAHSvXrbLLLaI0r/gW+wh1utIzxt0iB4IQLgXhNDj5mR0YMBjrkKhVMA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script type="text/javascript" src="https://unpkg.com/web3modal"></script>
     <script type="text/javascript" src="https://unpkg.com/@walletconnect/web3-provider"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+        integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="js/awn.min.js"></script>
     <script src="js/qrcode.min.js"></script>
     <script src="js/wallet_test.js"></script>

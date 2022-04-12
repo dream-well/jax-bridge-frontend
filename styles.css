@@ -1982,3 +1982,18 @@ tbody::before {
 }
 .bridgetabs.table-dark { background: #0d0e3d!important}
 .bridgetabs.table-dark td { border:none}
+
+/*------------------------------------------HST Swap-------------------------------*/
+.hstswap input {  border: 0px; background: none; font-size: 22px;}
+.hstswap .input-group-text { background: none; border:none;}
+.hstswap .dd-option-image, .hstswap .dd-selected-image { width:30px;}
+.hstswap .btn { background: none; border:none;}
+.hstswap .btn-info { background: #131b6a; color:#fff;}
+.hstswap .btn-info:not(:disabled):not(.disabled).active, .hstswap .btn-info:not(:disabled):not(.disabled):active, .show>.btn-info.dropdown-toggle {background: #131b6a; color:#fff;}
+
+.hstswap .btn-info:not(:disabled):not(.disabled):focus, .hstswap .btn-info:not(:disabled):not(.disabled):active { background: #131b6a; color:#fff;}
+.hstswap .form-control:focus { box-shadow: none; background: none}
+.exchange .input-group-text { background: none; border:none;}
+
+.intro.hstlanding { min-height: auto!important; position: inherit;}
+.intro.hstlanding .learn-more { position: inherit}

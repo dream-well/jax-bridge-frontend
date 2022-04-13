@@ -2005,3 +2005,7 @@ tbody::before {
   left: 47%;
   top: -30px;
 }
+br {
+  display: block;
+  margin: 10px 0;
+}

@@ -76,11 +76,11 @@ async function update_balance() {
 }
 
 function onAmountInChanged() {
-    let amountIn = $("#amountIn").val();
+    let amountIn = parseInt($("#amountIn").val());
     let amountOut;
     if(is_wjxn_to_hst) 
         amountOut = amountIn * 1e8;
-    else amountOut = parseInt(amountIn / 1e8);
+    else amountOut = Math.floor(amountIn / 1e8);
     $("#amountOut").html(amountOut.toLocaleString());
 }
 

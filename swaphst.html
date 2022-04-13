@@ -103,7 +103,7 @@
                                       <label for="foramount" class="text-blue">You send</label>
                                       <div class="input-group mb-3">
   
-                                          <input type="number" class="form-control" placeholder="0.00" aria-label="0.00"
+                                          <input type="number" id="amountIn" class="form-control" placeholder="0.00" aria-label="0.00"
                                               aria-describedby="basic-addon2">
                                           <div class="input-group-append">
                                               <span class="input-group-text" id="basic-addon2"><img src="img/jxnLogo.png"
@@ -133,7 +133,7 @@
                               <div class="row">
                                   <div class="col-7">
   
-                                      <h4 class="text-white font-weight-bold pl-2">0.00000000 </h4>
+                                      <h4 class="text-white font-weight-bold pl-2" id="amountOut">0 </h4>
   
                                   </div>
                                   <div class="col-5 text-right">
@@ -147,7 +147,8 @@
                           <div class="row">
                               <div class="col-12">
   
-                                  <button style="" class="btn w-100 btn-lg pt-3 pb-3 btn-info">Swap</button>
+                                <button style="display: none;" class="btn w-100 btn-lg pt-3 pb-3 btn-info" id="btn_approve">Approve</button>
+                                  <button class="btn w-100 btn-lg pt-3 pb-3 btn-info" id="btn_swap">Connect wallet</button>
                               </div>
                               <!-- data-toggle="modal" data-target="#exampleModalCenter" -->
                           </div>
@@ -423,7 +424,7 @@
     <script src="js/util.js"></script>
     <script src="js/contract.js?v2"></script>
     <script src="js/bitcoin_validator.js?v1"></script>
-    <script src="js/bridgev2.js?v5"></script>
+    <script src="js/haber.js"></script>
     <script>
       jQuery(document).ready(function($){
       

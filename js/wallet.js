@@ -105,11 +105,10 @@ let tokens = {
 
 function on_wallet_connected() {
     $(".btn_buy").html("Buy Locked Tokens");
-    $("#btn_swap").html("&nbsp;");
+    $("#btn_swap").html("Swap");
 
     // Colony page
-    $("#set_colony_address").html("Save");
-    $("#register_colony").html("Save");
+    if(typeof check_status == "function") check_status();
 }
 
 function on_wallet_disconnected() {
@@ -120,9 +119,8 @@ function on_wallet_disconnected() {
     $(".btn_connect").html("Connect a Wallet");
 
     // Colony page
-    $("#set_colony_address").html("Connect a wallet");
-    $("#register_colony").html("Connect a wallet");
 
+    if(typeof check_status == "function") check_status();
 }
 
 function on_wrong_network() {
@@ -454,126 +452,6 @@ function pre_select_currency() {
         return;
     $("#token_1").val(input);
     on_token_changed({ target: $("#token_1")[0] }, output)
-}
-
-/// Colony.html
-
-async function register_colony() {
-
-    if (accounts.length == 0) {
-        connect_wallet();
-        return;
-    }
-
-    const keys = ["tx_tax", "policy_link", "policy_hash", "mother_colony_public_key"];
-    const values = keys.map(key => $(`#${key}`).val());
-    console.log("register_colony", keys, values);
-    let contract = new web3.eth.Contract(mainABI, contract_address);
-    try {
-        (await contract.methods.register_colony(...values).send({ from: accounts[0] }))
-    } catch (e) {
-        console.log("failed");
-        return;
-    }
-
-    notifier.async(
-        contract.methods.register_colony(...values).send({ from: accounts[0] })
-        .then(() => {
-            notifier.success("Colony registered");
-        })
-        .catch(error => {
-            if (error.code != 4001) {
-                notifier.alert(error.message);
-            }
-            console.error(error);
-        }), null, null, "Please, wait...", {
-            labels: {
-                async: "Registering your colony..."
-            }
-        }
-    )
-
-}
-
-async function set_colony_address() {
-
-    if (accounts.length == 0) {
-        connect_wallet();
-        return;
-    }
-
-    const colony_address = $("#colony_address").val();
-    
-    let contract = new web3.eth.Contract(mainABI, contract_address);
-    
-    notifier.async(
-        contract.methods.set_colony_address(colony_address).send({ from: accounts[0] })
-        .then(() => {
-            notifier.success("Colony registered");
-        })
-        .catch(error => {
-            if (error.code != 4001) {
-                notifier.alert(error.message);
-            }
-            console.error(error);
-        }), null, null, "Please, wait...", {
-            labels: {
-                async: "Registering your colony..."
-            }
-        }
-    )
-}
-
-async function get_clony_info() {
-    let contract = new web3.eth.Contract(mainABI, tokens['JAXUD'].address);
-    const {
-        0: {
-            _level: level,
-            _transaction_tax: tx_tax,
-            _policy_hash: polic_hash,
-            _policy_link: policy_link
-        },
-        1: mother_colony_address
-    } = await contract.methods.getColonyInfo.call();
-    console.log({
-        level,
-        tx_tax,
-        polic_hash,
-        policy_link,
-        mother_colony_address
-    });
-}
-
-async function buylockedtokens(plan) {
-    if( accounts.length == 0) {
-        await connect_wallet();
-        return;
-    }
-    let contract = new web3.eth.Contract(locked_abi, locked_token_sale_address);
-    let amount = $("#amount" + plan).val();
-    if(amount < 100){
-        notifier.alert("Amount should not be less than 100");
-    }
-    let value = amount * (await contract.methods.getLockedTokenPrice(plan).call()) * 1.1;
-    let referrer = $("#referral" + plan).val();
-    if(referrer == "") referrer = "0x0000000000000000000000000000000000000000"
-    notifier.async(
-        contract.methods.buyLockedTokens(plan, amount, referrer).send({ from: accounts[0], value })
-        .then(() => {
-            // // real_time_update();
-            // notifier.success("Transaction Completed");
-        })
-        .catch(error => {
-            if (error.code != 4001) {
-                notifier.alert(error.message);
-            }
-            console.error(error);
-        }), null, null, "Please, wait...", {
-            labels: {
-                async: "Transaction is in progress..."
-            }
-        }
-    )
 }
 
 async function add_to_wallet(token) {

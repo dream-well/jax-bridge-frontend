@@ -179,3 +179,41 @@ function goto(page) {
     path.pop();
     location.href = path.join("/") + '/' + page;
 }
+
+async function runContract(contract, func, args, options = {}) {
+    const {success, gas, message}  = await estimateGas(contract, func, args);
+    if(!success) {
+        notifier.warning(message);
+        return;
+    }
+    let waiting_notifier;
+    if(!notifier.no_waiting)
+        waiting_notifier = notifier.info(
+            options.confirmationTitle ? options.confirmationTitle : "Please wait",
+            {durations: {info: 0}, labels: {info: "Waiting for confirmation"}, icons: {info: "spinner fa-spin"}})
+    const promise = runSmartContract(contract, func, args)
+        .on('transactionHash', (transactionHash) => {
+            if(options.onPending) options.onPending();
+            if(!options.no_pending) {
+                if(waiting_notifier)
+                    $(waiting_notifier).remove()
+                notifier.async( promise, null, null, 
+                    `${options.pendingTitle ? options.pendingTitle : "Transaction is in the queue"}
+                    <br/>
+                    Pending TxInfo: <a target='_blank' href='${blockExplorer('tx', transactionHash)}'>View</a>
+                    `);
+            }
+        })
+        .then(tx => {
+            if(confNumber == 1){
+                if(options.onDone) options.onDone();
+            }
+            if(waiting_notifier)
+                $(waiting_notifier).remove();
+        })
+        .catch(err => {
+            if(waiting_notifier)
+                $(waiting_notifier).remove();
+        })
+    await promise;
+}

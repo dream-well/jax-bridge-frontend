@@ -104,6 +104,7 @@ async function select_max_balance() {
     else {
         $("#amountIn").val(balance_hst);
     }
+    onAmountInChanged();
 }
 
 function swap_currency() {

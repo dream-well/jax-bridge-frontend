@@ -21,8 +21,10 @@ async function swap() {
     }
     else {
         amountIn = parseInt(amountIn / 1e8);
-        _burn_haber(amountIn);
+        await _burn_haber(amountIn);
     }
+    $("#amountIn").val("");
+    check_status();
 }
 
 async function _mint_haber(amount) {
@@ -61,6 +63,8 @@ async function update_balance() {
         get_token_balance("wjxn"),
         get_token_balance("hst")
     ])
+    balance_wjxn = Number(balance_wjxn).toLocaleString();
+    balance_hst = Number(balance_hst).toLocaleString();
     if(is_wjxn_to_hst) {
         $("#balance_token1").html(balance_wjxn);
         $("#balance_token2").html(balance_hst);
@@ -95,10 +99,10 @@ async function select_max_balance() {
         get_token_balance("hst")
     ])
     if(is_wjxn_to_hst) {
-        $("#amountIn").html(balance_wjxn);
+        $("#amountIn").val(balance_wjxn);
     }
     else {
-        $("#amountIn").html(balance_hst);
+        $("#amountIn").val(balance_hst);
     }
 }
 
@@ -119,6 +123,7 @@ function swap_currency() {
     }
     $("#amountIn").val(amountOut);
     onAmountInChanged();
+    check_status();
 }
 
 void async function main() {

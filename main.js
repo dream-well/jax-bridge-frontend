@@ -78,6 +78,9 @@ $('document').ready(function() {
   $("#whyButton").click(function() {
     scrollTo($('#whySection'));
   });
+  $("#faqbtn").click(function() {
+    scrollTo($('#faq'));
+  });
 
   $("#whatIsButton").click(function() {
     scrollTo($('#whatSection'));

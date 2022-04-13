@@ -2005,3 +2005,8 @@ tbody::before {
   left: 47%;
   top: -30px;
 }
+br {
+  display: block; /* makes it have a width */
+  content: ""; /* clears default height */
+  margin-top: 10px; /* change this to whatever height you want it */
+}

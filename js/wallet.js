@@ -69,7 +69,8 @@ let tokens = {
         approval: true,
         code: 'wjxn',
         exchanges: ["VRP"],
-        image: 'https://beta.jax.money/img/wjxn.png'
+        image: 'https://beta.jax.money/img/wjxn.png',
+        address: '0xcA1262e77Fb25c0a4112CFc9bad3ff54F617f2e6'
     },
     "WJAX": {
         decimals: 4,
@@ -99,6 +100,14 @@ let tokens = {
         exchanges: ["JAXUD", "BUSD"],
         image: 'https://beta.jax.money/img/j-inr.png'
     },
+    "HST": {
+        decimals: 0,
+        approval: false,
+        code: 'hst',
+        exchanges: [],
+        image: 'https://wrapped.jax.net/img/hst.png',
+        address: '0xd6AF849b09879a3648d56B5d43c6e5908a74CA83'
+    }
 
 }
 

@@ -2014,3 +2014,8 @@ br {
   content: ""; /* clears default height */
   margin-top: 10px; /* change this to whatever height you want it */
 }
+.balance_max {
+  float: right;
+  user-select: none;
+  cursor: pointer;
+}

@@ -464,14 +464,26 @@ function pre_select_currency() {
 }
 
 async function add_to_wallet(token) {
+    
+    if(is_wrong_network() ) {
+        switch_network();
+        return;
+    }
+    if(accounts.length == 0) {
+        connect_wallet();
+        return;
+    }
     let {address, decimals, image} = tokens[token];
     await add_token_to_metamask(address, token, decimals, image);
 }
 
 function is_wrong_network() {
+    if(!web3 || accounts.length == 0) return false;
+    if(!active_network()) return false;
     return parseInt(web3.currentProvider.chainId) != networks[active_network()].chainId;
 }
 
 function active_network() {
-    return $("#chainSelector").val();
+    let active =  $("#chainSelector").val();
+    return active ? active : "bsc";
 }

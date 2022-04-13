@@ -217,3 +217,10 @@ async function runContract(contract, func, args, options = {}) {
         })
     await promise;
 }
+
+
+async function get_token_balance(token_name) {
+    let token_info = tokens[token_name.toUpperCase()];
+    return await get_balance(new web3.eth.Contract(erc20ABI, token_info.address), token_info.decimals);
+
+}

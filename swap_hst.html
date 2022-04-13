@@ -106,17 +106,19 @@
                                           <input type="number" id="amountIn" class="form-control" placeholder="0.00" aria-label="0.00"
                                               aria-describedby="basic-addon2">
                                           <div class="input-group-append">
-                                              <span class="input-group-text" id="basic-addon2"><img src="img/jxnLogo.png"
-                                                      class="pr-1" /> <strong
-                                                      style="font-size: 22px;">WJXN</strong></span>
+                                              <span class="input-group-text" id="token1">
+                                                <img src="img/jxnLogo.png"
+                                                      class="pr-1 token_image" /> 
+                                                <strong style="font-size: 22px;" class="token_name">WJXN</strong>
+                                              </span>
                                           </div>
                                       </div>
                                   </div>
   
                               </div>
                               <div class="row ">
-                                <div class="col-12 " id="balance_1">Balance: <span id="balance_token1">43324</span>
-                                <span class="balance_max" onclick="select_max_balance(1);">MAX</span>
+                                <div class="col-12 " id="balance_1">Balance: <span id="balance_token1"></span>
+                                <span class="balance_max" onclick="select_max_balance();">MAX</span>
                                 </div>
                             </div>
                               <!-- <div class="row">
@@ -142,12 +144,12 @@
   
                                   </div>
                                   <div class="col-5 text-right">
-                                      <h4 class="text-white d-inline-block"><img src="img/hst.png" class="pr-1" />
-                                          <strong>HST</strong></h4>
+                                      <h4 class="text-white d-inline-block" id="token2"> <img src="img/hst.png" class="pr-1 " />
+                                          <strong class="token_name">HST</strong></h4>
                                   </div>
                               </div>
                               <div class="row">
-                                <div class="col-12 text-white" id="balance_2">Balance: <span id="balance_token2"> 13213</span>
+                                <div class="col-12 text-white" id="balance_2">Balance: <span id="balance_token2"></span>
                                 <!-- <span class="balance_max" onclick="select_max_balance(2);">MAX</span> -->
                                 </div>
                             </div>

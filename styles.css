@@ -417,9 +417,9 @@ h4 {
   position: relative;
 }
 
-.sect_pb {
+/* .sect_pb {
   padding-bottom: 40px;
-}
+} */
 
 @media only screen and (max-width: 767px) {
   .btn-group {
@@ -503,9 +503,13 @@ h4 {
   color: #ffffff;
   width: 100%;
   position: absolute;
-  bottom: 5px;
+  bottom: -20px;
   text-align: center;
   z-index: 2;
+  left: 0px;
+}
+.container-fluid {
+  padding-bottom: 20px;
 }
 
 .learn-more-container {

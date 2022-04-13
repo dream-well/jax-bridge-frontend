@@ -118,7 +118,7 @@ h4 {
 
 .border-radius {
   border-radius: 5px;
-  border: 1px solid rgba(76, 121, 203, 0.5);
+  border: 1px solid rgb(230 166 51);
 }
 
 .border-blue {
@@ -1997,3 +1997,11 @@ tbody::before {
 
 .intro.hstlanding { min-height: auto!important; position: inherit;}
 .intro.hstlanding .learn-more { position: inherit}
+
+
+.swapicon {
+  position: absolute;
+  z-index: 2;
+  left: 47%;
+  top: -30px;
+}

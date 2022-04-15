@@ -62,6 +62,7 @@ async function update_balance() {
     if(!web3 || accounts.length == 0){
         $("#balance_token1").html(0);
         $("#balance_token2").html(0);
+        return;
     }
     let [balance_wjxn, balance_hst] = await Promise.all([
         get_token_balance("wjxn"),

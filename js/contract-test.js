@@ -4,8 +4,8 @@
 // } testnet
 
 let contract_addresses = {
-    wjxn_bsc: '0x529E35872c9f70fbC302898fddD52dF1A17FAE0C',
-    wjxn_avatestnet: '0x0de68E982CE58A2d609CC88889696a654021675F',
+    wjxn_bsc: '0xb7B23a4c8F07E6eaBD4afDBF6FF05FbC2A99D63f',
+    wjxn_avatestnet: '0x35e9B16946a8fDcEfC3a9c9092F876276499a1C4',
     wjxn: '0xBC04b1cEEE41760CBd84d3D58Db57a13c95B8107',
     jxn_bsc: '0x4F91c2f2D58116b0e755EFE2ce59e27175Ab13f4',
     bsc_jxn: '0x27ea60159708d637948805bBCF980fC3a3e92DE9',

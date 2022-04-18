@@ -4,7 +4,7 @@ const maxUint = "0x" + "f".repeat(64);
 let deposit_address_id;
 let request_id;
 let fee_percent = 0.0;
-let minimum_fee_amount = 50;
+let minimum_fee_amount = 15;
 
 void async function main() {
     $("#amountIn").on('input', update_state)
@@ -112,7 +112,7 @@ async function update_state() {
         if(network1 == "avatestnet")
             amountOut = amountIn;
         else
-            amountOut = amountIn - 50;
+            amountOut = amountIn - 15;
     }
     if(network1 == "jax") {
         amountOut = Math.max(amountIn - fee_amount, 0);

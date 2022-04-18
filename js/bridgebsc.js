@@ -28,7 +28,7 @@ async function deposit() {
     let destChainId = networks[network2].chainId;
     const func = 'deposit';
     // address to, uint destChainId, uint amount, uint nonce, bytes calldata signature
-    let contract = new web3.eth.Contract(jaxBridgeEvmABI, contract_addresses.jaxBridgeEVM);
+    let contract = new web3.eth.Contract(jaxBridgeEvmABI, contract_addresses['wjxn_' + active_network()]);
 
 
     const args = [destChainId, amountIn];

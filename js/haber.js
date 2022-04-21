@@ -47,7 +47,7 @@ async function check_status() {
     let allowance = await callSmartContract(new web3.eth.Contract(erc20ABI, contract_addresses.wjxn), "allowance", [accounts[0], contract_addresses.haber]);
     allowance = formatUnit(allowance);
     let amountIn = $("#amountIn").val();
-    if(amountIn && allowance < amountIn) {
+    if(allowance == 0 || (amountIn && allowance < amountIn)) {
         $("#btn_approve").show();
         $("#btn_swap").hide();
         return;

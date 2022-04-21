@@ -23,7 +23,7 @@ async function swap() {
         amountIn = parseInt(amountIn / 1e8);
         await _burn_haber(amountIn);
     }
-    $("#amountIn").val("");
+    // $("#amountIn").val("");
     check_status();
 }
 

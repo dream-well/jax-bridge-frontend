@@ -58,6 +58,10 @@ async function check_status() {
     }
 }
 
+function accountChanged() {
+    check_status();
+}
+
 async function update_balance() {
     if(!web3 || accounts.length == 0){
         $("#balance_token1").html(0);

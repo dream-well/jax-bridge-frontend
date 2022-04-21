@@ -7,7 +7,8 @@ async function approve() {
         return;
     }
     let contract = new web3.eth.Contract(erc20ABI, contract_addresses.wjxn);
-    runContract(contract, "approve", [contract_addresses.haber, MAX_UINT], {confirmationTitle: "Approving WJXN", pendingTitle: "Approving WJXN"})
+    await runContract(contract, "approve", [contract_addresses.haber, MAX_UINT], {confirmationTitle: "Approving WJXN", pendingTitle: "Approving WJXN"})
+    check_status();
 }
 
 async function swap() {

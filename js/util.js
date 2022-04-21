@@ -198,10 +198,12 @@ async function runContract(contract, func, args, options = {}) {
                 if(waiting_notifier)
                     $(waiting_notifier).remove()
                 notifier.async( promise, null, null, 
-                    `${options.pendingTitle ? options.pendingTitle : "Transaction is in the queue"}
+                    `
                     <br/>
                     Pending TxInfo: <a target='_blank' href='${blockExplorer('tx', transactionHash)}'>View</a>
-                    `);
+                    `,
+                    {labels: {async: `${options.pendingTitle ? options.pendingTitle : "Transaction is in the queue"}`}}    
+                );
             }
         })
         .then(tx => {

@@ -511,6 +511,9 @@ h4 {
   .navbar-brand {
     padding-left: 0;
   }
+  .dropdown-menu .d-flex {
+    flex-direction: column;
+  }
 }
 .intro h1 {
   color: #e7a634;
@@ -974,6 +977,7 @@ main {
   .merch-cust .partner-logo+.partner-logo {
     margin-left: 20px;
   }
+
 }
 
 
@@ -1179,6 +1183,12 @@ main {
 
   .partner-desc {
     margin-bottom: 5px;
+  }
+  .dropdown-menu {
+    width: 100%;
+  }
+  .dropdown-menu:before {
+    display: none;
   }
 }
 

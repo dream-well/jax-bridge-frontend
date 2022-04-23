@@ -177,15 +177,29 @@ h4 {
   /* padding: 20px !important; */
   color: #fff !important;
   border: 0;
-  top: 100%;
-  left: -150%;
+  top: 55px;
+  left: -185%;
   right: -100%;
   margin: auto;
   border-radius: 0px;
   width: 460px;
   border-radius: 7px;
 }
-
+.dropdown-menu:before {
+  content: "\A";
+  border-style: solid;
+  border-width: 15px 20px 20px 20px;
+  border-color: transparent transparent #fff transparent;
+  position: absolute;
+  top: -35px;
+  right: 0;
+  left: 0;
+  margin: auto;
+  width: 10px;
+}
+.dropdown-menu:after {
+  
+}
 .dropdown-item:hover {
   /* background: #131b6a;
   color: #fff; */
@@ -202,20 +216,21 @@ h4 {
   margin-bottom: 5px;
   position: relative;
   display: flex;
-  justify-content: start;
+  justify-content: center;
   align-items: center;
+  font-weight: bold;
 
 }
 
 .navbar .nav-item .nav-link {
   color: #fff !important;
-
 }
-.img_drp_d_wrap {
-  text-align: left;
+.drp_d_icon {
+  width: 20px;
+  margin: 0 5px;
 }
-.img_drp_d_wrap img {
-  width: 35px;
+.arr_menu_icon {
+  margin: 0 7px;
 }
 .nav_logo_2 {
   position: relative;

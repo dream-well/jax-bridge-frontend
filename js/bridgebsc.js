@@ -142,3 +142,11 @@ async function update_status() {
         }
     }
 }
+
+function reverse_networks() {
+    let network1 = $("#network1").val();
+    let network2 = $("#network2").val();
+    $("#network1").val(network2);
+    $("#network2").val(network1);
+    update_state();
+}

@@ -172,36 +172,76 @@ h4 {
   border: 0;
 }
 
-.mainmenu .dropdown-menu {
+.dropdown-menu {
   background: #fff;
-  color: #131b6a !important;
+  /* padding: 20px !important; */
+  color: #fff !important;
   border: 0;
-  top: 100%;
+  top: 55px;
+  left: -185%;
+  right: -100%;
+  margin: auto;
   border-radius: 0px;
+  width: 460px;
+  border-radius: 7px;
+}
+.dropdown-menu:before {
+  content: "\A";
+  border-style: solid;
+  border-width: 15px 20px 20px 20px;
+  border-color: transparent transparent #fff transparent;
+  position: absolute;
+  top: -35px;
+  right: 0;
+  left: 0;
+  margin: auto;
+  width: 10px;
+}
+.dropdown-menu:after {
+  
+}
+.dropdown-item:hover {
+  /* background: #131b6a;
+  color: #fff; */
 }
 
-.mainmenu .dropdown-item:hover {
-  background: #131b6a;
-  color: #fff;
-}
-
-.mainmenu .dropdown-menu a {
+.navbar .dropdown-menu a {
   color: #131b6a;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  /* padding-top: 10px;
+  padding-bottom: 10px; */
+  padding: 10px !important;
+  font-size: 16px;
+  border: 1px solid #0215c5;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+
 }
 
-.mainmenu .navbar .nav-item .nav-link {
-  color: #131b6a !important;
-
+.navbar .nav-item .nav-link {
+  color: #fff !important;
 }
-
+.drp_d_icon {
+  width: 20px;
+  margin: 0 5px;
+}
+.arr_menu_icon {
+  margin: 0 7px;
+}
+.nav_logo_2 {
+  position: relative;
+  left: -5px;
+}
 .navbar-light .navbar-nav .nav-link {
   padding-left: 15px;
   padding-right: 15px;
 }
 
-.mainmenu .navbar .nav-item .nav-link:hover .navbar .nav-item .nav-link {
+.navbar .nav-item .nav-link:hover .navbar .nav-item .nav-link {
   color: red !important;
 }
 
@@ -470,6 +510,9 @@ h4 {
   }
   .navbar-brand {
     padding-left: 0;
+  }
+  .dropdown-menu .d-flex {
+    flex-direction: column;
   }
 }
 .intro h1 {
@@ -934,6 +977,7 @@ main {
   .merch-cust .partner-logo+.partner-logo {
     margin-left: 20px;
   }
+
 }
 
 
@@ -1139,6 +1183,12 @@ main {
 
   .partner-desc {
     margin-bottom: 5px;
+  }
+  .dropdown-menu {
+    width: 100%;
+  }
+  .dropdown-menu:before {
+    display: none;
   }
 }
 

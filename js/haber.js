@@ -50,7 +50,9 @@ async function check_status() {
     let amountIn = $("#amountIn").val();
     if(allowance == 0 || (amountIn && allowance < amountIn)) {
         $("#btn_approve").show();
-        $("#btn_swap").hide();
+        $("#btn_swap").html("Swap");
+        $("#btn_swap").attr("disabled", true);
+        $("#btn_swap").show();
         return;
     }
     else {

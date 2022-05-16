@@ -114,8 +114,8 @@ async function deposit() {
     else destChainId = 0;
     if(get_token() == "jxn") {
         if(network1 == "jax" && network2 == "bsc") {
-            const from = $(".jxn-bsc #from").val();
-            const to = $(".jxn-bsc #to").val();
+            const from = $("#from").val();
+            const to = $("#to").val();
             if(!validate_source_address(from)) {
                 notifier.warning("Invalid source address");
                 return;
@@ -123,7 +123,7 @@ async function deposit() {
             bridge_jxn_bsc(amountIn, to, from);
         }
         if(network1 == "bsc" && network2 == "jax") {
-            const to = $(".bsc-jxn #to").val();
+            const to = $("#to").val();
             if(!validate_source_address(to)) {
                 notifier.warning("Invalid destination address");
                 return;
@@ -134,8 +134,8 @@ async function deposit() {
     if(get_token() == "jax") {
         if(network1.indexOf("jax") == 0) {
             let shard_id = network1.split("jax")[1];
-            const from = $(".jxn-bsc #from").val();
-            const to = $(".jxn-bsc #to").val(); 
+            const from = $("#from").val();
+            const to = $("#to").val(); 
             if(!validate_source_address(from)) {
                 notifier.warning("Invalid source address");
                 return;
@@ -144,7 +144,7 @@ async function deposit() {
         }
         if(network1 == "bsc") {
             let shard_id = network2.split("jax")[1];
-            const to = $(".bsc-jxn #to").val();
+            const to = $("#to").val();
             if(!validate_source_address(to)) {
                 notifier.warning("Invalid destination address");
                 return;

@@ -322,7 +322,7 @@ async function bridge_jxn_bsc(amountIn, to, from) {
         notifier.warning("Bridge is busy");
         return;
     }
-
+    amountIn = parseUnit(amountIn, decimals.wjxn2);
     const args = [amountIn, deposit_address_id, to, from];
     const {success, gas, message} = await estimateGas(contract, func, args);
     if(!success) {
@@ -359,6 +359,7 @@ async function bridge_jax_bsc(shard_id, amountIn, to, from) {
         notifier.warning("Bridge is busy");
         return;
     }
+    amountIn = parseUnit(amountIn, decimals.wjax);
 
     const args = [shard_id, amountIn, deposit_address_id, to, from];
     const {success, gas, message} = await estimateGas(contract, func, args);

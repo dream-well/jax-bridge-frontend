@@ -1564,7 +1564,7 @@ input:checked+label:before {
 }
 
 .swap_inn_block {
-  width: 136px;
+  /* width: 136px; */
   display: flex;
   justify-content: center;
   color: #152172;
@@ -2058,6 +2058,12 @@ tbody::before {
   z-index: 2;
   left: 47%;
   top: -30px;
+  cursor: pointer;
+  width: 40px;
+  text-align: center;
+}
+.swapicon:hover i.fa.fa-arrow-down::before {
+  content: "\f07d";
 }
 br {
   display: block; /* makes it have a width */
@@ -2068,4 +2074,16 @@ br {
   float: right;
   user-select: none;
   cursor: pointer;
+}
+.jax_title_input {
+  display: none;
+}
+.wjax_title_input {
+  display: none;
+}
+.wjax_title_input.active {
+  display: inline-block;
+}
+.jax_title_input.active{
+  display: inline-block;
 }

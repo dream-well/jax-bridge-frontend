@@ -25,6 +25,10 @@ void async function main() {
         $("#network2").val(network1);
         $("#network1").trigger('change');
     })
+    $(".swapicon").click(function() {
+        $(".jax_title_input").toggleClass('active');
+        $(".wjax_title_input").toggleClass('active');
+    })
 }()
 
 function init_swap_inn_block() {

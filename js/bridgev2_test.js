@@ -155,7 +155,7 @@ async function deposit() {
 }
 
 async function approve() {
-    let contract = new web3.eth.Contract(erc20ABI, contract_addresses.wjxn);
+    let contract = new web3.eth.Contract(erc20ABI, contract_addresses.wjxn2);
     let bridge_address;
     let network1 = get_network1();
     if(get_token() == "jxn") {
@@ -177,7 +177,7 @@ async function approve() {
 }
 
 async function check_allowance() {
-    let contract = new web3.eth.Contract(erc20ABI, contract_addresses.wjxn);
+    let contract = new web3.eth.Contract(erc20ABI, contract_addresses.wjxn2);
     let bridge_address;
     let network1 = get_network1();
     let network2 = get_network2();

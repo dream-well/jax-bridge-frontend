@@ -221,8 +221,8 @@ async function runContract(contract, func, args, options = {}) {
 }
 
 
-async function get_token_balance(token_name) {
-    let token_info = tokens[token_name.toUpperCase()];
-    return await get_balance(new web3.eth.Contract(erc20ABI, token_info.address), token_info.decimals);
+async function get_token_balance(token_name) { 
+    token_name = token_name.toLowerCase();
+    return await get_balance(new web3.eth.Contract(erc20ABI, contract_addresses[token_name]), decimals[token_name]);
 
 }

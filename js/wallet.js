@@ -29,17 +29,17 @@ let networks = {
         url: 'https://bscrpc.com',
         symbol: 'BNB'
     },
-    // ethereum: {
-    //     chainId: 0x4,
-    //     symbol: 'ETH',
-    //     blockExplorer: 'https://rinkeby.etherscan.io',
-    // },
-    // bsc: {
-    //     chainId: 0x61,
-    //     chainName: 'Binance Smart Chain Testnet',
-    //     blockExplorer: 'https://testnet.bscscan.com',
-    //     symbol: 'BNB'
-    // },
+    rinkeby: {
+        chainId: 0x4,
+        symbol: 'ETH',
+        blockExplorer: 'https://rinkeby.etherscan.io',
+    },
+    bsctestnet: {
+        chainId: 0x61,
+        chainName: 'Binance Smart Chain Testnet',
+        blockExplorer: 'https://testnet.bscscan.com',
+        symbol: 'BNB'
+    },
     polygonmainnet: {
         chainId: 0x89,
         symbol: 'MATIC'

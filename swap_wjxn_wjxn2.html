@@ -199,6 +199,15 @@
                 <li class="nav-item dash_btn_wrap"><a class="nav-link navbar-brand active" href="proofofassets.html">Proof
                     of assets</a> </li>
                 <li class="nav-item"><a class="nav-link navbar-brand selected active" href="#FAQ_block">FAQ</a></li>
+                <li class="nav-item pl-md-2">
+                  <a id="eth_buy_button1" target="_new" onclick="connect_wallet();"
+                 class="btn_connect btn header_btn btn-light pl-3 pr-3 w-100 mb-3 mb-md-0 mt-3 mt-md-0" href="#"  data-toggle="modal" data-target="#WalletConnect">Connect Wallet</a> </li>
+               <li class="nav-item pl-md-2">
+                   <select class="custom-select my-select" id="chainSelector" disabled>
+                       <option value="bsctestnet" selected>Binance Smart Chain</option>
+                       <!--<option value="ethereum">Ethereum Smart Chain</option>-->
+                   </select>
+               </li>
               </ul>
             </div>
           </nav>
@@ -288,7 +297,7 @@
                           <div class="row">
                               <div class="col-12">
   
-                                <button style="display: none;" class="btn w-100 btn-lg pt-3 pb-3 btn-info" id="btn_approve">Approve</button>
+                                <button style="display: none;" class="btn w-100 btn-lg pt-3 pb-3 btn-info mb-2" id="btn_approve">Approve</button>
                                   <button class="btn w-100 btn-lg pt-3 pb-3 btn-info" id="btn_swap">Connect wallet</button>
                               </div>
                               <!-- data-toggle="modal" data-target="#exampleModalCenter" -->
@@ -324,10 +333,10 @@
                                       </thead>
                                       <tbody>
                                           <tr>
-                                              <td class="align-middle"><img class="curr_logo" src="img/hst.png"> HST</td>
-                                              <td class="align-middle rowclra"><span class="align-items-start float-left lineheight38">Haber-Stornetta Token</span> </td>
+                                              <td class="align-middle"><img class="curr_logo" src="img/hst.png"> WJXN2</td>
+                                              <td class="align-middle rowclra"><span class="align-items-start float-left lineheight38">Wrapped JaxNet 2</span> </td>
                                               <td class="align-middle rowclra"><span class="align-items-start float-left lineheight38 wjxn_address text_copy_link">0xd6AF849b09879a3648d56B5d43c6e5908a74CA83</span> </td>
-                                              <td class="align-middle text-center"><span class="align-items-start float-left lineheight38"><a href="#" onclick="add_to_wallet('HST')"><img style="width:25px;height:25px" src="img/metamask.svg" alt=""></a></span> </td>
+                                              <td class="align-middle text-center"><span class="align-items-start float-left lineheight38"><a href="#" onclick="add_to_wallet('WJXN2')"><img style="width:25px;height:25px" src="img/metamask.svg" alt=""></a></span> </td>
                                           </tr>
                                       </tbody>
                                   </table>
@@ -534,9 +543,9 @@
     <script src="js/awn.min.js"></script>
     <script src="js/wallet.js?v3"></script>
     <script src="js/util.js?v2"></script>
-    <script src="js/contract.js?v2"></script>
+    <script src="js/contract-test.js"></script>
     <script src="js/bitcoin_validator.js?v1"></script>
-    <script src="js/haber.js?v5"></script>
+    <script src="js/wjxn_wjxn2.js"></script>
     <script>
       jQuery(document).ready(function($){
       

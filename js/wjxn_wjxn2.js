@@ -28,14 +28,14 @@ async function swap() {
     check_status();
 }
 
-async function _mint_wjxn2(amount) {
+function _mint_wjxn2(amount) {
     let contract = new web3.eth.Contract(abis.wjxn2, contract_addresses.wjxn2);
-    runContract(contract, "swapWjxnToWjxn2", [amount], {confirmationTitle: "Swapping WJXN to wjxn2", pendingTitle: "Swapping WJXN to wjxn2"})
+    return runContract(contract, "swapWjxnToWjxn2", [amount], {confirmationTitle: "Swapping WJXN to wjxn2", pendingTitle: "Swapping WJXN to wjxn2"})
 }
 
-async function _burn_wjxn2(amount) {
+function _burn_wjxn2(amount) {
     let contract = new web3.eth.Contract(abis.wjxn2, contract_addresses.wjxn2);
-    runContract(contract, "swapWjxn2ToWjxn", [amount], {confirmationTitle: "Swapping WJXN to wjxn2", pendingTitle: "Swapping WJXN to wjxn2"});
+    return runContract(contract, "swapWjxn2ToWjxn", [amount], {confirmationTitle: "Swapping WJXN to wjxn2", pendingTitle: "Swapping WJXN to wjxn2"});
 }
 
 async function check_status() {

@@ -28,7 +28,7 @@ async function deposit() {
     let destChainId = networks[network2].chainId;
     const func = 'deposit';
     // address to, uint destChainId, uint amount, uint nonce, bytes calldata signature
-    let contract = new web3.eth.Contract(jaxBridgeEvmABI, contract_addresses["wjxn_" + active_network()]);
+    let contract = new web3.eth.Contract(jaxBridgeEvmABI, contract_addresses[`${active_token}_` + active_network()]);
 
 
     const args = [destChainId, amountIn];
@@ -52,14 +52,14 @@ async function deposit() {
 }
 
 async function approve() {
-    let contract = new web3.eth.Contract(erc20ABI, contract_addresses.wjxn);
+    let contract = new web3.eth.Contract(erc20ABI, contract_addresses[active_token]);
     if((await check_allowance()) != true)
-        approve_token("WJXN", contract, contract_addresses["wjxn_" + active_network()], maxUint);
+        approve_token("WJXN", contract, contract_addresses[`${active_token}_` + active_network()], maxUint);
 }
 
 async function check_allowance() {
-    let contract = new web3.eth.Contract(erc20ABI, contract_addresses.wjxn);
-    let allowance = await callSmartContract(contract, "allowance", [accounts[0], contract_addresses["wjxn_" + active_network()]]);
+    let contract = new web3.eth.Contract(erc20ABI, contract_addresses[active_token]);
+    let allowance = await callSmartContract(contract, "allowance", [accounts[0], contract_addresses[`${active_token}_` + active_network()]]);
     return allowance >= 500;
 }
 
@@ -128,7 +128,7 @@ function accountChanged() {
 }
 
 async function update_status() {
-    let contract = new web3.eth.Contract(jaxBridgeABI, contract_addresses["wjxn_" + active_network()]);
+    let contract = new web3.eth.Contract(jaxBridgeABI, contract_addresses[`${active_token}_` + active_network()]);
     request_id = await callSmartContract(contract, "get_new_request_id");
     try{
         deposit_address_id = await callSmartContract(contract, "get_free_deposit_address_id")

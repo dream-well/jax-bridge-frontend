@@ -12,7 +12,7 @@ async function approve() {
 }
 
 async function swap() {
-    if(accounts.length == 0){
+    if(accounts.length == 0 || is_wrong_network()){
         connect_wallet();
         return;
     }

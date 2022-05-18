@@ -126,12 +126,12 @@ function swap_currency() {
     if(is_wjxn_to_wjxn2) {
         $("#token1 img").attr("src", "img/jxnLogo.png");
         $("#token1 .token_name").html("WJXN");
-        $("#token2 img").attr("src", "img/wjxn2.png");
-        $("#token2 .token_name").html("wjxn2");
+        $("#token2 img").attr("src", "img/jxnLogo.png");
+        $("#token2 .token_name").html("WJXN-2");
     }
     else {
-        $("#token1 img").attr("src", "img/wjxn2.png");
-        $("#token1 .token_name").html("wjxn2");
+        $("#token1 img").attr("src", "img/jxnLogo.png");
+        $("#token1 .token_name").html("WJXN-2");
         $("#token2 img").attr("src", "img/jxnLogo.png");
         $("#token2 .token_name").html("WJXN");
     }

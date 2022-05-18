@@ -1570,7 +1570,10 @@ input:checked+label:before {
   color: #152172;
   padding: 6px;
   align-items: center;
-  cursor: pointer;
+ 
+}
+.swap_inn_block span {
+  color: #fff;
 }
 
 .swap_inn_block.active {
@@ -1578,7 +1581,7 @@ input:checked+label:before {
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   color: #fff;
-  cursor: default;
+  
 }
 
 .swap_inn_block.active svg path {
@@ -2086,4 +2089,12 @@ br {
 }
 .jax_title_input.active{
   display: inline-block;
+}
+.sep_link {
+  cursor: pointer;
+
+}
+.swap_inn_block .ext_link_icon_wr {
+  margin: 0 5px;
+  color: #eaa337;
 }

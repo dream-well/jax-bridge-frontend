@@ -11,10 +11,15 @@ let contract_addresses = {
     wjxn2: '0xbc715f003608D0fA0c939300cD5c9e17C71b8af7',
     wjxn: '0xBC04b1cEEE41760CBd84d3D58Db57a13c95B8107',
     wjax: '0x643aC3E0cd806B1EC3e2c45f9A5429921422Cd74',
+    jxn_bsc2: '0x0C125F87A6AdbbF006674db777B00eA7F4D06E4C',
     jxn_bsc: '0xD0DDF85194917E695D5Eb1d5Ebb69398a44D9C93',
     bsc_jxn: '0x27ea60159708d637948805bBCF980fC3a3e92DE9',
     jax_bsc: '0x1C57fa0DC55a84cE235a8624d8F3Cc36963aCB2F',
     bsc_jax: '0xC3FD6eb16841d47D6a3Bfa8beDFFA26F9d4a8D95'
+}
+
+function get_contract_address() {
+
 }
 
 let decimals = {

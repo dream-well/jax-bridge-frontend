@@ -43,7 +43,7 @@ function get_status() {
 
 async function _jxn_bsc() {
     const web3 = new Web3(networks.bsc.url);
-    let contract = new web3.eth.Contract(abis.jxn_bsc, contract_addresses.jxn_bsc);
+    let contract = new web3.eth.Contract(abis.jxn_bsc, contract_addresses.jxn_bsc2);
     let status;
     try {
         let request = await callSmartContract(contract, "requests", [request_id]);

@@ -21,7 +21,7 @@ async function swap() {
         await _mint_wjxn2(amountIn);
     }
     else {
-        amountIn = parseInt(amountIn / 1e8);
+        amountIn = parseInt(amountIn);
         await _burn_wjxn2(amountIn);
     }
     // $("#amountIn").val("");

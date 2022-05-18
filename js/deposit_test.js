@@ -49,7 +49,7 @@ async function accountChanged() {
 
 async function _jxn_bsc() {
     const web3 = new Web3(networks.bsc.url);
-    let contract = new web3.eth.Contract(abis.jxn_bsc, contract_addresses.jxn_bsc);
+    let contract = new web3.eth.Contract(abis.jxn_bsc, contract_addresses.jxn_bsc2);
     try {
         let { amount, from, deposit_address_id, status, valid_until } = await callSmartContract(contract, "requests", [request_id]);
         console.log(amount, from, deposit_address_id, status);
@@ -121,7 +121,7 @@ function check_timestamp() {
 async function submit_txhash() {
     let txHash = $("#txHash").val();
     if(txHash == "") return;
-    let contract = new web3.eth.Contract(mode == "jax_bsc" ? abis.jax_bsc : abis.jxn_bsc, mode == "jax_bsc"? contract_addresses.jax_bsc : contract_addresses.jxn_bsc);
+    let contract = new web3.eth.Contract(mode == "jax_bsc" ? abis.jax_bsc : abis.jxn_bsc, mode == "jax_bsc"? contract_addresses.jax_bsc : contract_addresses.jxn_bsc2);
     const msg = web3.utils.soliditySha3(
         {t: 'string', v: txHash},
       ).toString('hex');

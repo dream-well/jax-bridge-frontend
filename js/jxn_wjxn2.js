@@ -160,7 +160,7 @@ async function approve() {
     let network1 = get_network1();
     if(get_token() == "jxn") {
         if(network1 == "jax")
-            bridge_address = contract_addresses.jxn_bsc;
+            bridge_address = contract_addresses.jxn_bsc2;
         else
             bridge_address = contract_addresses.bsc_jxn;
     }
@@ -310,7 +310,7 @@ function check_visible() {
 async function bridge_jxn_bsc(amountIn, to, from) {
     const func = 'create_request';
     // address to, uint destChainId, uint amount, uint nonce, bytes calldata signature
-    let contract = new web3.eth.Contract(abis.jxn_bsc, contract_addresses.jxn_bsc);
+    let contract = new web3.eth.Contract(abis.jxn_bsc, contract_addresses.jxn_bsc2);
     await update_status(contract);
     // const msg = web3.utils.soliditySha3(
     //     {t: 'uint', v: request_id},

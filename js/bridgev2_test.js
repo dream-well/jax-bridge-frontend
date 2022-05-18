@@ -33,8 +33,8 @@ void async function main() {
 
 function init_swap_inn_block() {
     $(".swap_inn_block").click(function() {
-        $(".swap_inn_block").removeClass('active');
-        $(this).addClass('active');
+        // $(".swap_inn_block").removeClass('active');
+        // $(this).addClass('active');
         let token = $(this).data('token');
         if(token == "jax") {
             $(".option-jxn").hide();

@@ -178,11 +178,11 @@ h4 {
   color: #fff !important;
   border: 0;
   top: 55px;
-  left: -185%;
+  left: -205%;
   right: -100%;
   margin: auto;
   border-radius: 0px;
-  width: 460px;
+  width: 500px;
   border-radius: 7px;
 }
 .dropdown-menu:before {
@@ -216,7 +216,7 @@ h4 {
   margin-bottom: 5px;
   position: relative;
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   font-weight: bold;
 

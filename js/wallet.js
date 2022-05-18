@@ -485,5 +485,5 @@ function is_wrong_network() {
 
 function active_network() {
     let active =  $("#chainSelector").val();
-    return active ? active : "bsc";
+    return active ? active : "bsctestnet";
 }

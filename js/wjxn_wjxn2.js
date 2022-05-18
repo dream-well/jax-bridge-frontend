@@ -94,6 +94,7 @@ function onAmountInChanged() {
     if(is_wjxn_to_wjxn2) 
         amountOut = amountIn;
     else amountOut = Math.floor(amountIn);
+    if(isNaN(amountIn)) amountOut = 0;
     $("#amountOut").html(amountOut.toLocaleString());
 }
 

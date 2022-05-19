@@ -125,7 +125,7 @@ function swap_currency() {
     let bro = _get_amount_out();
     is_wjxn_to_wjxn2 = !is_wjxn_to_wjxn2;
     if(is_wjxn_to_wjxn2) {
-        $("#token1 img").attr("src", "img/jxnLogo.png");
+        $("#token1 img").attr("src", "img/jaxnet_circle.png");
         $("#token1 .token_name").html("WJXN");
         $("#token2 img").attr("src", "img/jxnLogo.png");
         $("#token2 .token_name").html("WJXN-2");
@@ -133,7 +133,7 @@ function swap_currency() {
     else {
         $("#token1 img").attr("src", "img/jxnLogo.png");
         $("#token1 .token_name").html("WJXN-2");
-        $("#token2 img").attr("src", "img/jxnLogo.png");
+        $("#token2 img").attr("src", "img/jaxnet_circle.png");
         $("#token2 .token_name").html("WJXN");
     }
     $("#amountIn").val(bro);

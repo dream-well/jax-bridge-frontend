@@ -52,13 +52,13 @@ async function deposit() {
 }
 
 async function approve() {
-    let contract = new web3.eth.Contract(erc20ABI, contract_addresses[active_token]);
+    let contract = new web3.eth.Contract(erc20ABI, get_contract_address(active_token));
     if((await check_allowance()) != true)
         approve_token("WJXN", contract, contract_addresses[`${active_token}_` + active_network()], maxUint);
 }
 
 async function check_allowance() {
-    let contract = new web3.eth.Contract(erc20ABI, contract_addresses[active_token]);
+    let contract = new web3.eth.Contract(erc20ABI, get_contract_address(active_token));
     let allowance = await callSmartContract(contract, "allowance", [accounts[0], contract_addresses[`${active_token}_` + active_network()]]);
     return allowance >= 500;
 }

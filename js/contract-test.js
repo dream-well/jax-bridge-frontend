@@ -7,7 +7,7 @@ let contract_addresses = {
     wjxn_bsc: '0xb7B23a4c8F07E6eaBD4afDBF6FF05FbC2A99D63f',
     wjxn_avatestnet: '0x35e9B16946a8fDcEfC3a9c9092F876276499a1C4',
     wjax_bsc: '0x363E3Ca3712B043F18200d693d5e69D394930e95',
-    wjax_avatestnet: '0x4708FEaf9f67AF7C8C4cFacad62e0cE9e8811484',
+    wjax_avatestnet: '0xd38078B65BaEE77e5a87c2af68DC74F97c21B7ed',
     wjxn2: '0xbc715f003608D0fA0c939300cD5c9e17C71b8af7',
     wjxn: '0xBC04b1cEEE41760CBd84d3D58Db57a13c95B8107',
     wjax: '0x643aC3E0cd806B1EC3e2c45f9A5429921422Cd74',
@@ -16,13 +16,15 @@ let contract_addresses = {
     bsc_jxn: '0x27ea60159708d637948805bBCF980fC3a3e92DE9',
     jax_bsc: '0x1C57fa0DC55a84cE235a8624d8F3Cc36963aCB2F',
     bsc_jax: '0x992b31837163be155757d067B3B5b4655cB63520',
-    avalanche: {
+    avatestnet: {
         wjax: '0xb02801F6d0A76751a60881d2EA027eE0Eb9a99b9'
     }
 }
 
-function get_contract_address() {
-    
+function get_contract_address(name) {
+    if(!contract_addresses[active_network()]) return contract_addresses[name];
+    if(!contract_addresses[active_network()][name]) return contract_addresses[name];
+    return contract_addresses[active_network()][name]
 }
 
 let decimals = {

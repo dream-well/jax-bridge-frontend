@@ -21,7 +21,7 @@ async function deposit() {
     if(accounts.length == 0){
         connect_wallet();
     }
-    const amountIn = $("#amountIn").val();
+    let amountIn = $("#amountIn").val();
     const from = $("#from").val();
     const to = $("#to").val();
     let srcChainId = networks[network1].chainId;

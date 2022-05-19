@@ -15,11 +15,14 @@ let contract_addresses = {
     jxn_bsc: '0xD0DDF85194917E695D5Eb1d5Ebb69398a44D9C93',
     bsc_jxn: '0x27ea60159708d637948805bBCF980fC3a3e92DE9',
     jax_bsc: '0x1C57fa0DC55a84cE235a8624d8F3Cc36963aCB2F',
-    bsc_jax: '0xC3FD6eb16841d47D6a3Bfa8beDFFA26F9d4a8D95'
+    bsc_jax: '0x992b31837163be155757d067B3B5b4655cB63520',
+    avalanche: {
+        wjax: '0xb02801F6d0A76751a60881d2EA027eE0Eb9a99b9'
+    }
 }
 
 function get_contract_address() {
-
+    
 }
 
 let decimals = {

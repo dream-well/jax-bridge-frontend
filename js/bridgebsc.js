@@ -30,7 +30,7 @@ async function deposit() {
     // address to, uint destChainId, uint amount, uint nonce, bytes calldata signature
     let contract = new web3.eth.Contract(jaxBridgeEvmABI, contract_addresses[`${active_token}_` + active_network()]);
 
-
+    amountIn = parseUnit(amountIn, decimals[active_token]);
     const args = [destChainId, amountIn];
     const {success, gas, message} = await estimateGas(contract, func, args);
     if(!success) {

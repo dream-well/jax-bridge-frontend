@@ -123,7 +123,7 @@ function swap_currency() {
     let amountOut = _get_amount_out();
     is_wjxn_to_hst = !is_wjxn_to_hst;
     if(is_wjxn_to_hst) {
-        $("#token1 img").attr("src", "img/jxnLogo.png");
+        $("#token1 img").attr("src", "img/jaxnet_circle.png");
         $("#token1 .token_name").html("WJXN");
         $("#token2 img").attr("src", "img/hst.png");
         $("#token2 .token_name").html("HST");
@@ -131,7 +131,7 @@ function swap_currency() {
     else {
         $("#token1 img").attr("src", "img/hst.png");
         $("#token1 .token_name").html("HST");
-        $("#token2 img").attr("src", "img/jxnLogo.png");
+        $("#token2 img").attr("src", "img/jaxnet_circle.png");
         $("#token2 .token_name").html("WJXN");
     }
     $("#amountIn").val(amountOut);

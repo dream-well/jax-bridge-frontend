@@ -72,6 +72,14 @@ let tokens = {
         image: 'https://beta.jax.money/img/wjxn.png',
         address: '0xcA1262e77Fb25c0a4112CFc9bad3ff54F617f2e6'
     },
+    "WJXN2": {
+        decimals: 0,
+        approval: true,
+        code: 'wjxn2',
+        exchanges: ["VRP"],
+        image: 'https://beta.jax.money/img/wjxn.png',
+        address: '0x643D58cF4AF8f5fa32139981d85B8629802Bcd5E'
+    },
     "WJAX": {
         decimals: 4,
         approval: true,

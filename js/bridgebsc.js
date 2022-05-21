@@ -107,21 +107,7 @@ async function update_state() {
     let fee_amount = amountIn * fee_percent;
     if(fee_amount < minimum_fee_amount) fee_amount = minimum_fee_amount;
     fee_amount = parseInt(fee_amount);
-    if(network1 == "avatestnet") {
-        if(network2 == "bsc")
-            amountOut = Math.max(amountIn - fee_amount, 0);
-        else
-            amountOut = Math.max(amountIn - fee_amount, 0);
-    }
-    if(network1 == "bsc") {
-        if(network1 == "avatestnet")
-            amountOut = amountIn;
-        else
-            amountOut = amountIn - 15;
-    }
-    if(network1 == "jax") {
-        amountOut = Math.max(amountIn - fee_amount, 0);
-    }
+    amountOut = Math.max(amountIn - fee_amount, 0);
     if(amountOut < 0) amountOut = 0;
     $("#amountOut").val(amountOut);
 }

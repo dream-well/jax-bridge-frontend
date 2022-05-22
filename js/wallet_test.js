@@ -78,7 +78,8 @@ let chains = {
     4: "rinkeby",
     56: "bscmainnet",
     97: "bsctestnet",
-    43113: "avatestnet"
+    43113: "avatestnet",
+    80001: "polygontestnet"
 }
 
 let tokens = {

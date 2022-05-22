@@ -40,17 +40,32 @@ async function get_deposit_info() {
         dest_web3 = new Web3(networks[dest_network].url);
         let dest_contract = new dest_web3.eth.Contract(jaxBridgeEvmABI, contract_addresses[active_token + "_" + dest_network]);
         let processed = await callSmartContract(dest_contract, "proccessed_deposit_hashes", deposit_hash);
-        let { status } = await callSmartContract(dest_contract, "foreign_requests", deposit_hash);
+        let status = 0;
+        try{
+            let request = await callSmartContract(dest_contract, "foreign_requests", deposit_hash);
+            status = request.status;
+        }
+        catch(e) {
+
+        }
+        //{Init, Proved, Verified, Released, Completed}
+        
         let text, color;
-        switch(processed) {
-            case false:
+        switch(status) {
+            case 0:
                 text = "PENDING";
+                color = "red";
+                break;
+            case 2:
+                text = "VERIFIED";
                 color = "blue";
                 break;
-            case true:
-                text = "BRIDGED";
+            case 3:
+                text = "EXECUTED";
+                color = "purple";
+            case 4:
+                text = "COMPLETED";
                 color = "green";
-                break;
         }
         $("#status").html(text)
         $("#status").css("color", color);

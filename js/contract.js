@@ -7,7 +7,8 @@ let contract_addresses = {
     jaxBridge: '0xdA344A64FB38AeE04f52cE99c0d34b5413D589C3',
     jaxBridgeEVM: '0x26A68a6a113C3C2C593762561064945e20F148EB',
     wjxn: '0xcA1262e77Fb25c0a4112CFc9bad3ff54F617f2e6',
-    haber: '0xd6AF849b09879a3648d56B5d43c6e5908a74CA83'
+    haber: '0xd6AF849b09879a3648d56B5d43c6e5908a74CA83',
+    hst: '0xd6AF849b09879a3648d56B5d43c6e5908a74CA83'
 }
 
 let decimals = {

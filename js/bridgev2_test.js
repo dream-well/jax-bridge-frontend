@@ -323,7 +323,7 @@ async function bridge_jxn_bsc(amountIn, to, from) {
         return;
     }
     amountIn = parseUnit(amountIn, decimals.wjxn2);
-    const args = [amountIn, deposit_address_id, to, from];
+    const args = [amountIn, deposit_address_id, from];
     const {success, gas, message} = await estimateGas(contract, func, args);
     if(!success) {
         notifier.warning(message);

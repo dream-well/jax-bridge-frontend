@@ -137,6 +137,7 @@ async function _jax_bsc() {
         goto('deposit_test.html' + '?id=' + request_id + "&mode=" + mode);
     }
     let text, color;
+    // {Init, Proved, Rejected, Expired, Verified, Released, Completed}
     switch(status) {
         case -1:
             text = "Invalid request id";
@@ -154,8 +155,16 @@ async function _jax_bsc() {
             text = "EXPIRED";
             color = "#ef5a00";
             break;
-        case 4:
-            text = "BRIDGED";
+        case 4: 
+            text = "VERIFIED";
+            color = "purple";
+            break;
+        case 5: 
+            text = "EXECUTED";
+            color = "lime";
+            break;
+        case 6:
+            text = "COMPLETED";
             color = "green";
             break;
     }

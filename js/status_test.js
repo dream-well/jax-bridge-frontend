@@ -123,7 +123,7 @@ async function _jax_bsc() {
     let status;
     try {
         let request = await callSmartContract(contract, "requests", [request_id]);
-        status = request.status;
+        status = parseInt(request.status);
         console.log(request);
         // let deposit_address = await callSmartContract(contract, "deposit_addresses", deposit_address_id);
         // console.log(deposit_address);

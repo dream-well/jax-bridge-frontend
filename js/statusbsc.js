@@ -52,18 +52,18 @@ async function get_deposit_info() {
         
         let text, color;
         switch(status) {
-            case 0:
+            case "0":
                 text = "PENDING";
                 color = "red";
                 break;
-            case 2:
+            case "2":
                 text = "VERIFIED";
                 color = "blue";
                 break;
-            case 3:
+            case "3":
                 text = "EXECUTED";
                 color = "purple";
-            case 4:
+            case "4":
                 text = "COMPLETED";
                 color = "green";
         }

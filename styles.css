@@ -224,7 +224,7 @@ h4 {
 dropdown-item.active, .dropdown-item:active {
   color: #fff;
   text-decoration: none;
-  background-color: none;
+  background-color: none !important;
 }
 .navbar .nav-item .nav-link {
   color: #fff !important;

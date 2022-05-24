@@ -5,7 +5,7 @@
 
 let contract_addresses = {
     wjxn_bsc: '0x5fF8AB8C949fCd4132bB5d24C5229a278743BeC0',
-    wjxn_polygontestnet: '0xa94F7f35d8E675af74E9194B5336adeFeE76dDbd',
+    wjxn_polygontestnet: '0xEf74F83ACfDfB2D9ec13942c6F23DE18c66bA1E3',
     wjax_bsc: '0x7B338D66abF75b481ae3E61c0afD6bc1Fc0c6055',
     wjax_polygontestnet: '0xf4eF6d0e30Bec017DaD989d52Df541E8e7EEe554',
     wjxn2: '0xbc715f003608D0fA0c939300cD5c9e17C71b8af7',

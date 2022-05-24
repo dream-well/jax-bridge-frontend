@@ -58,11 +58,13 @@ let networks = {
     },
     polygonmainnet: {
         chainId: 0x89,
-        symbol: 'MATIC'
+        symbol: 'MATIC',
+        url: 'https://polygon-rpc.com/'
     },
     polygontestnet: {
         chainId: 0x13881,
-        symbol: 'MATIC'
+        symbol: 'MATIC',
+        url: 'https://speedy-nodes-nyc.moralis.io/cb02b6b8ff2cdd26f1db08a4/polygon/mumbai'
     },
     avatestnet: {
         chainId: 0xa869,

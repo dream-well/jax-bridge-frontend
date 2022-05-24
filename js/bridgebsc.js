@@ -102,6 +102,7 @@ async function select_max_balance() {
         return;
     }
     $("#amountIn").val(balance);
+    update_state();
 }
 
 async function update_state() {

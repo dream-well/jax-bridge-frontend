@@ -20,7 +20,9 @@ let provider;
 let networks = {
     ethereum: {
         chainId: 0x1,
-        symbol: 'ETH'
+        symbol: 'ETH',
+        blockExplorer: 'https://etherscan.io',
+        url: 'https://cloudflare-eth.com'
     },
     bsc: {
         chainId: 0x38,
@@ -55,68 +57,13 @@ let networks = {
 
 }
 
-let tokens = {
-    "BUSD": {
-        decimals: 18,
-        approval: true,
-        code: 'busd',
-        approval: true,
-        exchanges: ["JAXUD", "JAXRE", "WJAX"],
-        image: 'https://beta.jax.money/img/busd_logo.png'
-    },
-    "WJXN": {
-        decimals: 0,
-        approval: true,
-        code: 'wjxn',
-        exchanges: ["VRP"],
-        image: 'https://beta.jax.money/img/wjxn.png',
-        address: '0xcA1262e77Fb25c0a4112CFc9bad3ff54F617f2e6'
-    },
-    "WJXN2": {
-        decimals: 0,
-        approval: true,
-        code: 'wjxn2',
-        exchanges: ["VRP"],
-        image: 'https://beta.jax.money/img/wjxn.png',
-        address: '0x643D58cF4AF8f5fa32139981d85B8629802Bcd5E'
-    },
-    "WJAX": {
-        decimals: 4,
-        approval: true,
-        code: 'wjax',
-        exchanges: ["JAXUD", "BUSD"],
-        image: 'https://beta.jax.money/img/jax.png'
-    },
-    "VRP": {
-        decimals: 18,
-        approval: true,
-        code: 'vrp',
-        exchanges: ["WJXN"],
-        image: 'https://beta.jax.money/img/j-usd.png'
-    },
-    "JAXUD": {
-        decimals: 18,
-        approval: true,
-        code: 'jusd',
-        exchanges: ["WJAX", "JAXRE", "BUSD"],
-        image: 'https://beta.jax.money/img/j-usd.png'
-    },
-    "JAXRE": {
-        decimals: 18,
-        approval: true,
-        code: 'jinr',
-        exchanges: ["JAXUD", "BUSD"],
-        image: 'https://beta.jax.money/img/j-inr.png'
-    },
-    "HST": {
-        decimals: 0,
-        approval: false,
-        code: 'hst',
-        exchanges: [],
-        image: 'https://wrapped.jax.net/img/hst.png',
-        address: '0xd6AF849b09879a3648d56B5d43c6e5908a74CA83'
-    }
-
+let chains = {
+    1: "ethereum",
+    4: "rinkeby",
+    56: "bsc",
+    97: "bsctestnet",
+    43113: "avatestnet",
+    80001: "polygontestnet"
 }
 
 
@@ -375,100 +322,6 @@ function set_connected_address() {
     $(".btn_connect").removeClass("btn-info");
     $(".btn_connect").removeClass("btn-danger");
     $(".btn_connect").addClass("btn-success");
-}
-
-async function get_balance_token(token, id) {
-    if (accounts.length == 0) return 0;
-    if(!contracts) return 0;
-    let contract = new web3.eth.Contract(minABI, tokens[token].address);
-    const [balance, decimals] = await Promise.all([
-            contract.methods.balanceOf(accounts[0]).call(),
-            contract.methods.decimals().call()
-        ])
-    let real_balance = parseInt(balance) / (10 ** decimals);
-    $(`#${id}`).html(`Balance: ${floor(real_balance, 2)} ${token}`)
-    return balance;
-}
-
-function floor(n, digit) {
-    str = n.toFixed(17)
-    a = str.split(".")
-    if (Number(a[1]) == 0)
-        return a[0]
-    return a[0] + "." + a[1].replace(/0+$/, "").substr(0, digit)
-}
-
-function toUint(amount, decimals) {
-    const splits = amount.split(".")
-    if (splits.length == 1) splits[1] = "";
-    splits[1] = splits[1].substr(0, decimals);
-    return splits[0] + splits[1] + "0".repeat(decimals - splits[1].length)
-}
-
-function fromUint(amount, decimals) {
-    return parseFloat(amount) / (10 ** decimals)
-}
-
-async function show_reserves() {
-    const { data } = await axios.get('/api/reserves')
-    Object.keys(data).map(key => {
-        $(`#${key}`).html(data[key])
-    });
-}
-
-async function get_balance_of(token, address) {
-    let contract = new web3.eth.Contract(minABI, tokens[token].address);
-    const balance = await contract.methods.balanceOf(address).call();
-    return balance;
-}
-
-async function get_total_supply(token) {
-    let contract = new web3.eth.Contract(minABI, tokens[token].address);
-    const [total_supply, decimals] = await Promise.all([
-        contract.methods.totalSupply().call(),
-        contract.methods.decimals().call()
-    ])
-    return total_supply / (10 ** decimals);
-}
-
-
-async function get_fees() {
-    get_exchange_rates();
-
-    const { data } = await axios.get('/api/fees');
-
-    Object.keys(data).forEach(each => {
-        $(`#${each}`).html(data[each] * 100 + "%")
-    })
-
-}
-
-function get_tx_fee(token) {
-    let contract = new web3.eth.Contract(minABI, tokens[token].address);
-    return contract.methods.transaction_fee().call()
-}
-
-async function get_exchange_rates() {
-    const { data } = await axios.get('/api/exchange_rates')
-
-    Object.keys(data).forEach(id => {
-        $(`#${id}`).html(floor(data[id], 8));
-    })
-}
-
-// ?input=WJAX&output=JAXUD
-function pre_select_currency() {
-    const query = window.location.search;
-    if (query.length <= 1) return;
-    const params = query.substr(1).split("&");
-    const input = params[0].split('=')[1]
-    const output = params[1].split('=')[1]
-    if (Object.keys(tokens).indexOf(input) < 0)
-        return;
-    if (tokens[input].exchanges.indexOf(output) < 0)
-        return;
-    $("#token_1").val(input);
-    on_token_changed({ target: $("#token_1")[0] }, output)
 }
 
 async function add_to_wallet(token) {

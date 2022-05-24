@@ -4,8 +4,8 @@
 // } testnet
 
 let contract_addresses = {
-    wjxn_bsc: '0xdC944eAFd518CCac9EB8143728d7dDF84BD9bAa4',
-    wjxn_avatestnet: '0x35e9B16946a8fDcEfC3a9c9092F876276499a1C4',
+    wjxn_bsc: '0x5fF8AB8C949fCd4132bB5d24C5229a278743BeC0',
+    wjxn_polygontestnet: '0xa94F7f35d8E675af74E9194B5336adeFeE76dDbd',
     wjax_bsc: '0x7B338D66abF75b481ae3E61c0afD6bc1Fc0c6055',
     wjax_polygontestnet: '0xf4eF6d0e30Bec017DaD989d52Df541E8e7EEe554',
     wjxn2: '0xbc715f003608D0fA0c939300cD5c9e17C71b8af7',
@@ -16,12 +16,14 @@ let contract_addresses = {
     bsc_jxn: '0xfd420bE2Eb398a859C241bF50BD7430c32685b4d',
     jax_bsc: '0x97E639B1353151b6d448A281A4e501aE4C514eAB',
     bsc_jax: '0xd75e269B49566b2F5b953486CFBCb6b0C695A4cb',
-    wjxn2_jxn: '0x821205FD46ea27CDc50Ff88BBaEd9f660c361EeC',
+    wjxn2_jxn: '0xFB70DA2F33c5B9ba01617b27B5FfC26644f84654',
+    wjax_jax: '0xeBF9a6981A9Ad12C610f1449801E4C50d4df0dD7',
     avatestnet: {
         wjax: '0xb02801F6d0A76751a60881d2EA027eE0Eb9a99b9'
     },
     polygontestnet: {
-        wjax: '0x2b66837c742fcA971bF4261d6AfEB67d66E32BdD'
+        wjax: '0x2b66837c742fcA971bF4261d6AfEB67d66E32BdD',
+        wjxn: '0x40A17c0C24cA0187f4D87826231c0319D9599fC3'
     }
 }
 

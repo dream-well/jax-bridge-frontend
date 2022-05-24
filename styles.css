@@ -2102,3 +2102,10 @@ br {
   margin: 0 5px;
   color: #eaa337;
 }
+
+.ellipse {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  display: block;
+}

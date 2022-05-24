@@ -41,8 +41,9 @@ async function get_deposit_info() {
         let dest_contract = new dest_web3.eth.Contract(jaxBridgeEvmABI, contract_addresses[active_token + "_" + dest_network]);
         let processed = await callSmartContract(dest_contract, "proccessed_deposit_hashes", [src_chain_data_hash]);
         let status = 0;
+        let request;
         try{
-            let request = await callSmartContract(dest_contract, "foreign_requests", [src_chain_data_hash]);
+            request = await callSmartContract(dest_contract, "foreign_requests", [src_chain_data_hash]);
             status = request.status;
         }
         catch(e) {
@@ -63,9 +64,18 @@ async function get_deposit_info() {
             case "3":
                 text = "EXECUTED";
                 color = "purple";
+                break;
             case "4":
                 text = "COMPLETED";
                 color = "green";
+                $("#deposit_tx_link").html(make_a_tag(request.deposit_tx_link));
+                $("#release_tx_link").html(make_a_tag(request.release_tx_link));
+                $(".tx_hash").show();
+                break;
+            case "5":
+                text = "REJECTED";
+                color = "grey";
+                break;
         }
         $("#status").html(text)
         $("#status").css("color", color);
@@ -73,4 +83,8 @@ async function get_deposit_info() {
         goto404();
     }
 
+}
+
+function make_a_tag(url) {
+    return `<a href="${url}" target="_blank">${url}</a>`
 }

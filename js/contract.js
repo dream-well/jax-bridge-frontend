@@ -9,8 +9,8 @@ let contract_addresses = {
     wjxn: '0xcA1262e77Fb25c0a4112CFc9bad3ff54F617f2e6',
     haber: '0xd6AF849b09879a3648d56B5d43c6e5908a74CA83',
     hst: '0xd6AF849b09879a3648d56B5d43c6e5908a74CA83',
-    wjxn_bsc: '0x7B338D66abF75b481ae3E61c0afD6bc1Fc0c6055',
-    wjxn_ethereum: '0xf4eF6d0e30Bec017DaD989d52Df541E8e7EEe554',
+    wjxn_bsc: '0x5B97aa5CF0669C788c79A12065c25c918056489D',
+    wjxn_ethereum: '0xA581cb3883d84dAb7f1B1340fF01F1cB34A2B5d3',
 }
 
 function get_contract_address(name) {

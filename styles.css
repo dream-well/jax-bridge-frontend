@@ -221,7 +221,11 @@ h4 {
   font-weight: bold;
 
 }
-
+.dropdown-item.active, .dropdown-item:active {
+  color: #fff;
+  text-decoration: none;
+  background-color: transparent !important;
+}
 .navbar .nav-item .nav-link {
   color: #fff !important;
 }

@@ -87,6 +87,12 @@ async function check_status() {
         $("#btn_approve").show();
         $("#btn_deposit").attr("disabled", true);
     }
+    update_balance();
+}
+
+async function update_balance() {
+    let contract = new web3.eth.Contract(erc20ABI, get_contract_address(active_token));
+    $("#balance").html(await get_balance(contract, decimals[active_token]));
 }
 
 async function update_state() {

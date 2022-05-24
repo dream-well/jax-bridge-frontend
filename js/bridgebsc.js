@@ -95,6 +95,15 @@ async function update_balance() {
     $("#balance").html(await get_balance(contract, decimals[active_token]));
 }
 
+async function select_max_balance() {
+    let contract = new web3.eth.Contract(erc20ABI, get_contract_address(active_token));
+    let balance = await get_balance(contract, decimals[active_token]);
+    if(balance < 1000) {
+        return;
+    }
+    $("#amountIn").val(balance);
+}
+
 async function update_state() {
     let network1 = $("#network1").val();
     let network2 = $("#network2").val();

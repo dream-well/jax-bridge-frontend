@@ -75,7 +75,6 @@ async function update_fee() {
     let destChainId = networks[network2].chainId;
     fee_percent = formatUnit(await contract.methods.fee_percent(destChainId).call(), 8);
     minimum_fee_amount = formatUnit(await contract.methods.minimum_fee_amount(destChainId).call(), decimals[active_token]);
-    $("#fee").html(parseInt(fee_percent * 100) + "% or " + minimum_fee_amount);
     update_state();
 }
 
@@ -134,6 +133,7 @@ async function update_state() {
     amountOut = Math.max(amountIn - fee_amount, 0);
     if(amountOut < 0) amountOut = 0;
     $("#amountOut").val(amountOut);
+    $("#fee").html(fee_amount);
 }
 
 function accountChanged() {

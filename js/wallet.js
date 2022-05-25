@@ -176,7 +176,8 @@ async function onConnect() {
 
 void function main() {
 
-
+    $(".money").on('keydown', money_validator);
+    
     $(".copy_btn").on('click', function () {
         let id = $(this).data('id');
         let text = $("#" + id).html();
@@ -347,4 +348,9 @@ function is_wrong_network() {
 function active_network() {
     let active =  $("#chainSelector").val();
     return active ? active : "bsctestnet";
+}
+
+function money_validator(e) {
+    if(e.key == "-")
+        e.preventDefault();
 }

@@ -2122,3 +2122,7 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
+
+.dropdown-menu.show {
+  border: 1px solid #0215c5;
+}

@@ -8,9 +8,9 @@ let minimum_fee_amount = 15;
 
 void async function main() {
     $("#amountIn").on('input', update_state)
-    $("#network1").on('change', update_state)
-    $("#network2").on('change', update_state)
-    update_state();
+    $("#network1").on('change', update_fee)
+    $("#network2").on('change', update_fee)
+    update_fee();
     setInterval(check_status, 3000);
     check_status();
 }()
@@ -54,6 +54,29 @@ async function deposit() {
         
     })
     
+}
+
+async function update_fee() {
+    let network1 = $("#network1").val();
+    let network2 = $("#network2").val();
+    let activeChain = $("#chainSelector").val();
+    if(network1 == network2) {
+        let currentIndex = $("#network1")[0].selectedIndex;
+        $("#network2")[0].selectedIndex = (currentIndex + 1) % 2;
+    }
+    if(network1 != "jax" && network1 != activeChain) {
+        $("#chainSelector").val(network1);
+        $("#chainSelector").trigger("change");
+    }
+    network2 = $("#network2").val();
+    $("#fee").html("-");
+    let web3 = new Web3(networks[network1].url);
+    let contract = new web3.eth.Contract(jaxBridgeEvmABI, contract_addresses[`${active_token}_` + active_network()]);
+    let destChainId = networks[network2].chainId;
+    fee_percent = formatUnit(await contract.methods.fee_percent(destChainId).call(), 8);
+    minimum_fee_amount = formatUnit(await contract.methods.minimum_fee_amount(destChainId).call(), decimals[active_token]);
+    $("#fee").html(parseInt(fee_percent * 100) + "% or " + minimum_fee_amount);
+    update_state();
 }
 
 async function approve() {
@@ -103,18 +126,6 @@ async function select_max_balance() {
 }
 
 async function update_state() {
-    let network1 = $("#network1").val();
-    let network2 = $("#network2").val();
-    let activeChain = $("#chainSelector").val();
-    if(network1 == network2) {
-        let currentIndex = $("#network1")[0].selectedIndex;
-        $("#network2")[0].selectedIndex = (currentIndex + 1) % 2;
-    }
-    if(network1 != "jax" && network1 != activeChain) {
-        $("#chainSelector").val(network1);
-        $("#chainSelector").trigger("change");
-    }
-    network2 = $("#network2").val();
     let amountIn = $("#amountIn").val();
     let amountOut;
     let fee_amount = amountIn * fee_percent;

@@ -163,5 +163,5 @@ function reverse_networks() {
     let network2 = $("#network2").val();
     $("#network1").val(network2);
     $("#network2").val(network1);
-    update_state();
+    update_fee();
 }

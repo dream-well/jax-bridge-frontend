@@ -8,6 +8,7 @@ void async function main() {
     $("#link").html(location.href);
     
     parseQuery();
+    setInterval(get_deposit_info, 1000);
 }()
 
 function parseQuery() {
@@ -76,6 +77,9 @@ async function get_deposit_info() {
                 text = "REJECTED";
                 color = "grey";
                 break;
+        }
+        if(status != "4") {
+            $(".tx_hash").hide();
         }
         $("#status").html(text)
         $("#status").css("color", color);

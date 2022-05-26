@@ -4,6 +4,8 @@ void async function main() {
     $("#link").html(location.href);
     
     parseQuery();
+
+    setInterval(get_request_info, 1000);
 }()
 
 function parseQuery() {
@@ -11,7 +13,7 @@ function parseQuery() {
     const paramList = query.split("&");
     const params = paramList.reduce((a, b) => Object.assign(a, {[b.split('=')[0]]: b.split('=')[1] }), {});
     if(Object.keys(params).includes("id")){
-        get_request_info(params.id);
+        get_request_info();
         request_id = params.id;
         $("#request_id").html(request_id);
     }
@@ -20,7 +22,7 @@ function parseQuery() {
 }
 
 
-async function get_request_info(request_id) {
+async function get_request_info() {
     const web3 = new Web3(networks.bsc.url);
     let contract = new web3.eth.Contract(jaxBridgeABI, contract_addresses.jaxBridge);
     try {

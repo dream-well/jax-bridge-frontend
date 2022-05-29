@@ -7,7 +7,7 @@ async function approve() {
         return;
     }
     let contract = new web3.eth.Contract(erc20ABI, contract_addresses.wjxn);
-    await runContract(contract, "approve", [contract_addresses.wjxn2, MAX_UINT], {confirmationTitle: "Approving WJXN", pendingTitle: "Approving WJXN"})
+    await runContract(contract, "approve", [get_contract_address('wjxn2'), MAX_UINT], {confirmationTitle: "Approving WJXN", pendingTitle: "Approving WJXN"})
     check_status();
 }
 
@@ -29,12 +29,12 @@ async function swap() {
 }
 
 function _mint_wjxn2(amount) {
-    let contract = new web3.eth.Contract(abis.wjxn2, contract_addresses.wjxn2);
+    let contract = new web3.eth.Contract(abis.wjxn2, get_contract_address('wjxn2'));
     return runContract(contract, "swapWjxnToWjxn2", [amount], {confirmationTitle: "Swapping WJXN to wjxn2", pendingTitle: "Swapping WJXN to wjxn2"})
 }
 
 function _burn_wjxn2(amount) {
-    let contract = new web3.eth.Contract(abis.wjxn2, contract_addresses.wjxn2);
+    let contract = new web3.eth.Contract(abis.wjxn2, get_contract_address('wjxn2'));
     return runContract(contract, "swapWjxn2ToWjxn", [amount], {confirmationTitle: "Swapping WJXN to wjxn2", pendingTitle: "Swapping WJXN to wjxn2"});
 }
 
@@ -45,7 +45,7 @@ async function check_status() {
         $("#btn_swap").show();
         return;
     }
-    let allowance = await callSmartContract(new web3.eth.Contract(erc20ABI, contract_addresses.wjxn), "allowance", [accounts[0], contract_addresses.wjxn2]);
+    let allowance = await callSmartContract(new web3.eth.Contract(erc20ABI, contract_addresses.wjxn), "allowance", [accounts[0], get_contract_address('wjxn2')]);
     allowance = formatUnit(allowance);
     let amountIn = $("#amountIn").val();
     if(allowance == 0 || (amountIn && allowance < amountIn)) {

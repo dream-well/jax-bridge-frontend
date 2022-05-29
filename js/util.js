@@ -223,6 +223,6 @@ async function runContract(contract, func, args, options = {}) {
 
 async function get_token_balance(token_name) { 
     token_name = token_name.toLowerCase();
-    return await get_balance(new web3.eth.Contract(erc20ABI, contract_addresses[token_name]), decimals[token_name]);
+    return await get_balance(new web3.eth.Contract(erc20ABI, get_contract_address(token_name)), decimals[token_name]);
 
 }

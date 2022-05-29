@@ -2126,3 +2126,7 @@ input[type=number] {
 .dropdown-menu.show {
   border: 1px solid #0215c5;
 }
+.table-dark.table-striped tbody tr:nth-of-type(odd) {
+  background: #fff;
+  color: #0d0e3d;
+}

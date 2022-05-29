@@ -260,10 +260,10 @@
                                 <div class="col-4">
                                     <div class="form-group">
                                         <select class="form-control box-shadow1"  id="selectbox1" placeholder="WJAX (ERC-20)">
-                                          <option value="eth" >WJAX ERC-20 (ETH)</option>
-                                          <option value="bsc" selected>WJAX BEP-20 (BSC)</option>
-                                          <option value="polygontestnet" >WJAX Polygon (MATIC)</option>
-                                          <option value="avax">WJAX AVAX (AVAX)</option>
+                                          <option value="eth" >JAXRE ERC-20 (ETH)</option>
+                                          <option value="bsc" selected>JAXRE BEP-20 (BSC)</option>
+                                          <option value="polygontestnet" >JAXRE Polygon (MATIC)</option>
+                                          <option value="avax">JAXRE AVAX (AVAX)</option>
                                         </select>
                                     </div>
                                 </div>
@@ -286,10 +286,10 @@
                                 <div class="col-4">
                                     <div class="form-group">
                                         <select class="form-control box-shadow1" id="exampleFormControlSelect1">
-                                          <option value="eth" >WJAX ERC-20 (ETH)</option>
-                                          <option value="bsc" selected>WJAX BEP-20 (BSC)</option>
-                                          <option value="polygontestnet" >WJAX Polygon (MATIC)</option>
-                                          <option value="avax">WJAX AVAX (AVAX)</option>
+                                          <option value="eth" >JAXRE ERC-20 (ETH)</option>
+                                          <option value="bsc" selected>JAXRE BEP-20 (BSC)</option>
+                                          <option value="polygontestnet" >JAXRE Polygon (MATIC)</option>
+                                          <option value="avax">JAXRE AVAX (AVAX)</option>
                                         </select>
                                     </div>
                                 </div>
@@ -327,6 +327,134 @@
                     </div>
                 </div>
             </div>
+            <div class="row justify-content-center mb-3">
+              <div class="col-12 ">
+                  <div class="container">
+                      <div class="tab-content col-12 " id="pills-tabContent">
+                          <!-- bsc -->
+                          <div class="tab-pane fade show active" id="pills-bsc" role="tabpanel" aria-labelledby="pills-bsc-tab">
+                              <div class="col-12 swap_table_wrap">
+                                  <table class="table bridgetabs table-striped table-dark" style="border-radius: 15px;">
+                                      <thead>
+                                          <tr>
+                                              <th class="lineheight38">Currency</th>
+                                              <th class="lineheight38">Network</th>
+                                              <th class="rowclr lineheight38">Address</th>
+                                              <th class="lineheight38">Add to wallet</th>
+                                          </tr>
+                                      </thead>
+                                      <tbody>
+                                          <tr>
+                                              <td class="align-middle"><img class="curr_logo" src="img/jax.png"> JAXRE</td>
+                                              <td class="align-middle rowclra"> <span ><img src="img/binance.svg" style="width:20px" alt="">
+                                                BSC</span> </td>
+                                              <td class="align-middle rowclra"><span class="align-items-start float-left lineheight38 wjxn_address text_copy_link">0x86ECE7D9cdA927B3Ec4044Df67B082FA55A1c198</span> </td>
+                                              <td class="align-middle text-center"><span class="align-items-start float-left lineheight38"><a href="#" onclick="add_to_wallet('JAXRE')"><img style="width:25px;height:25px" src="img/metamask.svg" alt=""></a></span> </td>
+                                          </tr>
+                                          <tr>
+                                            <td class="align-middle"><img class="curr_logo" src="img/jax.png"> JAXRE</td>
+                          <td class="align-middle rowclra">                            <span><img src="img/Ethereum.svg" style="width:10px" alt=""> ETH</span>
+                                            </td>
+                                            <td class="align-middle rowclra"><span class="align-items-start float-left lineheight38 text_copy_link">0x88d7FE32284f1dBD398D58222DE8DFd87dD75460</span>
+                                            </td>
+                                            <td class="align-middle text-center"><span class="align-items-start float-left lineheight38"><a href="#" onclick="add_to_wallet('JAXRE')"><img style="width:25px;height:25px" src="img/metamask.svg" alt=""></a></span> </td>
+                                        </tr>
+                                          <tr>
+                                            <td class="align-middle"><img class="curr_logo" src="img/jax.png"> JAXRE</td>
+                                            <td class="align-middle rowclra">                            <span> <img src="img/avax.svg" style="width:20px" alt=""> AVAX</span>
+                                            </td>
+                                            <td class="align-middle rowclra"><span class="align-items-start float-left lineheight38">0x9E79696a4C1163D35f01d71DcbBc5C139691C6D3</span>
+                                            </td>
+                                            <td class="align-middle text-center"><span class="align-items-start float-left lineheight38"><a href="#" onclick="add_to_wallet('JAXRE')"><img style="width:25px;height:25px" src="img/metamask.svg" alt=""></a></span> </td>
+                                          </tr>
+                                          <tr>
+                                            <td class="align-middle"><img class="curr_logo" src="img/jax.png"> JAXRE</td>
+                                            <td class="align-middle rowclra">                            <span > <img src="img/polygon.png" style="width:20px" alt=""> Polygon</span>
+                                            </td>
+                                            <td class="align-middle rowclra"><span class="align-items-start float-left lineheight38">0xd85a8b4964850ae85121d5652e6f0696512feb10</span>
+                                            </td>
+                                            <td class="align-middle text-center"><span class="align-items-start float-left lineheight38"><a href="#" onclick="add_to_wallet('JAXRE')"><img style="width:25px;height:25px" src="img/metamask.svg" alt=""></a></span> </td>
+                                        </tr>
+                                      </tbody>
+                                  </table>
+                              </div>
+                          </div>
+                          <!-- eth -->
+                          <div class="tab-pane fade" id="pills-eth" role="tabpanel" aria-labelledby="pills-eth-tab">
+                              <div class="col-12 swap_table_wrap">
+                                  <table class="table bridgetabs table-striped table-dark" style="border-radius: 15px;">
+                                      <thead>
+                                          <tr>
+                                              <td class="lineheight38">Currency</td>
+                                              <td class="lineheight38">Network</td>
+                                              <td class="rowclr lineheight38">Address</td>
+                                              <td class="lineheight38">Add to wallet</td>
+                                          </tr>
+                                      </thead>
+                                      <tbody>
+                                          <tr>
+                                              <td class="align-middle"><img class="curr_logo" src="img/jax.png"> WJAX</td>
+                                              <td class="align-middle rowclra"><span class="align-items-start float-left lineheight38">Wrapped Jax</span> </td>
+                                              <td class="align-middle rowclra"><span class="align-items-start float-left lineheight38 text_copy_link">0x2Df380cD3eeB7F1Ee5deB087Fe9FbCF8959095Ee</span>
+                                              </td>
+                                              <td class="align-middle text-center"><span class="align-items-start float-left lineheight38"><a href="#" onclick="add_to_wallet('WJAX')"><img style="width:25px;height:25px" src="img/metamask.svg" alt=""></a></span> </td>
+                                          </tr>
+                                      </tbody>
+                                  </table>
+                              </div>
+                          </div>
+                          <!-- Avalanche -->
+                          <div class="tab-pane fade" id="pills-avax" role="tabpanel" aria-labelledby="pills-avax-tab">
+                              <div class="col-12 swap_table_wrap">
+                                  <table class="table bridgetabs table-striped table-dark" style="border-radius: 15px;">
+                                      <thead>
+                                          <tr>
+                                              <td class="lineheight38">Currency</td>
+                                              <td class="lineheight38">Network/td>
+                                              <td class="rowclr lineheight38">Address</td>
+                                              <td class="lineheight38">Add to wallet</td>
+                                          </tr>
+                                      </thead>
+                                      <tbody>
+                                          <tr>
+                                              <td class="align-middle"><img class="curr_logo" src="img/jax.png"> WJAX</td>
+                                              <td class="align-middle rowclra"><span class="align-items-start float-left lineheight38">Wrapped Jax</span> </td>
+                                              <td class="align-middle rowclra"><span class="align-items-start float-left lineheight38">0xdD32f4DBA92B04F2d4Ade25dFAD7a127027C379d</span>
+                                              </td>
+                                              <td class="align-middle text-center"><span class="align-items-start float-left lineheight38"><a href="#" onclick="add_to_wallet('WJAX')"><img style="width:25px;height:25px" src="img/metamask.svg" alt=""></a></span> </td>
+                                          </tr>
+                                      </tbody>
+                                  </table>
+                              </div>
+                          </div>
+                          <!-- polygon -->
+                          <div class="tab-pane fade" id="pills-polygon" role="tabpanel" aria-labelledby="pills-polygon-tab">
+                              <div class="col-12 swap_table_wrap">
+                                  <table class="table bridgetabs table-striped table-dark" style="border-radius: 15px;">
+                                      <thead>
+                                          <tr>
+                                              <td class="lineheight38">Currency</td>
+                                              <td class="lineheight38">Name</td>
+                                              <td class="rowclr lineheight38">Address</td>
+                                              <td class="lineheight38">Add to wallet</td>
+                                          </tr>
+                                      </thead>
+                                      <tbody>
+                                          <tr>
+                                              <td class="align-middle"><img class="curr_logo" src="img/jax.png"> WJAX</td>
+                                              <td class="align-middle rowclra"><span class="align-items-start float-left lineheight38">Wrapped Jax</span> </td>
+                                              <td class="align-middle rowclra"><span class="align-items-start float-left lineheight38">0x1d60AA1D6137Dcb1306C8A901EBd215Ca661d0cb</span>
+                                              </td>
+                                              <td class="align-middle text-center"><span class="align-items-start float-left lineheight38"><a href="#" onclick="add_to_wallet('WJAX')"><img style="width:25px;height:25px" src="img/metamask.svg" alt=""></a></span> </td>
+                                          </tr>
+                                      </tbody>
+                                  </table>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+           </div>
         </div>
         <section class="FAQ_wrap_sect">
           <div class="container" id="FAQ_block">

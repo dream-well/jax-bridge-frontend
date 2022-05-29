@@ -31,6 +31,19 @@ let networks = {
         url: 'https://bscrpc.com',
         symbol: 'BNB'
     },
+    polygon: {
+        chainId: 0x89,
+        chainName: 'Polygon Mainnet',
+        url: `https://polygon-rpc.com`,
+        symbol: 'MATIC',
+    },
+    avax: {
+        chainId: 43114,
+        chainName: 'Avalanche C Chain',
+        blockExplorer: 'https://snowtrace.io',
+        url: 'https://rpc.ankr.com/avalanche',
+        symbol: 'AVAX',
+    },
     rinkeby: {
         chainId: 0x4,
         symbol: 'ETH',
@@ -41,10 +54,6 @@ let networks = {
         chainName: 'Binance Smart Chain Testnet',
         blockExplorer: 'https://testnet.bscscan.com',
         symbol: 'BNB'
-    },
-    polygonmainnet: {
-        chainId: 0x89,
-        symbol: 'MATIC'
     },
     polygontestnet: {
         chainId: 0x13881,

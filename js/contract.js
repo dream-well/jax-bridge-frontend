@@ -11,7 +11,7 @@ let contract_addresses = {
     wjxn_bsc: '0x5B97aa5CF0669C788c79A12065c25c918056489D',
     wjxn_ethereum: '0xA581cb3883d84dAb7f1B1340fF01F1cB34A2B5d3',
     bsc: {
-        wjxn2: '0xf07352E8e3b88e8500D24301f5FC05A916d708cc',
+        wjxn2: '0x643d58cf4af8f5fa32139981d85b8629802bcd5e',
         wjax: '0xf07352E8e3b88e8500D24301f5FC05A916d708cc',
         jaxud: '0xeff49aED7baaBa69DCBdA577b34850c41e8F5226',
         jaxre: '0x86ECE7D9cdA927B3Ec4044Df67B082FA55A1c198',

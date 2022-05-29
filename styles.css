@@ -235,6 +235,7 @@ h4 {
 }
 .arr_menu_icon {
   margin: 0 7px;
+  line-height: 10px;
 }
 .nav_logo_2 {
   position: relative;
@@ -2072,6 +2073,14 @@ tbody::before {
 .swapicon:hover i.fa.fa-arrow-down::before {
   content: "\f07d";
 }
+.no_swap {
+  position: absolute;
+  z-index: 2;
+  left: 47%;
+  top: -30px;
+  width: 40px;
+  text-align: center;
+}
 br {
   display: block; /* makes it have a width */
   content: ""; /* clears default height */
@@ -2126,7 +2135,8 @@ input[type=number] {
 .dropdown-menu.show {
   border: 1px solid #0215c5;
 }
-.table-dark.table-striped tbody tr:nth-of-type(odd) {
-  background: #fff;
+.table-dark.table-striped tbody tr {
+  background: #fff !important;
   color: #0d0e3d;
+  border-bottom: 1px solid #0d0e3d;
 }

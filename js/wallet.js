@@ -344,8 +344,10 @@ async function add_to_wallet(token) {
         connect_wallet();
         return;
     }
-    let {address, decimals, image} = tokens[token];
-    await add_token_to_metamask(address, token, decimals, image);
+    token = token.toLowerCase();
+    let address = get_contract_address(token);
+    let image = token_images[token];
+    await add_token_to_metamask(address, token, decimals[token], image);
 }
 
 function is_wrong_network() {

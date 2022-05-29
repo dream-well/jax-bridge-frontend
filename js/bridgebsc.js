@@ -28,7 +28,7 @@ async function deposit() {
     let destChainId = networks[network2].chainId;
     const func = 'deposit';
     // address to, uint destChainId, uint amount, uint nonce, bytes calldata signature
-    let contract = new web3.eth.Contract(jaxBridgeEvmABI, contract_addresses[`${active_token}_` + active_network()]);
+    let contract = new web3.eth.Contract(jaxBridgeEvmABI, get_contract_address(active_token + "_evm_bridge"));
 
     amountIn = parseUnit(amountIn, decimals[active_token]);
     const args = [destChainId, amountIn];
@@ -71,7 +71,7 @@ async function update_fee() {
     network2 = $("#network2").val();
     $("#fee").html("-");
     let web3 = new Web3(networks[network1].url);
-    let contract = new web3.eth.Contract(jaxBridgeEvmABI, contract_addresses[`${active_token}_` + active_network()]);
+    let contract = new web3.eth.Contract(jaxBridgeEvmABI, get_contract_address(active_token + "_evm_bridge"));
     let destChainId = networks[network2].chainId;
     fee_percent = formatUnit(await contract.methods.fee_percent(destChainId).call(), 8);
     minimum_fee_amount = formatUnit(await contract.methods.minimum_fee_amount(destChainId).call(), decimals[active_token]);
@@ -81,12 +81,12 @@ async function update_fee() {
 async function approve() {
     let contract = new web3.eth.Contract(erc20ABI, get_contract_address(active_token));
     if((await check_allowance()) != true)
-        approve_token(active_token.toUpperCase(), contract, contract_addresses[`${active_token}_` + active_network()], maxUint);
+        approve_token(active_token.toUpperCase(), contract, get_contract_address(active_token + "_evm_bridge"), maxUint);
 }
 
 async function check_allowance() {
     let contract = new web3.eth.Contract(erc20ABI, get_contract_address(active_token));
-    let allowance = await callSmartContract(contract, "allowance", [accounts[0], contract_addresses[`${active_token}_` + active_network()]]);
+    let allowance = await callSmartContract(contract, "allowance", [accounts[0], get_contract_address(active_token + "_evm_bridge")]);
     return allowance >= 500;
 }
 
@@ -143,7 +143,7 @@ function accountChanged() {
 }
 
 async function update_status() {
-    let contract = new web3.eth.Contract(jaxBridgeABI, contract_addresses[`${active_token}_` + active_network()]);
+    let contract = new web3.eth.Contract(jaxBridgeABI, get_contract_address(active_token + "_evm_bridge"));
     request_id = await callSmartContract(contract, "get_new_request_id");
     try{
         deposit_address_id = await callSmartContract(contract, "get_free_deposit_address_id")

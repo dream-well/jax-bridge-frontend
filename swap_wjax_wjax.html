@@ -208,6 +208,7 @@
                 <select class="custom-select my-select" id="chainSelector" disabled>
                     <option value="bsc">Binance Smart Chain</option>
                     <option value="ethereum" selected>Ethereum Network</option>
+                    <option value="polygon" selected>Polygon Network</option>
                 </select>
             </li>
               <!----my account ends-->
@@ -255,9 +256,9 @@
                                     <div class="form-group">
                                         <select class="form-control box-shadow1"  id="network1" placeholder="JXN (JAX Network)">
                                             <!-- <option value="jax" selected>JXN (JAX Network)</option> -->
-                                          <option value="eth" >WJAX ERC-20 (ETH)</option>
+                                          <option value="ethereum" >WJAX ERC-20 (ETH)</option>
                                           <option value="bsc" selected>WJAX BEP-20 (BSC)</option>
-                                          <option value="polygontestnet" >WJAX Polygon (MATIC)</option>
+                                          <option value="polygon" >WJAX Polygon (MATIC)</option>
                                           <option value="avax">WJAX AVAX (AVAX)</option>
                                         </select>
                                     </div>
@@ -282,9 +283,9 @@
                                   <div class="form-group">
                                       <select class="form-control box-shadow1"  id="network2" placeholder="WJAX (ERC-20)">
                                           <!-- <option value="jax">JXN (JAX Network)</option> -->
-                                          <option value="polygontestnet" selected>WJAX ERC-20 (ETH)</option>
+                                          <option value="ethereum" selected>WJAX ERC-20 (ETH)</option>
                                           <option value="bsc" >WJAX BEP-20 (BSC)</option>
-                                          <option value="polygontestnet" >WJAX Polygon (MATIC)</option>
+                                          <option value="polygon" >WJAX Polygon (MATIC)</option>
                                           <option value="avax">WJAX AVAX (AVAX)</option>
                                       </select>
                                   </div>
@@ -325,7 +326,7 @@
 
                         </div>-->
                         <div class="row">
-                             <div class="col-12 text-white text-right pb-2"> BRIDGE fee: <span>15 WJAX</span></div>
+                             <div class="col-12 text-white text-right pb-2"> BRIDGE fee: <span id="fee">-</span> WJAX</div>
                         </div>
 
                         <div class="row">
@@ -802,11 +803,11 @@
     <script type="text/javascript" src="https://unpkg.com/web3modal"></script>
     <script type="text/javascript" src="https://unpkg.com/@walletconnect/web3-provider"></script>
     <script src="js/awn.min.js"></script>
-    <script src="js/wallet_test.js?v2"></script>
+    <script src="js/wallet.js"></script>
     <script src="js/util.js"></script>
-    <script src="js/contract-test.js?v4"></script>
+    <script src="js/contract.js"></script>
     <script>let active_token = "wjax";</script>
-    <script src="js/bridgebsc.js?v4"></script>
+    <script src="js/bridgebsc.js"></script>
 </body>
 
 </html>

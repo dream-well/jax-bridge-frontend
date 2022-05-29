@@ -5,12 +5,36 @@
 
 let contract_addresses = {
     jaxBridge: '0xdA344A64FB38AeE04f52cE99c0d34b5413D589C3',
-    jaxBridgeEVM: '0x26A68a6a113C3C2C593762561064945e20F148EB',
     wjxn: '0xcA1262e77Fb25c0a4112CFc9bad3ff54F617f2e6',
     haber: '0xd6AF849b09879a3648d56B5d43c6e5908a74CA83',
     hst: '0xd6AF849b09879a3648d56B5d43c6e5908a74CA83',
     wjxn_bsc: '0x5B97aa5CF0669C788c79A12065c25c918056489D',
     wjxn_ethereum: '0xA581cb3883d84dAb7f1B1340fF01F1cB34A2B5d3',
+    bsc: {
+        wjxn2: '0xf07352E8e3b88e8500D24301f5FC05A916d708cc',
+        wjax: '0xf07352E8e3b88e8500D24301f5FC05A916d708cc',
+        jaxud: '0xeff49aED7baaBa69DCBdA577b34850c41e8F5226',
+        jaxre: '0x86ECE7D9cdA927B3Ec4044Df67B082FA55A1c198',
+        wjax_evm_bridge: '0x5CD0BE8439473c9908725B83393bc3bB9Dd53F13'
+    },
+    ethereum: {
+        wjax: '0x2Df380cD3eeB7F1Ee5deB087Fe9FbCF8959095Ee',
+        jaxud: '0x935b0bF173552cd55E53AD651a783430a5700cD4',
+        jaxre: '0x88d7FE32284f1dBD398D58222DE8DFd87dD75460',
+        wjax_evm_bridge: '0x65f865Bf1893B8974904805f94D7F4364B093631'
+    },
+    polygon: {
+        wjax: '0x1d60AA1D6137Dcb1306C8A901EBd215Ca661d0cb',
+        jaxud: '0x9e79696a4c1163d35f01d71dcbbc5c139691c6d3',
+        jaxre: '0xd85a8b4964850ae85121d5652e6f0696512feb10',
+        wjax_evm_bridge: '0x4702202a5DEEA8a7414380b18ff195F3321b5159'
+    },
+    avax: {
+        wjax: '0xdD32f4DBA92B04F2d4Ade25dFAD7a127027C379d',
+        jaxud: '0x1d60AA1D6137Dcb1306C8A901EBd215Ca661d0cb',
+        jaxre: '0x9E79696a4C1163D35f01d71DcbBc5C139691C6D3',
+        wjax_evm_bridge: '0x4702202a5DEEA8a7414380b18ff195F3321b5159'
+    }
 }
 
 function get_contract_address(name) {

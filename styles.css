@@ -2073,6 +2073,9 @@ tbody::before {
 .swapicon:hover i.fa.fa-arrow-down::before {
   content: "\f07d";
 }
+.text-gray {
+  color: #495057 !important;
+}
 .no_swap {
   position: absolute;
   z-index: 2;

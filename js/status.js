@@ -47,8 +47,9 @@ async function _jxn_bsc() {
     const web3 = new Web3(networks.bsc.url);
     let contract = new web3.eth.Contract(abis.jxn_wjxn2, contract_addresses.bsc.jxn_wjxn2_bridge);
     let status;
+    let request;
     try {
-        let request = await callSmartContract(contract, "requests", [request_id]);
+        request = await callSmartContract(contract, "requests", [request_id]);
         status = request.status;
         console.log(request);
         // let deposit_address = await callSmartContract(contract, "deposit_addresses", deposit_address_id);
@@ -91,7 +92,13 @@ async function _jxn_bsc() {
         case 6:
             text = "COMPLETED";
             color = "green";
+            $("#deposit_tx_link").html(make_a_tag(request.deposit_tx_link));
+            $("#release_tx_link").html(make_a_tag(request.release_tx_link));
+            $(".tx_hash").show();
             break;
+    }
+    if(status != "6") {
+        $(".tx_hash").hide();
     }
     $("#status").html(text)
     $("#status").css("color", color);
@@ -209,4 +216,9 @@ async function _bsc_jax() {
     }catch(e) {
         // goto404();
     }
+}
+
+
+function make_a_tag(url) {
+    return `<a href="${url}" target="_blank">${url}</a>`
 }

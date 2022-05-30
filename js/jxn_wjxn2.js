@@ -310,7 +310,7 @@ function check_visible() {
 async function bridge_jxn_bsc(amountIn, to, from) {
     const func = 'create_request';
     // address to, uint destChainId, uint amount, uint nonce, bytes calldata signature
-    let contract = new web3.eth.Contract(abis.jxn_bsc, get_contract_address('jxn_wjxn2_bridge'));
+    let contract = new web3.eth.Contract(abis.jxn_wjxn2, get_contract_address('jxn_wjxn2_bridge'));
     await update_status(contract);
     // const msg = web3.utils.soliditySha3(
     //     {t: 'uint', v: request_id},
@@ -323,7 +323,7 @@ async function bridge_jxn_bsc(amountIn, to, from) {
         return;
     }
     amountIn = parseUnit(amountIn, decimals.wjxn2);
-    const args = [amountIn, deposit_address_id, to, from];
+    const args = [deposit_address_id, amountIn, from];
     const {success, gas, message} = await estimateGas(contract, func, args);
     if(!success) {
         notifier.warning(message);
@@ -361,7 +361,7 @@ async function bridge_jax_bsc(shard_id, amountIn, to, from) {
     }
     amountIn = parseUnit(amountIn, decimals.wjax);
 
-    const args = [shard_id, amountIn, deposit_address_id, to, from];
+    const args = [shard_id, deposit_address_id, amountIn, from];
     const {success, gas, message} = await estimateGas(contract, func, args);
     if(!success) {
         notifier.warning(message);

@@ -2162,3 +2162,6 @@ input[type=number] {
   color: #0d0e3d;
   border-bottom: 1px solid #0d0e3d;
 }
+.proof .lightbg{
+  margin-bottom: 5px;
+}

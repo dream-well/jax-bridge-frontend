@@ -409,7 +409,7 @@ async function bridge_bsc_jax(shard_id, amountIn, to) {
 }
 
 async function bridge_bsc_jxn(amountIn, to) {
-    let contract = new web3.eth.Contract(abis.bsc_jxn, contract_addresses.bsc.wjxn2_jxn_bridge);
+    let contract = new web3.eth.Contract(abis.wjxn2_jxn, contract_addresses.bsc.wjxn2_jxn_bridge);
     let func = "deposit";
     let args = [amountIn, to];
     const promi = runSmartContract(contract, func, args);

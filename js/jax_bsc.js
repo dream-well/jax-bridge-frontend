@@ -42,8 +42,8 @@ async function update_fee() {
         contract_address = contract_addresses.bsc[network1 == "jax" ? "jxn_wjxn2_bridge" : "wjxn2_jxn_bridge"];
     }
     else {
-        abi = network1 == "jax" ? abis.jax_wjax : abis.wjax_jax;
-        contract_address = contract_addresses.bsc[network1 == "jax" ? "jax_wjax_bridge" : "wjax_jax_bridge"];
+        abi = network1.indexOf("jax") == 0 ? abis.jax_wjax : abis.wjax_jax;
+        contract_address = contract_addresses.bsc[network1.indexOf("jax") == 0 ? "jax_wjax_bridge" : "wjax_jax_bridge"];
     }
     let contract = new web3.eth.Contract(abi, contract_address);
     fee_percent = formatUnit(await contract.methods.fee_percent().call(), 8);

@@ -66,7 +66,7 @@ async function _jxn_bsc() {
             coinName: 'jxn',
             address: deposit_address,
             shardID: 0,
-            amount: amount
+            amount: formatUnit(amount, decimals.wjxn2, decimals.wjxn2)
         })
     }catch(e) {
         // goto404();
@@ -89,14 +89,14 @@ async function _jax_bsc() {
         let deposit_address = await callSmartContract(contract, "deposit_addresses", [deposit_address_id]);
         console.log(deposit_address);
         $("#from").html(from);
-        $("#amount").html(amount);
+        $("#amount").html(formatUnit(amount, decimals.wjax, decimals.wjax));
         $("#depositAddress").html(deposit_address);
         due_timestamp = valid_until ;
         generate_qrcode({
             coinName: 'jax',
             address: deposit_address,
             shardID: shard_id,
-            amount: amount
+            amount: formatUnit(amount, decimals.wjax, decimals.wjax)
         })
     }catch(e) {
         // goto404();

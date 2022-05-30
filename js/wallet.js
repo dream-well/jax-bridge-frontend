@@ -150,7 +150,7 @@ async function onConnect() {
         }
     } catch(e) {
       console.log("Could not get a wallet connection", e);
-      onConnect();
+    //   onConnect();
       return;
     }
 
@@ -212,7 +212,8 @@ void function main() {
     });
 
     init_web3();
-    connect_wallet();
+    if(web3.givenProvider)
+        connect_wallet();
 
     $("#chainSelector").on("change", switch_network);
 }()

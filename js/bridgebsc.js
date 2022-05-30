@@ -68,6 +68,8 @@ async function update_fee() {
         $("#chainSelector").val(network1);
         $("#chainSelector").trigger("change");
     }
+    $(`#network2 option`).show();
+    $(`#network2 option[value='${network1}']`).hide();
     network2 = $("#network2").val();
     $("#fee").html("-");
     let web3 = new Web3(networks[network1].url);

@@ -182,7 +182,7 @@ async function approve() {
     }
 
     if((await check_allowance()) != true)
-        await approve_token(active_token == "jxn" ? "WJXN-2": "WJAX", contract, bridge_address, maxUint);
+        await approve_token(get_token() == "jxn" ? "WJXN-2": "WJAX", contract, bridge_address, maxUint);
     check_allowance();
 }
 
@@ -222,6 +222,7 @@ async function check_status() {
 }
 
 async function update_state() {
+    update_balance();
     let network1 = $("#network1").val();
     let network2 = $("#network2").val();
     let activeChain = $("#chainSelector").val();
@@ -264,6 +265,22 @@ async function update_state() {
         $("#from").val(accounts[0]);
     // $(".jxn-bsc #to").val(accounts[0]); 
     check_status();
+}
+
+
+async function update_balance() {
+    let network1 = $("#network1").val();
+    if(!web3 || accounts.length == 0){
+        $("#balance_token1").html(0);
+        $("#balance_token2").html(0);
+        return;
+    }
+    let balance = await get_token_balance(get_token() == 'jxn' ? 'wjxn2' : 'wjax')
+    balance = Number(balance).toLocaleString();
+    if(network1 == "jax")
+        $("#balance_token2").html(balance);
+    else
+        $("#balance_token1").html(balance);
 }
 
 function accountChanged() {

@@ -119,6 +119,10 @@ function check_timestamp() {
 }
 
 async function submit_txhash() {
+    if(!web3) {
+        connect_wallet();
+        return;
+    }
     let txHash = $("#txHash").val();
     if(txHash == "") return;
     let contract = new web3.eth.Contract(mode == "jax_bsc" ? abis.jax_bsc : abis.jxn_wjxn2, mode == "jax_bsc"? contract_addresses.jax_bsc : contract_addresses.bsc.jxn_wjxn2_bridge);

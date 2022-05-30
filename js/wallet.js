@@ -326,7 +326,7 @@ function reset_connect_button() {
 
 function set_connected_address() {
     $(".btn_connect").html(accounts[0].substr(0, 9) + "...");
-    $("#to").val(accounts[0]);
+    // $("#to").val(accounts[0]);
     if( typeof accountChanged != "undefined")
         accountChanged();
 

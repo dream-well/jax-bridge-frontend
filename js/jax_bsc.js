@@ -258,7 +258,11 @@ async function update_state() {
     $("#amountOut").val(amountOut);
     $("#fee").html(amountIn - amountOut);
     // check_allowance();
-    $(".jxn-bsc #to").val(accounts[0]); 
+    if(network1 == "jax")
+        $("#to").val(accounts[0]);
+    else
+        $("#from").val(accounts[0]);
+    // $(".jxn-bsc #to").val(accounts[0]); 
     check_status();
 }
 

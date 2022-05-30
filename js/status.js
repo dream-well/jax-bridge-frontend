@@ -116,14 +116,32 @@ async function _bsc_jxn() {
         status = parseInt(status);
         let text, color;
         switch(status) {
+            case -1:
+                text = "Invalid request id";
+                color = "red";
+                break;
             case 0:
                 text = "Processing Deposit";
                 color = "blue";
                 break;
-            case 1:
-                text = "BRIDGED";
-                color = "green";
+            case 1: 
+                text = "VERIFIED";
+                color = "purple";
                 break;
+            case 2: 
+                text = "EXECUTED";
+                color = "lime";
+                break;
+            case 3:
+                text = "COMPLETED";
+                color = "green";
+                $("#deposit_tx_link").html(make_a_tag(request.deposit_tx_link));
+                $("#release_tx_link").html(make_a_tag(request.release_tx_link));
+                $(".tx_hash").show();
+                break;
+        }
+        if(status != "3") {
+            $(".tx_hash").hide();
         }
         $("#status").html(text)
         $("#status").css("color", color);

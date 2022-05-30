@@ -107,7 +107,7 @@ async function _jxn_bsc() {
 
 async function _bsc_jxn() {
     const web3 = new Web3(networks.bsc.url);
-    let contract = new web3.eth.Contract(abis.bsc_jxn, contract_addresses.bsc_jxn);
+    let contract = new web3.eth.Contract(abis.wjxn2_jxn, contract_addresses.bsc.wjxn2_jxn_bridge);
     try {
         let { amount, from, status } = await callSmartContract(contract, "requests", [request_id]);
         console.log(amount, from, status);

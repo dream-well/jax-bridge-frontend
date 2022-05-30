@@ -257,7 +257,7 @@ async function update_state() {
     }
     if(amountOut < 0) amountOut = 0;
     $("#amountOut").val(amountOut);
-    $("#fee").html(amountIn - amountOut);
+    $("#fee").html(fee_amount);
     // check_allowance();
     if(network1.indexOf("jax") == 0)
         $("#to").val(accounts[0]);

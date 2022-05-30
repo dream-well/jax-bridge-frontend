@@ -201,6 +201,9 @@ h4 {
 .navbar .dropdown2 .dropdown-menu a {
   padding: 5px !important;
 }
+.dropdown2 {
+  cursor: pointer;
+}
  .dropdown-menu:before {
   content: "\A";
   border-style: solid;

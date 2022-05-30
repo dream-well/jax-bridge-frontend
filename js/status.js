@@ -6,6 +6,8 @@ void async function main() {
     $("#link").html(location.href);
     
     parseQuery();
+
+    setInterval(parseQuery, 15000);
 }()
 
 function parseQuery() {
@@ -78,8 +80,16 @@ async function _jxn_bsc() {
             text = "EXPIRED";
             color = "#ef5a00";
             break;
-        case 4:
-            text = "BRIDGED";
+        case 4: 
+            text = "VERIFIED";
+            color = "purple";
+            break;
+        case 5: 
+            text = "EXECUTED";
+            color = "lime";
+            break;
+        case 6:
+            text = "COMPLETED";
             color = "green";
             break;
     }

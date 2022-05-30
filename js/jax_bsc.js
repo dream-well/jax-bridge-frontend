@@ -165,14 +165,14 @@ async function deposit() {
 }
 
 async function approve() {
-    let contract = new web3.eth.Contract(erc20ABI, contract_addresses.wjxn2);
+    let contract = new web3.eth.Contract(erc20ABI, contract_addresses.bsc.wjxn2);
     let bridge_address;
     let network1 = get_network1();
     if(get_token() == "jxn") {
         if(network1 == "jax")
-            bridge_address = get_contract_address('jxn_wjxn2_bridge');
+            bridge_address = contract_addresses.bsc.jxn_wjxn2_bridge;
         else
-            bridge_address = contract_addresses.bsc_jxn;
+            bridge_address = contract_addresses.bsc.wjxn2_jxn_bridge;
     }
     if(get_token() == "jax") {
         if(network1.indexOf("jax") == 0)
@@ -187,7 +187,7 @@ async function approve() {
 }
 
 async function check_allowance() {
-    let contract = new web3.eth.Contract(erc20ABI, contract_addresses.wjxn2);
+    let contract = new web3.eth.Contract(erc20ABI, contract_addresses.bsc.wjxn2);
     let bridge_address;
     let network1 = get_network1();
     let network2 = get_network2();
@@ -195,7 +195,7 @@ async function check_allowance() {
         if(network1 == "jax")
             return true;
         else
-            bridge_address = contract_addresses.bsc_jxn;
+            bridge_address = contract_addresses.bsc.wjxn2_jxn_bridge;
     }
     if(get_token() == "jax") {
         if(network1.indexOf("jax") == 0)
@@ -321,7 +321,7 @@ function check_visible() {
 async function bridge_jxn_bsc(amountIn, to, from) {
     const func = 'create_request';
     // address to, uint destChainId, uint amount, uint nonce, bytes calldata signature
-    let contract = new web3.eth.Contract(abis.jxn_wjxn2, get_contract_address('jxn_wjxn2_bridge'));
+    let contract = new web3.eth.Contract(abis.jxn_wjxn2, contract_addresses.bsc.jxn_wjxn2_bridge);
     await update_status(contract);
     // const msg = web3.utils.soliditySha3(
     //     {t: 'uint', v: request_id},
@@ -395,31 +395,31 @@ async function bridge_jax_bsc(shard_id, amountIn, to, from) {
 
 async function bridge_bsc_jax(shard_id, amountIn, to) {
     let contract = new web3.eth.Contract(abis.bsc_jax, contract_addresses.bsc_jax);
-    let func = "create_request";
+    let func = "deposit";
     let args = [shard_id, amountIn, to];
     const promi = runSmartContract(contract, func, args);
     await notifier.async(promi
-        , null, null, `Creating request`,
+        , null, null, `Depositing`,
         {labels: {async: "Please wait..."}});
     promi.then(tx => {
         const request_id = tx.events.Create_Request.returnValues.request_id;
         console.log(request_id);
-        goto('status_test.html' + '?id=' + request_id + "&mode=bsc_jax");
+        goto('status.html' + '?id=' + request_id + "&mode=bsc_jax");
     })
 }
 
 async function bridge_bsc_jxn(amountIn, to) {
-    let contract = new web3.eth.Contract(abis.bsc_jxn, contract_addresses.bsc_jxn);
-    let func = "create_request";
+    let contract = new web3.eth.Contract(abis.bsc_jxn, contract_addresses.bsc.wjxn2_jxn_bridge);
+    let func = "deposit";
     let args = [amountIn, to];
     const promi = runSmartContract(contract, func, args);
     await notifier.async(promi
-        , null, null, `Creating request`,
+        , null, null, `Depositing`,
         {labels: {async: "Please wait..."}});
     promi.then(tx => {
         const request_id = tx.events.Create_Request.returnValues.request_id;
         console.log(request_id);
-        goto('status_test.html' + '?id=' + request_id + "&mode=bsc_jxn");
+        goto('status.html' + '?id=' + request_id + "&mode=bsc_jxn");
     })
 }
 

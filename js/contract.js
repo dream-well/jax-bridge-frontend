@@ -8,8 +8,6 @@ let contract_addresses = {
     wjxn: '0xcA1262e77Fb25c0a4112CFc9bad3ff54F617f2e6',
     haber: '0xd6AF849b09879a3648d56B5d43c6e5908a74CA83',
     hst: '0xd6AF849b09879a3648d56B5d43c6e5908a74CA83',
-    wjxn_bsc: '0x5B97aa5CF0669C788c79A12065c25c918056489D',
-    wjxn_ethereum: '0xA581cb3883d84dAb7f1B1340fF01F1cB34A2B5d3',
     bsc: {
         wjxn2: '0x643d58cf4af8f5fa32139981d85b8629802bcd5e',
         wjax: '0xf07352E8e3b88e8500D24301f5FC05A916d708cc',
@@ -18,7 +16,8 @@ let contract_addresses = {
         wjax_evm_bridge: '0x5CD0BE8439473c9908725B83393bc3bB9Dd53F13',
         wjxn_evm_bridge: '0x5B97aa5CF0669C788c79A12065c25c918056489D',
         jxn_wjxn2_bridge: '0xda2C3be424f8674CC8b71259f6E2Abc293124FD2',
-        jax_wjax_bridge: '0xa8686a5B9156Ce90ca88fEFE0F82580Efdd7f225'
+        jax_wjax_bridge: '0xa8686a5B9156Ce90ca88fEFE0F82580Efdd7f225',
+        wjxn2_jxn_bridge: '0xa810255985748348A9Ef97D8Daf54199b7dFEea7'
     },
     ethereum: {
         wjax: '0x2Df380cD3eeB7F1Ee5deB087Fe9FbCF8959095Ee',

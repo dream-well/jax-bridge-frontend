@@ -212,7 +212,7 @@ void function main() {
     });
 
     init_web3();
-    if(web3.givenProvider)
+    if(Web3.givenProvider)
         connect_wallet();
 
     $("#chainSelector").on("change", switch_network);

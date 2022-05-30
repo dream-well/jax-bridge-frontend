@@ -16,8 +16,9 @@ let contract_addresses = {
         wjax_evm_bridge: '0x5CD0BE8439473c9908725B83393bc3bB9Dd53F13',
         wjxn_evm_bridge: '0x5B97aa5CF0669C788c79A12065c25c918056489D',
         jxn_wjxn2_bridge: '0xda2C3be424f8674CC8b71259f6E2Abc293124FD2',
+        wjxn2_jxn_bridge: '0xa810255985748348A9Ef97D8Daf54199b7dFEea7',
         jax_wjax_bridge: '0xa8686a5B9156Ce90ca88fEFE0F82580Efdd7f225',
-        wjxn2_jxn_bridge: '0xa810255985748348A9Ef97D8Daf54199b7dFEea7'
+        wjax_jax_bridge: '0x8D6d29B0231d205d05bE93BD7b4757C4aA7eC54A',
     },
     ethereum: {
         wjax: '0x2Df380cD3eeB7F1Ee5deB087Fe9FbCF8959095Ee',

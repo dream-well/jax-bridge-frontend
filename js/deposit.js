@@ -54,7 +54,7 @@ async function _jxn_bsc() {
         let { amount, from, deposit_address_id, status, valid_until } = await callSmartContract(contract, "requests", [request_id]);
         console.log(amount, from, deposit_address_id, status);
         if(parseInt(status) > 0) {
-            goto('status_test.html' + '?id=' + request_id + "&mode=" + mode);
+            goto('status.html' + '?id=' + request_id + "&mode=" + mode);
         }
         let deposit_address = await callSmartContract(contract, "deposit_addresses", [deposit_address_id]);
         console.log(deposit_address);

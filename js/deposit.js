@@ -77,7 +77,7 @@ async function _jxn_bsc() {
 
 async function _jax_bsc() {
     const web3 = new Web3(networks.bsc.url);
-    let contract = new web3.eth.Contract(abis.jax_bsc, contract_addresses.jax_bsc);
+    let contract = new web3.eth.Contract(abis.jax_wjax, contract_addresses.bsc.jax_wjax_bridge);
     try {
         let { amount, from, shard_id, deposit_address_id, status, valid_until } = await callSmartContract(contract, "requests", [request_id]);
         console.log(amount, from, deposit_address_id, status);
@@ -125,7 +125,7 @@ async function submit_txhash() {
     }
     let txHash = $("#txHash").val();
     if(txHash == "") return;
-    let contract = new web3.eth.Contract(mode == "jax_bsc" ? abis.jax_bsc : abis.jxn_wjxn2, mode == "jax_bsc"? contract_addresses.jax_bsc : contract_addresses.bsc.jxn_wjxn2_bridge);
+    let contract = new web3.eth.Contract(mode == "jax_bsc" ? abis.jax_wjax : abis.jxn_wjxn2, mode == "jax_bsc"? contract_addresses.bsc.jax_wjax_bridge : contract_addresses.bsc.jxn_wjxn2_bridge);
     const msg = web3.utils.soliditySha3(
         {t: 'string', v: txHash},
       ).toString('hex');

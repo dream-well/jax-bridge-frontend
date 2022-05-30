@@ -136,7 +136,7 @@ async function _bsc_jxn() {
 
 async function _jax_bsc() {
     const web3 = new Web3(networks.bsc.url);
-    let contract = new web3.eth.Contract(abis.jax_bsc, contract_addresses.jax_bsc);
+    let contract = new web3.eth.Contract(abis.jax_wjax, contract_addresses.bsc.jax_wjax_bridge);
     let status;
     try {
         let request = await callSmartContract(contract, "requests", [request_id]);
@@ -183,7 +183,13 @@ async function _jax_bsc() {
         case 6:
             text = "COMPLETED";
             color = "green";
+            $("#deposit_tx_link").html(make_a_tag(request.deposit_tx_link));
+            $("#release_tx_link").html(make_a_tag(request.release_tx_link));
+            $(".tx_hash").show();
             break;
+    }
+    if(status != "6") {
+        $(".tx_hash").hide();
     }
     $("#status").html(text)
     $("#status").css("color", color);

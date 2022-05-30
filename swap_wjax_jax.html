@@ -261,8 +261,8 @@
                       <div class="bg-lighterblue p-3 border-radius mb-3">
                           <div class="row">
                               <div class="col-12 text-blue">You send  
-                                <span class="jax_title_input ">WJAX</span>
-                                <span class="wjax_title_input active">JAX</span>
+                                <span class="jax_title_input active">WJAX</span>
+                                <!-- <span class="wjax_title_input ">JAX</span> -->
                               </div>
                            
                           </div>
@@ -296,7 +296,7 @@
                           <div class="row">
                               <div class="col-12 text-blue">You receive 
                                 <span class="jax_title_input active">JAX</span>
-                                <span class="wjax_title_input ">WJAX</span>
+                                <!-- <span class="wjax_title_input ">WJAX</span> -->
                               </div>
                           </div>
                           <div class="row">
@@ -327,12 +327,12 @@
                       <div class="bg-lighterblue p-3 border-radius mb-3 address jxn-bsc">
 
                         <div class="row">
-                            <div class="col-12 text-blue">Your (Source) <span class='tokenName'>JAX</span> address (Jax.Network)</div>
+                            <div class="col-12 text-blue">Your (Destination) <span class='tokenName'>JAX</span> address (Jax.Network)</div>
                         </div>
                         <div class="row">
                             <div class="col-12 text-right">
                                 <div class="form-group">
-                                    <input class="form-control" style="font-size: 18.5px;" id="from" placeholder="Enter your JXN address" value=''>
+                                    <input class="form-control" style="font-size: 18.5px;" id="from" placeholder="Enter your JAX address" value=''>
                                 </div>
                             </div>
                         </div>
@@ -341,7 +341,7 @@
                       <div class="bg-lighterblue p-3 border-radius mb-3 address jxn-bsc">
 
                               <div class="row">
-                                  <div class="col-12 text-blue">Destination address (BSC)</div>
+                                  <div class="col-12 text-blue">  Source address (BSC)</div>
                               </div>
                               <div class="row">
                                   <div class="col-12 text-right">
@@ -413,15 +413,7 @@
                                     alt="">
                                 BSC</a>
                         </li>
-                        <li class="nav-item">
-                          <a class="nav-link text-white" id="pills-eth-tab" data-toggle="pill" href="#pills-eth" role="tab" aria-controls="pills-eth" aria-selected="false"><img src="img/Ethereum.svg" style="width:10px" alt=""> ETH</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link text-white" id="pills-avax-tab" data-toggle="pill" href="#pills-avax" role="tab" aria-controls="pills-avax" aria-selected="false"> <img src="img/avax.png" style="width:20px" alt=""> AVAX</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link text-white" id="pills-polygon-tab" data-toggle="pill" href="#pills-polygon" role="tab" aria-controls="pills-polygon" aria-selected="false"> <img src="img/polygon.png" style="width:20px" alt=""> Polygon</a>
-                        </li>
+                        
                     </ul>
                     <div class="tab-content col-12 " id="pills-tabContent">
                         <!-- bsc -->
@@ -438,107 +430,21 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td class="align-middle"><img class="curr_logo" src="img/jxnLogo.png"> WJXN</td>
+                                            <td class="align-middle"><img class="curr_logo" src="img/jax.png"> WJAX</td>
                                             <td class="align-middle rowclra"><span
-                                                    class="align-items-start float-left lineheight38">Wrapped JXN</span> </td>
+                                                    class="align-items-start float-left lineheight38">Wrapped JAX</span> </td>
                                             <td class="align-middle rowclra"><span
-                                                    class="align-items-start float-left lineheight38 wjxn_address text_copy_link">0xca1262e77fb25c0a4112cfc9bad3ff54f617f2e6</span> </td>
+                                                    class="align-items-start float-left lineheight38 wjxn_address text_copy_link">0xf07352E8e3b88e8500D24301f5FC05A916d708cc</span> </td>
                                             <td class="align-middle text-center"><span
                                                     class="align-items-start float-left lineheight38"><a href="#"
-                                                        onclick="add_to_wallet('WJXN')"><img style="width:25px;height:25px"
+                                                        onclick="add_to_wallet('WJAX')"><img style="width:25px;height:25px"
                                                             src="img/metamask.svg" alt=""></a></span> </td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
-                        <!-- eth -->
-                        <div class="tab-pane fade" id="pills-eth" role="tabpanel" aria-labelledby="pills-eth-tab">
-                            <div class="col-12 swap_table_wrap">
-                                <table class="table bridgetabs table-striped table-dark" style="border-radius: 15px;">
-                                    <thead>
-                                        <tr>
-                                            <td class="lineheight38">Currency</td>
-                                            <td class="lineheight38">Name</td>
-                                            <td class="rowclr lineheight38">Address</td>
-                                            <td class="lineheight38">Add to wallet</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td class="align-middle"><img class="curr_logo" src="img/jxnLogo.png"> WJXN</td>
-                                            <td class="align-middle rowclra"><span
-                                                    class="align-items-start float-left lineheight38">Wrapped JXN</span> </td>
-                                            <td class="align-middle rowclra"><span
-                                                    class="align-items-start float-left lineheight38 text_copy_link">0x25F2EFE24d627FC3DDaf07F9A47310286f172f07</span>
-                                            </td>
-                                            <td class="align-middle text-center"><span
-                                                    class="align-items-start float-left lineheight38"><a href="#"
-                                                        onclick="add_to_wallet('WJXN')"><img style="width:25px;height:25px"
-                                                            src="img/metamask.svg" alt=""></a></span> </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <!-- Avalanche -->
-                        <div class="tab-pane fade" id="pills-avax" role="tabpanel" aria-labelledby="pills-avax-tab">
-                            <div class="col-12 swap_table_wrap">
-                                <table class="table bridgetabs table-striped table-dark" style="border-radius: 15px;">
-                                    <thead>
-                                        <tr>
-                                            <td class="lineheight38">Currency</td>
-                                            <td class="lineheight38">Name</td>
-                                            <td class="rowclr lineheight38">Address</td>
-                                            <td class="lineheight38">Add to wallet</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td class="align-middle"><img class="curr_logo" src="img/jxnLogo.png"> WJXN</td>
-                                            <td class="align-middle rowclra"><span
-                                                    class="align-items-start float-left lineheight38">Wrapped JXN</span> </td>
-                                            <td class="align-middle rowclra"><span
-                                                    class="align-items-start float-left lineheight38">0x25F2EFE24d627FC3DDaf07F9A47310286f172f07</span>
-                                            </td>
-                                            <td class="align-middle text-center"><span
-                                                    class="align-items-start float-left lineheight38"><a href="#"
-                                                        onclick="add_to_wallet('WJXN')"><img style="width:25px;height:25px"
-                                                            src="img/metamask.svg" alt=""></a></span> </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <!-- polygon -->
-                        <div class="tab-pane fade" id="pills-polygon" role="tabpanel" aria-labelledby="pills-polygon-tab">
-                            <div class="col-12 swap_table_wrap">
-                                <table class="table bridgetabs table-striped table-dark" style="border-radius: 15px;">
-                                    <thead>
-                                        <tr>
-                                            <td class="lineheight38">Currency</td>
-                                            <td class="lineheight38">Name</td>
-                                            <td class="rowclr lineheight38">Address</td>
-                                            <td class="lineheight38">Add to wallet</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td class="align-middle"><img class="curr_logo" src="img/jxnLogo.png"> WJXN</td>
-                                            <td class="align-middle rowclra"><span
-                                                    class="align-items-start float-left lineheight38">Wrapped JXN</span> </td>
-                                            <td class="align-middle rowclra"><span
-                                                    class="align-items-start float-left lineheight38">0x25F2EFE24d627FC3DDaf07F9A47310286f172f07</span>
-                                            </td>
-                                            <td class="align-middle text-center"><span
-                                                    class="align-items-start float-left lineheight38"><a href="#"
-                                                        onclick="add_to_wallet('WJXN')"><img style="width:25px;height:25px"
-                                                            src="img/metamask.svg" alt=""></a></span> </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
+                      
                     </div>
                 </div>
             </div>

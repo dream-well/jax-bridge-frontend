@@ -406,7 +406,7 @@ async function bridge_bsc_jax(shard_id, amountIn, to) {
         , null, null, `Depositing`,
         {labels: {async: "Please wait..."}});
     promi.then(tx => {
-        const request_id = tx.events.Create_Request.returnValues.request_id;
+        const request_id = tx.events.Deposit.returnValues.request_id;
         console.log(request_id);
         goto('status.html' + '?id=' + request_id + "&mode=bsc_jax");
     })
@@ -421,7 +421,7 @@ async function bridge_bsc_jxn(amountIn, to) {
         , null, null, `Depositing`,
         {labels: {async: "Please wait..."}});
     promi.then(tx => {
-        const request_id = tx.events.Create_Request.returnValues.request_id;
+        const request_id = tx.events.Deposit.returnValues.request_id;
         console.log(request_id);
         goto('status.html' + '?id=' + request_id + "&mode=bsc_jxn");
     })

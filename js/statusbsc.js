@@ -32,14 +32,14 @@ function parseQuery() {
 async function get_deposit_info() {
     if(!src_network) return;
     const src_web3 = new Web3(networks[src_network].url);
-    let src_contract = new src_web3.eth.Contract(jaxBridgeEvmABI, contract_addresses[active_token + "_" + src_network]);
+    let src_contract = new src_web3.eth.Contract(jaxBridgeEvmABI, contract_addresses[src_network][active_token + "_evm_bridge"]);
     try {
         let { amount, to, dest_chain_id, src_chain_data_hash } = await callSmartContract(src_contract, "requests", [request_id]);
         console.log(amount, to, dest_chain_id, src_chain_data_hash);
 
         let dest_network = chains[dest_chain_id];
         dest_web3 = new Web3(networks[dest_network].url);
-        let dest_contract = new dest_web3.eth.Contract(jaxBridgeEvmABI, contract_addresses[active_token + "_" + dest_network]);
+        let dest_contract = new dest_web3.eth.Contract(jaxBridgeEvmABI, contract_addresses[dest_network][active_token + "_evm_bridge"]);
         let processed = await callSmartContract(dest_contract, "proccessed_deposit_hashes", [src_chain_data_hash]);
         let status = 0;
         let request;

@@ -415,7 +415,7 @@ async function bridge_bsc_jax(shard_id, amountIn, to) {
 async function bridge_bsc_jxn(amountIn, to) {
     let contract = new web3.eth.Contract(abis.wjxn2_jxn, contract_addresses.bsc.wjxn2_jxn_bridge);
     let func = "deposit";
-    let args = [amountIn, to];
+    let args = [parseUnit(amountIn, decimals.wjxn2), to];
     const promi = runSmartContract(contract, func, args);
     await notifier.async(promi
         , null, null, `Depositing`,

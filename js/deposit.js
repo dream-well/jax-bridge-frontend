@@ -1,4 +1,6 @@
 let due_timestamp;
+let request_id;
+let mode;
 var qrcode = new QRCode("qrcode", {
 	width : 160,
 	height : 160
@@ -15,29 +17,75 @@ function parseQuery() {
     const query = location.search.substr(1);
     const paramList = query.split("&");
     const params = paramList.reduce((a, b) => Object.assign(a, {[b.split('=')[0]]: b.split('=')[1] }), {});
-    if(Object.keys(params).includes("id")){
-        get_request_info(params.id);
-        request_id = params.id;
+    mode = params.mode;
+    if(mode == "jax_bsc") {
+        $("#tokenName").html("JAX");
     }
+    if(Object.keys(params).includes("id")){
+        request_id = params.id;
+        get_status();
+    }   
     else
         goto404();
 }
 
+function get_status() {
+    switch(mode) {
+        case 'jxn_bsc':
+            _jxn_bsc();
+            return;
+        case 'jax_bsc':
+            _jax_bsc();
+            break;
+        default:
+            return;
+    }
+}
 
 async function accountChanged() {
     let account = accounts[0];
     if(!account) return;
 }
 
-async function get_request_info(request_id) {
+async function _jxn_bsc() {
     const web3 = new Web3(networks.bsc.url);
-    let contract = new web3.eth.Contract(jaxBridgeABI, contract_addresses.jaxBridge);
+    let contract = new web3.eth.Contract(abis.jxn_wjxn2, contract_addresses.bsc.jxn_wjxn2_bridge);
     try {
         let { amount, from, deposit_address_id, status, valid_until } = await callSmartContract(contract, "requests", [request_id]);
         console.log(amount, from, deposit_address_id, status);
         if(parseInt(status) > 0) {
-            goto('status.html' + '?id=' + request_id);
+            goto('status_test.html' + '?id=' + request_id + "&mode=" + mode);
         }
+        let deposit_address = await callSmartContract(contract, "deposit_addresses", [deposit_address_id]);
+        console.log(deposit_address);
+        $("#from").html(from);
+        $("#amount").html(formatUnit(amount, decimals.wjxn2, decimals.wjxn2));
+        $("#depositAddress").html(deposit_address);
+        due_timestamp = valid_until ;
+        generate_qrcode({
+            coinName: 'jxn',
+            address: deposit_address,
+            shardID: 0,
+            amount: amount
+        })
+    }catch(e) {
+        // goto404();
+    }
+
+}
+
+
+async function _jax_bsc() {
+    const web3 = new Web3(networks.bsc.url);
+    let contract = new web3.eth.Contract(abis.jax_bsc, contract_addresses.jax_bsc);
+    try {
+        let { amount, from, shard_id, deposit_address_id, status, valid_until } = await callSmartContract(contract, "requests", [request_id]);
+        console.log(amount, from, deposit_address_id, status);
+        if(parseInt(status) > 0) {
+            goto('status_test.html' + '?id=' + request_id + "&mode=" + mode);
+        }
+        $("#shardId").html("Shard" + shard_id);
+        $("#shardId").show();
         let deposit_address = await callSmartContract(contract, "deposit_addresses", [deposit_address_id]);
         console.log(deposit_address);
         $("#from").html(from);
@@ -45,9 +93,9 @@ async function get_request_info(request_id) {
         $("#depositAddress").html(deposit_address);
         due_timestamp = valid_until ;
         generate_qrcode({
-            coinName: 'jxn',
+            coinName: 'jax',
             address: deposit_address,
-            shardID: 0,
+            shardID: shard_id,
             amount: amount
         })
     }catch(e) {
@@ -73,7 +121,7 @@ function check_timestamp() {
 async function submit_txhash() {
     let txHash = $("#txHash").val();
     if(txHash == "") return;
-    let contract = new web3.eth.Contract(jaxBridgeABI, contract_addresses.jaxBridge);
+    let contract = new web3.eth.Contract(mode == "jax_bsc" ? abis.jax_bsc : abis.jxn_bsc, mode == "jax_bsc"? contract_addresses.jax_bsc : contract_addresses.jxn_bsc2);
     const msg = web3.utils.soliditySha3(
         {t: 'string', v: txHash},
       ).toString('hex');
@@ -91,11 +139,12 @@ async function submit_txhash() {
         , null, null, `Processing deposit`,
         {labels: {async: "Please wait..."}});
     promi.then(() => {
-        goto('status.html' + '?id=' + request_id);
+        goto('status.html' + '?id=' + request_id+ "&mode=" + mode);
         
     })
 }
 
 function generate_qrcode(data) {
+    $("#loading").hide();
     qrcode.makeCode(JSON.stringify(data));
 }

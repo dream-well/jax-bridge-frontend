@@ -349,7 +349,7 @@ async function bridge_jxn_bsc(amountIn, to, from) {
         console.log(request_id);
         const path = location.pathname.split("/");
         path.pop();
-        location.href = path.join("/") + '/deposit_test.html' + '?id=' + request_id + "&mode=jxn_bsc";
+        location.href = path.join("/") + '/deposit.html' + '?id=' + request_id + "&mode=jxn_bsc";
         
     })
     

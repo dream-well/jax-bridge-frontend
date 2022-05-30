@@ -182,7 +182,7 @@ async function approve() {
     }
 
     if((await check_allowance()) != true)
-        await approve_token("WJXN", contract, bridge_address, maxUint);
+        await approve_token(active_token == "jxn" ? "WJXN-2": "WJAX", contract, bridge_address, maxUint);
     check_allowance();
 }
 

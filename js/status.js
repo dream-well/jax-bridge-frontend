@@ -156,9 +156,10 @@ async function _bsc_jxn() {
 async function _jax_bsc() {
     const web3 = new Web3(networks.bsc.url);
     let contract = new web3.eth.Contract(abis.jax_wjax, contract_addresses.bsc.jax_wjax_bridge);
+    let request;
     let status;
     try {
-        let request = await callSmartContract(contract, "requests", [request_id]);
+        request = await callSmartContract(contract, "requests", [request_id]);
         status = parseInt(request.status);
         console.log(request);
         // let deposit_address = await callSmartContract(contract, "deposit_addresses", deposit_address_id);

@@ -59,7 +59,7 @@ async function _jxn_bsc() {
         let deposit_address = await callSmartContract(contract, "deposit_addresses", [deposit_address_id]);
         console.log(deposit_address);
         $("#from").html(from);
-        $("#amount").html(formatUnit(amount, decimals.wjxn2, decimals.wjxn2));
+        $("#amount").html(formatUnit(amount, decimals.wjxn2, decimals.wjxn2) + " JXN");
         $("#depositAddress").html(deposit_address);
         due_timestamp = valid_until ;
         generate_qrcode({
@@ -89,7 +89,7 @@ async function _jax_bsc() {
         let deposit_address = await callSmartContract(contract, "deposit_addresses", [deposit_address_id]);
         console.log(deposit_address);
         $("#from").html(from);
-        $("#amount").html(formatUnit(amount, decimals.wjax, decimals.wjax));
+        $("#amount").html(formatUnit(amount, decimals.wjax, decimals.wjax) + " JAX " + `(Shard ${shard_id})`);
         $("#depositAddress").html(deposit_address);
         due_timestamp = valid_until ;
         generate_qrcode({

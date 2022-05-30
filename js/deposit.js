@@ -121,7 +121,7 @@ function check_timestamp() {
 async function submit_txhash() {
     let txHash = $("#txHash").val();
     if(txHash == "") return;
-    let contract = new web3.eth.Contract(mode == "jax_bsc" ? abis.jax_bsc : abis.jxn_bsc, mode == "jax_bsc"? contract_addresses.jax_bsc : contract_addresses.jxn_bsc2);
+    let contract = new web3.eth.Contract(mode == "jax_bsc" ? abis.jax_bsc : abis.jxn_wjxn2, mode == "jax_bsc"? contract_addresses.jax_bsc : contract_addresses.bsc.jxn_wjxn2_bridge);
     const msg = web3.utils.soliditySha3(
         {t: 'string', v: txHash},
       ).toString('hex');

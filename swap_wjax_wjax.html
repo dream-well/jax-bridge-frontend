@@ -295,7 +295,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-12 text-white text-right pb-2">1 WJAX = 1 JXN</div>
+                            <div class="col-12 text-white text-right pb-2">1 WJAX = 1 WJAX</div>
                         </div>
                         <!-- <div class="bg-lighterblue p-3 border-radius mb-3">
 
@@ -351,6 +351,24 @@
             <div class="row justify-content-center mb-3">
               <div class="col-12 ">
                   <div class="container">
+                      <ul class="nav nav-pills mb-3  aliign-center row justify-content-center align-items-center mt-5"
+                          id="pills-tab" role="tablist">
+                          <li class="nav-item">
+                              <a class="nav-link text-white active" id="pills-bsc-tab" data-toggle="pill" href="#pills-bsc" role="tab"
+                                  aria-controls="pills-bsc" aria-selected="true"><img src="img/binance.svg" style="width:20px"
+                                      alt="">
+                                  BSC</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link text-white" id="pills-eth-tab" data-toggle="pill" href="#pills-eth" role="tab" aria-controls="pills-eth" aria-selected="false"><img src="img/Ethereum.svg" style="width:10px" alt=""> ETH</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link text-white" id="pills-avax-tab" data-toggle="pill" href="#pills-avax" role="tab" aria-controls="pills-avax" aria-selected="false"> <img src="img/avax.svg" style="width:20px" alt=""> AVAX</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link text-white" id="pills-polygon-tab" data-toggle="pill" href="#pills-polygon" role="tab" aria-controls="pills-polygon" aria-selected="false"> <img src="img/polygon.png" style="width:20px" alt=""> Polygon</a>
+                          </li>
+                      </ul>
                       <div class="tab-content col-12 " id="pills-tabContent">
                           <!-- bsc -->
                           <div class="tab-pane fade show active" id="pills-bsc" role="tabpanel" aria-labelledby="pills-bsc-tab">
@@ -359,7 +377,7 @@
                                       <thead>
                                           <tr>
                                               <th class="lineheight38">Currency</th>
-                                              <th class="lineheight38">Network</th>
+                                              <th class="lineheight38">Name</th>
                                               <th class="rowclr lineheight38">Address</th>
                                               <th class="lineheight38">Add to wallet</th>
                                           </tr>
@@ -367,35 +385,15 @@
                                       <tbody>
                                           <tr>
                                               <td class="align-middle"><img class="curr_logo" src="img/jax.png"> WJAX</td>
-                                              <td class="align-middle rowclra"> <span ><img src="img/binance.svg" style="width:20px" alt="">
-                                                BSC</span> </td>
-                                              <td class="align-middle rowclra"><span class="align-items-start float-left lineheight38 wjxn_address text_copy_link">0xf07352E8e3b88e8500D24301f5FC05A916d708cc</span> </td>
-                                              <td class="align-middle text-center"><span class="align-items-start float-left lineheight38"><a href="#" onclick="add_to_wallet('WJAX')"><img style="width:25px;height:25px" src="img/metamask.svg" alt=""></a></span> </td>
+                                              <td class="align-middle rowclra"><span
+                                                      class="align-items-start float-left lineheight38">Wrapped Jax</span> </td>
+                                              <td class="align-middle rowclra"><span
+                                                      class="align-items-start float-left lineheight38 wjxn_address text_copy_link">0xf07352E8e3b88e8500D24301f5FC05A916d708cc</span> </td>
+                                              <td class="align-middle text-center"><span
+                                                      class="align-items-start float-left lineheight38"><a href="#"
+                                                          onclick="add_to_wallet('WJXN')"><img style="width:25px;height:25px"
+                                                              src="img/metamask.svg" alt=""></a></span> </td>
                                           </tr>
-                                          <tr>
-                                            <td class="align-middle"><img class="curr_logo" src="img/jax.png"> WJAX</td>
-                          <td class="align-middle rowclra">                            <span><img src="img/Ethereum.svg" style="width:10px" alt=""> ETH</span>
-                                            </td>
-                                            <td class="align-middle rowclra"><span class="align-items-start float-left lineheight38 text_copy_link">0x2Df380cD3eeB7F1Ee5deB087Fe9FbCF8959095Ee</span>
-                                            </td>
-                                            <td class="align-middle text-center"><span class="align-items-start float-left lineheight38"><a href="#" onclick="add_to_wallet('WJAX')"><img style="width:25px;height:25px" src="img/metamask.svg" alt=""></a></span> </td>
-                                        </tr>
-                                          <tr>
-                                            <td class="align-middle"><img class="curr_logo" src="img/jax.png"> WJAX</td>
-                                            <td class="align-middle rowclra">                            <span> <img src="img/avax.svg" style="width:20px" alt=""> AVAX</span>
-                                            </td>
-                                            <td class="align-middle rowclra"><span class="align-items-start float-left lineheight38">0xdD32f4DBA92B04F2d4Ade25dFAD7a127027C379d</span>
-                                            </td>
-                                            <td class="align-middle text-center"><span class="align-items-start float-left lineheight38"><a href="#" onclick="add_to_wallet('WJAX')"><img style="width:25px;height:25px" src="img/metamask.svg" alt=""></a></span> </td>
-                                          </tr>
-                                          <tr>
-                                            <td class="align-middle"><img class="curr_logo" src="img/jax.png"> WJAX</td>
-                                            <td class="align-middle rowclra">                            <span > <img src="img/polygon.png" style="width:20px" alt=""> Polygon</span>
-                                            </td>
-                                            <td class="align-middle rowclra"><span class="align-items-start float-left lineheight38">0x1d60AA1D6137Dcb1306C8A901EBd215Ca661d0cb</span>
-                                            </td>
-                                            <td class="align-middle text-center"><span class="align-items-start float-left lineheight38"><a href="#" onclick="add_to_wallet('WJAX')"><img style="width:25px;height:25px" src="img/metamask.svg" alt=""></a></span> </td>
-                                        </tr>
                                       </tbody>
                                   </table>
                               </div>
@@ -407,7 +405,7 @@
                                       <thead>
                                           <tr>
                                               <td class="lineheight38">Currency</td>
-                                              <td class="lineheight38">Network</td>
+                                              <td class="lineheight38">Name</td>
                                               <td class="rowclr lineheight38">Address</td>
                                               <td class="lineheight38">Add to wallet</td>
                                           </tr>
@@ -415,10 +413,15 @@
                                       <tbody>
                                           <tr>
                                               <td class="align-middle"><img class="curr_logo" src="img/jax.png"> WJAX</td>
-                                              <td class="align-middle rowclra"><span class="align-items-start float-left lineheight38">Wrapped Jax</span> </td>
-                                              <td class="align-middle rowclra"><span class="align-items-start float-left lineheight38 text_copy_link">0x2Df380cD3eeB7F1Ee5deB087Fe9FbCF8959095Ee</span>
+                                              <td class="align-middle rowclra"><span
+                                                      class="align-items-start float-left lineheight38">Wrapped Jax</span> </td>
+                                              <td class="align-middle rowclra"><span
+                                                      class="align-items-start float-left lineheight38 text_copy_link">0x2Df380cD3eeB7F1Ee5deB087Fe9FbCF8959095Ee</span>
                                               </td>
-                                              <td class="align-middle text-center"><span class="align-items-start float-left lineheight38"><a href="#" onclick="add_to_wallet('WJAX')"><img style="width:25px;height:25px" src="img/metamask.svg" alt=""></a></span> </td>
+                                              <td class="align-middle text-center"><span
+                                                      class="align-items-start float-left lineheight38"><a href="#"
+                                                          onclick="add_to_wallet('WJXN')"><img style="width:25px;height:25px"
+                                                              src="img/metamask.svg" alt=""></a></span> </td>
                                           </tr>
                                       </tbody>
                                   </table>
@@ -431,7 +434,7 @@
                                       <thead>
                                           <tr>
                                               <td class="lineheight38">Currency</td>
-                                              <td class="lineheight38">Network/td>
+                                              <td class="lineheight38">Name</td>
                                               <td class="rowclr lineheight38">Address</td>
                                               <td class="lineheight38">Add to wallet</td>
                                           </tr>
@@ -439,10 +442,15 @@
                                       <tbody>
                                           <tr>
                                               <td class="align-middle"><img class="curr_logo" src="img/jax.png"> WJAX</td>
-                                              <td class="align-middle rowclra"><span class="align-items-start float-left lineheight38">Wrapped Jax</span> </td>
-                                              <td class="align-middle rowclra"><span class="align-items-start float-left lineheight38">0xdD32f4DBA92B04F2d4Ade25dFAD7a127027C379d</span>
+                                              <td class="align-middle rowclra"><span
+                                                      class="align-items-start float-left lineheight38">Wrapped Jax</span> </td>
+                                              <td class="align-middle rowclra"><span
+                                                      class="align-items-start float-left lineheight38">0xdD32f4DBA92B04F2d4Ade25dFAD7a127027C379d</span>
                                               </td>
-                                              <td class="align-middle text-center"><span class="align-items-start float-left lineheight38"><a href="#" onclick="add_to_wallet('WJAX')"><img style="width:25px;height:25px" src="img/metamask.svg" alt=""></a></span> </td>
+                                              <td class="align-middle text-center"><span
+                                                      class="align-items-start float-left lineheight38"><a href="#"
+                                                          onclick="add_to_wallet('WJXN')"><img style="width:25px;height:25px"
+                                                              src="img/metamask.svg" alt=""></a></span> </td>
                                           </tr>
                                       </tbody>
                                   </table>
@@ -463,10 +471,15 @@
                                       <tbody>
                                           <tr>
                                               <td class="align-middle"><img class="curr_logo" src="img/jax.png"> WJAX</td>
-                                              <td class="align-middle rowclra"><span class="align-items-start float-left lineheight38">Wrapped Jax</span> </td>
-                                              <td class="align-middle rowclra"><span class="align-items-start float-left lineheight38">0x1d60AA1D6137Dcb1306C8A901EBd215Ca661d0cb</span>
+                                              <td class="align-middle rowclra"><span
+                                                      class="align-items-start float-left lineheight38">Wrapped Jax</span> </td>
+                                              <td class="align-middle rowclra"><span
+                                                      class="align-items-start float-left lineheight38">0x1d60AA1D6137Dcb1306C8A901EBd215Ca661d0cb</span>
                                               </td>
-                                              <td class="align-middle text-center"><span class="align-items-start float-left lineheight38"><a href="#" onclick="add_to_wallet('WJAX')"><img style="width:25px;height:25px" src="img/metamask.svg" alt=""></a></span> </td>
+                                              <td class="align-middle text-center"><span
+                                                      class="align-items-start float-left lineheight38"><a href="#"
+                                                          onclick="add_to_wallet('WJXN')"><img style="width:25px;height:25px"
+                                                              src="img/metamask.svg" alt=""></a></span> </td>
                                           </tr>
                                       </tbody>
                                   </table>

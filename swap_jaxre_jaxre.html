@@ -224,74 +224,68 @@
             <div class="row justify-content-center">
                 <div class="col-12 col-md-6">
                     <div class="bg-blue border-radius p-3 exchange mb-3">
-                        <h4 class="text-white">Swap</h4>
-                        <div class="swap_coin_wrap_block ">
-                            <div class="swap_coin_wrap_block_inn">
-                                <div class="swap_inn_block active">
-                                    <span>JAXRE</span><span><svg width="17" height="12" viewBox="0 0 17 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M5.9585 7.65H0V9.35H5.9585V11.9L9.35 8.5L5.9585 5.1V7.65ZM11.0415 6.8V4.25H17V2.55H11.0415V0L7.65 3.4L11.0415 6.8Z" fill="#152172"/>
-                                        </svg>
-                                        </span>
-                                        <span>JAXRE</span>
+                        <h4 class="text-white">Deposit</h4>
+                        <div class="swap_coin_wrap_block pt-2">
+                          <div class="swap_coin_wrap_block_inn">
+                              <div class="swap_inn_block active" data-token="jax">
+                                  <span>JAXRE</span><span><svg width="17" height="12" viewBox="0 0 17 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                      <path d="M5.9585 7.65H0V9.35H5.9585V11.9L9.35 8.5L5.9585 5.1V7.65ZM11.0415 6.8V4.25H17V2.55H11.0415V0L7.65 3.4L11.0415 6.8Z" fill="#152172"/>
+                                      </svg>  
+                                      </span>
+                                      <span>JAXRE</span>
                                 </div>
-                                <!-- <div class="swap_inn_block">
-                                    <span>JXN</span><span><svg width="17" height="12" viewBox="0 0 17 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M5.9585 7.65H0V9.35H5.9585V11.9L9.35 8.5L5.9585 5.1V7.65ZM11.0415 6.8V4.25H17V2.55H11.0415V0L7.65 3.4L11.0415 6.8Z" fill="#152172"/>
-                                        </svg>
-                                        </span>
-                                    <span>WJXN</span>
-                                </div> -->
-                            </div>
+                          </div>
                         </div>
-
                         <div class="bg-lighterblue p-3 border-radius mb-3">
                             <div class="row">
                                 <div class="col-12 text-blue">You send
-                                  <span class="wjax_title_input active">JAXRE</span>
+                                   <span class="wjax_title_input active">JAXRE</span>
                                 </div>
                             </div>
                             <div class="row">
 
-                                <div class="col-8 text-right">
+                                <div class="col-6 text-right">
                                     <div class="form-group">
-                                        <input type="number" class="form-control " id="formoney" placeholder="0.0">
+                                        <input type="number" class="form-control " id="amountIn" placeholder="0.0" value="1000">
                                     </div>
                                 </div>
-                                <div class="col-4">
+                                <div class="col-6">
                                     <div class="form-group">
-                                        <select class="form-control box-shadow1"  id="selectbox1" placeholder="WJAX (ERC-20)">
-                                          <option value="eth" >WJAX ERC-20 (ETH)</option>
-                                          <option value="bsc" selected>WJAX BEP-20 (BSC)</option>
-                                          <option value="polygontestnet" >WJAX Polygon (MATIC)</option>
-                                          <option value="avax">WJAX AVAX (AVAX)</option>
+                                        <select class="form-control box-shadow1"  id="network1" placeholder="JXN (JAX Network)">
+                                            <!-- <option value="jax" selected>JXN (JAX Network)</option> -->
+                                          <option value="ethereum" >JAXRE ERC-20 (ETH)</option>
+                                          <option value="bsc" selected>JAXRE BEP-20 (BSC)</option>
+                                          <option value="polygon" >JAXRE Polygon (MATIC)</option>
+                                          <option value="avax">JAXRE AVAX (AVAX)</option>
                                         </select>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="bg-lighterblue p-3 border-radius mb-3 position-relative"> 
-                            <span  class="swapicon p-2 border-radius bg-blue text-white"><a href="#" class="text-white"><i
-                                        class="fa fa-arrow-down"></i></a></span>
+                        <div class="bg-lighterblue p-3 border-radius mb-3 position-relative">
+                            <span  class="swapicon p-2 border-radius bg-blue text-white" onclick="reverse_networks()">
+                                <i class="fa fa-arrow-down text-white"></i></span>
                             <div class="row">
                                 <div class="col-12 text-blue">You receive
                                   <span class="wjax_title_input active">JAXRE</span>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-8 text-right">
+                                <div class="col-6 text-right">
                                     <div class="form-group">
-                                        <input type="number" class="form-control" id="formoneya" placeholder="Choose Network">
+                                        <input type="number" readonly class="form-control" id="amountOut" placeholder="0.0">
                                     </div>
                                 </div>
-                                <div class="col-4">
-                                    <div class="form-group">
-                                        <select class="form-control box-shadow1" id="exampleFormControlSelect1">
-                                          <option value="eth" >WJAX ERC-20 (ETH)</option>
-                                          <option value="bsc" selected>WJAX BEP-20 (BSC)</option>
-                                          <option value="polygontestnet" >WJAX Polygon (MATIC)</option>
-                                          <option value="avax">WJAX AVAX (AVAX)</option>
-                                        </select>
-                                    </div>
+                                <div class="col-6">
+                                  <div class="form-group">
+                                      <select class="form-control box-shadow1"  id="network2" placeholder="JAXRE (ERC-20)">
+                                          <!-- <option value="jax">JXN (JAX Network)</option> -->
+                                          <option value="ethereum" selected>JAXRE ERC-20 (ETH)</option>
+                                          <option value="bsc" >JAXRE BEP-20 (BSC)</option>
+                                          <option value="polygon" >JAXRE Polygon (MATIC)</option>
+                                          <option value="avax">JAXRE AVAX (AVAX)</option>
+                                      </select>
+                                  </div>
                                 </div>
 
                             </div>
@@ -300,30 +294,52 @@
                             <div class="col-12 text-white text-right pb-2">1 JAXRE = 1 JAXRE</div>
                         </div>
                         <!-- <div class="bg-lighterblue p-3 border-radius mb-3">
-                            
+
                                 <div class="row">
-                                    <div class="col-12 text-blue">Wallet address</div>
+                                    <div class="col-12 text-blue">Destination address</div>
                                 </div>
                                 <div class="row">
                                     <div class="col-12 text-right">
                                         <div class="form-group">
-                                            <input type="number" class="form-control" id="formoneya" placeholder="Enter you JAX address">
+                                            <input class="form-control" style="font-size: 18.5px;" id="to" placeholder="Enter your BSC address" value='' readonly>
                                         </div>
                                     </div>
                                 </div>
-                           
+
                         </div> -->
+
+                      <!--  <div class="bg-lighterblue p-3 border-radius mb-3">
+
+                                <div class="row">
+                                    <div class="col-12 text-blue">Email address (optional)</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 text-right">
+                                        <div class="form-group">
+                                            <input class="form-control" style="font-size: 18.5px;" id="to" placeholder="Enter your email address" value=''>
+                                        </div>
+                                    </div>
+                                </div>
+
+                        </div>-->
                         <div class="row">
-                            <div class="col-12 text-white text-right pb-2">Exchange fee: <span>1</span>
-                               </div>
-                             <div class="col-12 text-white text-right pb-2"> Network fee: <span>1</span></div>  
+                             <div class="col-12 text-white text-right pb-2"> BRIDGE fee: <span id="fee">-</span> JAXRE</div>
                         </div>
-                     
+
                         <div class="row">
-                            <div class="col-12"><a href="#" class="btn btn-info w-100 btn-lg pt-3 pb-3 swap_btn"
-                                    data-toggle="modal" data-target="#exampleModalCenter">Swap</a></div>
+                          <div class="col-12">
+                            <button class="btn btn-info w-100 btn-lg pt-3 pb-3 swap_btn" style="display:none"
+                                onclick="approve()" id="btn_approve"
+                                  data-toggle="modal">Approve</button>
                         </div>
-                    
+                      </div>
+                        <div class="row pt-2">
+                            <div class="col-12">
+                              <button class="btn btn-info w-100 btn-lg pt-3 pb-3 swap_btn"
+                                 onclick="deposit()" id="btn_deposit" disabled
+                                    data-toggle="modal">Deposit</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

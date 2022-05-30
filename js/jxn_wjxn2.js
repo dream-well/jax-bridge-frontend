@@ -10,10 +10,10 @@ void async function main() {
     $("#amountIn").on('input', update_state)
     // $("#network1").on('change', update_state)
     // update_state();
-    setInterval(update_state, 3000);
-    update_state();
+    setInterval(update_state, 5000);
+    update_fee();
 
-    $("#fee").html(minimum_fee_amount);
+    // $("#fee").html(minimum_fee_amount);
     check_visible();
     $("#network1").on('change', network1_changed);
     $("#network2").on('change', network2_changed);
@@ -30,6 +30,16 @@ void async function main() {
         $(".wjax_title_input").toggleClass('active');
     })
 }()
+
+async function update_fee() {
+    $("#fee").html("...");
+    let web3 = new Web3(networks['bsc'].url);
+    let contract = new web3.eth.Contract(abis.jxn_wjxn2, contract_addresses.bsc.jxn_wjxn2_bridge);
+    fee_percent = formatUnit(await contract.methods.fee_percent().call(), 8);
+    minimum_fee_amount = formatUnit(await contract.methods.minimum_fee_amount().call(), decimals.wjxn2);
+    update_state();
+}
+
 
 function init_swap_inn_block() {
     $(".swap_inn_block").click(function() {
@@ -246,6 +256,7 @@ async function update_state() {
     }
     if(amountOut < 0) amountOut = 0;
     $("#amountOut").val(amountOut);
+    $("#fee").html(amountIn - amountOut);
     // check_allowance();
     $(".jxn-bsc #to").val(accounts[0]); 
     check_status();

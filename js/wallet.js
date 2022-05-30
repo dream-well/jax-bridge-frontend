@@ -335,7 +335,7 @@ function set_connected_address() {
     $(".btn_connect").addClass("btn-success");
 }
 
-async function add_to_wallet(token) {
+async function add_to_wallet(token, name) {
     
     if(is_wrong_network() ) {
         switch_network();
@@ -348,7 +348,7 @@ async function add_to_wallet(token) {
     token = token.toLowerCase();
     let address = get_contract_address(token);
     let image = token_images[token];
-    await add_token_to_metamask(address, token.toUpperCase(), decimals[token], image);
+    await add_token_to_metamask(address, name ? name : token.toUpperCase(), decimals[token], image);
 }
 
 function is_wrong_network() {

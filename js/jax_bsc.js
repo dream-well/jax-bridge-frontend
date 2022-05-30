@@ -178,7 +178,7 @@ async function approve() {
         if(network1.indexOf("jax") == 0)
             bridge_address = contract_addresses.bsc.jax_wjax_bridge;
         else
-            bridge_address = contract_addresses.bsc_jax;
+            bridge_address = contract_addresses.bsc.wjax_jax_bridge;
     }
 
     if((await check_allowance()) != true)
@@ -201,7 +201,7 @@ async function check_allowance() {
         if(network1.indexOf("jax") == 0)
             return true;
         else
-            bridge_address = contract_addresses.bsc_jax;
+            bridge_address = contract_addresses.bsc.wjax_jax_bridge;
     }
 
     let allowance = await callSmartContract(contract, "allowance", [accounts[0], bridge_address]);
@@ -421,7 +421,7 @@ async function bridge_jax_bsc(shard_id, amountIn, to, from) {
 }
 
 async function bridge_bsc_jax(shard_id, amountIn, to) {
-    let contract = new web3.eth.Contract(abis.bsc_jax, contract_addresses.bsc_jax);
+    let contract = new web3.eth.Contract(abis.wjax_jax, contract_addresses.bsc.wjax_jax_bridge);
     let func = "deposit";
     let args = [shard_id, amountIn, to];
     const promi = runSmartContract(contract, func, args);

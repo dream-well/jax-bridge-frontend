@@ -283,6 +283,12 @@ async function update_balance() {
         $("#balance_token1").html(balance);
 }
 
+async function select_max_balance() {
+    let balance = await get_token_balance(get_token() == 'jxn' ? 'wjxn2' : 'wjax')
+    $("#amountIn").val(balance);
+    update_state();
+}
+
 function accountChanged() {
     update_state();
 }

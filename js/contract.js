@@ -15,6 +15,8 @@ let contract_addresses = {
         jaxre: '0x86ECE7D9cdA927B3Ec4044Df67B082FA55A1c198',
         wjax_evm_bridge: '0x5CD0BE8439473c9908725B83393bc3bB9Dd53F13',
         wjxn_evm_bridge: '0x5B97aa5CF0669C788c79A12065c25c918056489D',
+        jaxud_evm_bridge: '0xa2394A3F6e75295098083515DE73747593d64689',
+        jaxre_evm_bridge: '0xa5414f6432ED684cb6661d79A022C9FF26B53D02',
         jxn_wjxn2_bridge: '0xda2C3be424f8674CC8b71259f6E2Abc293124FD2',
         wjxn2_jxn_bridge: '0xa810255985748348A9Ef97D8Daf54199b7dFEea7',
         jax_wjax_bridge: '0xa8686a5B9156Ce90ca88fEFE0F82580Efdd7f225',
@@ -25,21 +27,27 @@ let contract_addresses = {
         jaxud: '0x935b0bF173552cd55E53AD651a783430a5700cD4',
         jaxre: '0x88d7FE32284f1dBD398D58222DE8DFd87dD75460',
         wjax_evm_bridge: '0x65f865Bf1893B8974904805f94D7F4364B093631',
-        wjxn_evm_bridge: '0xA581cb3883d84dAb7f1B1340fF01F1cB34A2B5d3'
+        wjxn_evm_bridge: '0xA581cb3883d84dAb7f1B1340fF01F1cB34A2B5d3',
+        jaxud_evm_bridge: '0x76fa220108293A0c5F95183e604B34D7691A3d7C',
+        jaxre_evm_bridge: '0xE38C300a73A43E4A5E0f1bD09dcAd330ff7ac22D'
     },
     polygon: {
         wjax: '0x1d60AA1D6137Dcb1306C8A901EBd215Ca661d0cb',
         jaxud: '0x9e79696a4c1163d35f01d71dcbbc5c139691c6d3',
         jaxre: '0xd85a8b4964850ae85121d5652e6f0696512feb10',
         wjax_evm_bridge: '0x4702202a5DEEA8a7414380b18ff195F3321b5159',
-        wjxn_evm_bridge: ''
+        wjxn_evm_bridge: '',
+        jaxud_evm_bridge: '0xB0E9b791003beFBfa9EdC1c1698d55f7dfa23E25',
+        jaxre_evm_bridge: '0x6Af0753f9373100A54C2550924453D7858E9eBFE'
     },
     avax: {
         wjax: '0xdD32f4DBA92B04F2d4Ade25dFAD7a127027C379d',
         jaxud: '0x1d60AA1D6137Dcb1306C8A901EBd215Ca661d0cb',
         jaxre: '0x9E79696a4C1163D35f01d71DcbBc5C139691C6D3',
         wjax_evm_bridge: '0x4702202a5DEEA8a7414380b18ff195F3321b5159',
-        wjxn_evm_bridge: ''
+        wjxn_evm_bridge: '',
+        jaxud_evm_bridge: '0xeB4fa33e3b57f2816e5982DfEBc9914b9208F857',
+        jaxre_evm_bridge: '0xB0E9b791003beFBfa9EdC1c1698d55f7dfa23E25'
     }
 }
 
@@ -53,7 +61,9 @@ let decimals = {
     wjxn2: 8,
     wjax: 4,
     wjxn: 0,
-    haber: 0
+    haber: 0,
+    jaxud: 18,
+    jaxre: 18
 }
 
 let token_images = {

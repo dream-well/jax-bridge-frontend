@@ -169,9 +169,16 @@ function ceil(number, decimal) {
 }
 
 function goto404() {
-    const path = location.pathname.split("/");
-    path.pop();
-    location.href = path.join("/") + '/404.html';
+    // const path = location.pathname.split("/");
+    // path.pop();
+    // location.href = path.join("/") + '/404.html';
+    const html404 = `  
+        <div class="container pt-5 pb-5">
+            <div class="row justify-content-center" style="color: white;font-size: 10em;">
+            404
+            </div>
+        </div>`;
+    $("main").html(html404);
 }
 
 function goto(page) {

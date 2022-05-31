@@ -82,8 +82,10 @@ async function update_fee() {
 
 async function approve() {
     let contract = new web3.eth.Contract(erc20ABI, get_contract_address(active_token));
-    if((await check_allowance()) != true)
-        approve_token(active_token.toUpperCase(), contract, get_contract_address(active_token + "_evm_bridge"), maxUint);
+    if((await check_allowance()) != true) {
+        await approve_token(active_token.toUpperCase(), contract, get_contract_address(active_token + "_evm_bridge"), maxUint);
+        check_status();
+    }
 }
 
 async function check_allowance() {

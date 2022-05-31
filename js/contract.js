@@ -70,7 +70,9 @@ let token_images = {
     wjxn: 'https://wrapped.jax.net/img/jaxnet_circle.png',
     wjxn2: 'https://wrapped.jax.net/img/wjxn.png',
     wjax: 'https://wrapped.jax.net/img/jax.png',
-    haber: 'https://wrapped.jax.net/img/hst.png'
+    haber: 'https://wrapped.jax.net/img/hst.png',
+    jaxud: 'https://wrapped.jax.net/img/jax.png',
+    jaxre: 'https://wrapped.jax.net/img/j-inr.png'
 }
 
 let abis = {

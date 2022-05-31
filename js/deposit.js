@@ -82,7 +82,7 @@ async function _jax_bsc() {
         let { amount, from, shard_id, deposit_address_id, status, valid_until } = await callSmartContract(contract, "requests", [request_id]);
         console.log(amount, from, deposit_address_id, status);
         if(parseInt(status) > 0) {
-            goto('status_test.html' + '?id=' + request_id + "&mode=" + mode);
+            goto('status.html' + '?id=' + request_id + "&mode=" + mode);
         }
         $("#shardId").html("Shard" + shard_id);
         $("#shardId").show();

@@ -338,7 +338,7 @@ async function bridge_jxn_bsc(amountIn, to, from) {
         console.log(request_id);
         const path = location.pathname.split("/");
         path.pop();
-        location.href = path.join("/") + '/deposit_test.html' + '?id=' + request_id + "&mode=jxn_bsc";
+        location.href = path.join("/") + '/deposit.html' + '?id=' + request_id + "&mode=jxn_bsc";
         
     })
     
@@ -376,7 +376,7 @@ async function bridge_jax_bsc(shard_id, amountIn, to, from) {
         console.log(request_id);
         const path = location.pathname.split("/");
         path.pop();
-        location.href = path.join("/") + '/deposit_test.html' + '?id=' + request_id + "&mode=jax_bsc";
+        location.href = path.join("/") + '/deposit.html' + '?id=' + request_id + "&mode=jax_bsc";
         
     })
     
@@ -393,7 +393,7 @@ async function bridge_bsc_jax(shard_id, amountIn, to) {
     promi.then(tx => {
         const request_id = tx.events.Create_Request.returnValues.request_id;
         console.log(request_id);
-        goto('status_test.html' + '?id=' + request_id + "&mode=bsc_jax");
+        goto('status.html' + '?id=' + request_id + "&mode=bsc_jax");
     })
 }
 
@@ -408,7 +408,7 @@ async function bridge_bsc_jxn(amountIn, to) {
     promi.then(tx => {
         const request_id = tx.events.Create_Request.returnValues.request_id;
         console.log(request_id);
-        goto('status_test.html' + '?id=' + request_id + "&mode=bsc_jxn");
+        goto('status.html' + '?id=' + request_id + "&mode=bsc_jxn");
     })
 }
 

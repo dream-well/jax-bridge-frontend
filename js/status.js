@@ -171,7 +171,7 @@ async function _jax_bsc() {
     }
     status = parseInt(status);
     if(status == 0) {
-        goto('deposit_test.html' + '?id=' + request_id + "&mode=" + mode);
+        goto('deposit.html' + '?id=' + request_id + "&mode=" + mode);
     }
     let text, color;
     // {Init, Proved, Rejected, Expired, Verified, Released, Completed}

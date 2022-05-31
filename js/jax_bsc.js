@@ -179,9 +179,9 @@ async function deposit() {
 }
 
 async function approve() {
-    let contract = new web3.eth.Contract(erc20ABI, contract_addresses.bsc.wjxn2);
     let bridge_address;
     let network1 = get_network1();
+    let token_address;
     if(get_token() == "jxn") {
         if(network1 == "jax")
             bridge_address = contract_addresses.bsc.jxn_wjxn2_bridge;
@@ -195,6 +195,7 @@ async function approve() {
             bridge_address = contract_addresses.bsc.wjax_jax_bridge;
     }
 
+    let contract = new web3.eth.Contract(erc20ABI, contract_addresses.bsc[get_token() == "jxn" ? "wjxn2" : "wjax"]);
     if((await check_allowance()) != true)
         await approve_token(get_token() == "jxn" ? "WJXN-2": "WJAX", contract, bridge_address, maxUint);
     check_allowance();

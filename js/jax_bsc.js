@@ -438,7 +438,12 @@ async function bridge_jax_bsc(shard_id, amountIn, to, from) {
 async function bridge_bsc_jax(shard_id, amountIn, to) {
     let contract = new web3.eth.Contract(abis.wjax_jax, contract_addresses.bsc.wjax_jax_bridge);
     let func = "deposit";
-    let args = [shard_id, amountIn, to];
+    let args = [shard_id, parseUnit(amountIn, decimals.wjax), to];
+    const {success, gas, message} = await estimateGas(contract, func, args);
+    if(!success) {
+        notifier.warning(message);
+        return;
+    }
     const promi = runSmartContract(contract, func, args);
     await notifier.async(promi
         , null, null, `Depositing`,

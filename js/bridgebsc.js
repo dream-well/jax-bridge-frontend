@@ -116,7 +116,7 @@ async function check_status() {
 
 async function update_balance() {
     let contract = new web3.eth.Contract(erc20ABI, get_contract_address(active_token));
-    $("#balance").html(await get_balance(contract, decimals[active_token]));
+    $("#balance_token1").html(await get_balance(contract, decimals[active_token]));
 }
 
 async function select_max_balance() {

@@ -71,7 +71,9 @@ let chains = {
     4: "rinkeby",
     56: "bsc",
     97: "bsctestnet",
+    137: "polygon",
     43113: "avatestnet",
+    43114: "avax",
     80001: "polygontestnet"
 }
 

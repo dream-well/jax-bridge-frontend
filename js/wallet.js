@@ -361,7 +361,7 @@ function is_wrong_network() {
 
 function active_network() {
     let active =  $("#chainSelector").val();
-    return active ? active : "bsctestnet";
+    return active ? active : "bsc";
 }
 
 function money_validator(e) {

@@ -7,7 +7,6 @@ let contract_addresses = {
     jaxBridge: '0xdA344A64FB38AeE04f52cE99c0d34b5413D589C3',
     wjxn: '0xcA1262e77Fb25c0a4112CFc9bad3ff54F617f2e6',
     haber: '0xd6AF849b09879a3648d56B5d43c6e5908a74CA83',
-    hst: '0xd6AF849b09879a3648d56B5d43c6e5908a74CA83',
     bsc: {
         wjxn2: '0x643d58cf4af8f5fa32139981d85b8629802bcd5e',
         wjax: '0xf07352E8e3b88e8500D24301f5FC05A916d708cc',

@@ -337,6 +337,7 @@ h4 {
   border-radius: 0;
 }
 
+
 .btn {
   text-transform: uppercase;
   padding: 15px 60px;
@@ -520,6 +521,9 @@ h4 {
   z-index: 5;
 }
 @media (max-width: 570px){
+  .dropdown .dropdown-menu {
+   width: 100% !important;
+  }
   .intro {
     padding-bottom: 100px;
   }

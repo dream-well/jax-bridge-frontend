@@ -225,17 +225,15 @@ function init_listners() {
 
 function connect_wallet() {
     if(!web3){
-        onConnect();
-        return;
+        return onConnect();
     }
     if(is_wrong_network()) {
-        switch_network();
+        return switch_network();
     }
     if(web3.currentProvider.selectedAddress){
         accounts = [web3.currentProvider.selectedAddress];
         if(is_wrong_network()){
             on_wrong_network();
-
         }
         else{
             on_wallet_connected();
@@ -268,9 +266,6 @@ function connect_wallet() {
                 set_connected_address();
             }
         })
-        .catch(error => {
-            console.error(error);
-        })
 
 }
 
@@ -280,10 +275,11 @@ function disconnect_wallet() {
     on_wallet_disconnected();
 }
 
-function switch_network() {
-    web3.currentProvider.request({
+function switch_network(net) {
+    let network = networks[net ? net : active_network()];
+    return web3.currentProvider.request({
             method: "wallet_switchEthereumChain",
-            params: [{ chainId: '0x' + networks[active_network()].chainId.toString(16) }]
+            params: [{ chainId: '0x' + network.chainId.toString(16) }]
         })
         .then(() => {
             console.log("switched");
@@ -337,20 +333,46 @@ function set_connected_address() {
     $(".btn_connect").addClass("btn-success");
 }
 
+const timer = async (time) => {
+    return new Promise(resolve => setTimeout(resolve, time))
+};
+
 async function add_to_wallet(token, name) {
-    
+
     if(is_wrong_network() ) {
-        switch_network();
-        return;
+        await switch_network();
+        await timer(1000);
     }
     if(accounts.length == 0) {
-        connect_wallet();
-        return;
+        await connect_wallet();
+        await timer(1000);
     }
     token = token.toLowerCase();
     let address = get_contract_address(token);
     let image = token_images[token];
     await add_token_to_metamask(address, name ? name : token.toUpperCase(), decimals[token], image);
+}
+
+async function add_to_wallet(token, network) {
+    
+    if(network) {
+        try{
+            await switch_network(network);
+        } catch(e) {
+            return;
+        }
+        await (() => {
+            return new Promise(resolve => setTimeout(resolve, 1000))
+        })()
+    }
+    else if(accounts.length == 0) {
+        await connect_wallet();
+        await timer(1000)
+    }
+    token = token.toLowerCase();
+    let address = get_contract_address(token);
+    let image = token_images[token];
+    await add_token_to_metamask(address, token_names[token], decimals[token], image);
 }
 
 function is_wrong_network() {

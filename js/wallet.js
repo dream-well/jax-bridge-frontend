@@ -86,18 +86,6 @@ function on_wallet_connected() {
     if(typeof check_status == "function") check_status();
 }
 
-function on_wallet_disconnected() {
-    $(".btn_buy").html("Connect a wallet");
-    $("#btn_swap").html("Connect a Wallet");
-    $("#btn_swap").attr("disabled", false);
-    $("#btn_approve").hide();
-    $(".btn_connect").html("Connect a Wallet");
-
-    // Colony page
-
-    if(typeof check_status == "function") check_status();
-}
-
 function on_wrong_network() {
     $(".btn_connect").html("Switch Network");
     $(".btn_connect").removeClass("btn-info");
@@ -196,8 +184,6 @@ void function main() {
         notifier.success("Copied to clipboard");
     })
 
-    on_wallet_disconnected();
-
     BN = (str) => (new web3.utils.BN(str));
 
     init_listners();
@@ -214,7 +200,7 @@ void function main() {
     });
 
     init_web3();
-    if(Web3.givenProvider)
+    if(localStorage.getItem("walletconnected") == "true")
         connect_wallet();
 
     $("#chainSelector").on("change", switch_network);
@@ -245,7 +231,6 @@ function connect_wallet() {
         accounts = web3.currentProvider.accounts;
         if(is_wrong_network()){
             on_wrong_network();
-
         }
         else{
             on_wallet_connected();
@@ -257,6 +242,7 @@ function connect_wallet() {
     return web3.eth.requestAccounts()
         .then(_accounts => {
             accounts = _accounts;
+
             // console.log(accounts);
             if (parseInt(web3.currentProvider.chainId) != networks[active_network()].chainId) {
                 $(".btn_connect").html("Switch Network");
@@ -272,12 +258,12 @@ function connect_wallet() {
 function disconnect_wallet() {
     accounts = [];
     reset_connect_button();
-    on_wallet_disconnected();
 }
 
 function switch_network(net) {
     let network = networks[net ? net : active_network()];
     return web3.currentProvider.request({
+        
             method: "wallet_switchEthereumChain",
             params: [{ chainId: '0x' + network.chainId.toString(16) }]
         })
@@ -318,8 +304,11 @@ function reset_connect_button() {
     $(".btn_connect").removeClass("btn-danger");
     $(".btn_connect").removeClass("btn-success");
     $(".btn_connect").addClass("btn-info");
-    $("#balance_1").html("Balance:");
-    $("#balance_2").html("Balance:");
+    $(".btn_connect").html("Connect a Wallet");
+    
+    localStorage.setItem("walletconnected", false);
+    if( typeof accountChanged != "undefined")
+        accountChanged();
 }
 
 function set_connected_address() {
@@ -331,6 +320,8 @@ function set_connected_address() {
     $(".btn_connect").removeClass("btn-info");
     $(".btn_connect").removeClass("btn-danger");
     $(".btn_connect").addClass("btn-success");
+
+    localStorage.setItem("walletconnected", true);
 }
 
 const timer = async (time) => {

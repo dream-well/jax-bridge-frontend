@@ -2173,3 +2173,17 @@ input[type=number] {
 .swapicon a {
   display: block;
 }
+.disc_btn .dropdown-menu::before{
+  display: none;
+}
+.disc_btn .dropdown-menu {
+  padding: 5px !important;
+  left: auto;
+}
+.disc_btn .dropdown-menu a {
+  padding: 0 !important;
+  border: none;
+  justify-content: center;
+      font-size: 14px;
+      margin-bottom: 0;
+}

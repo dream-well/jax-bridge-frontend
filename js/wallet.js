@@ -261,7 +261,7 @@ function disconnect_wallet() {
 }
 
 function switch_network(net) {
-    let network = networks[net ? net : active_network()];
+    let network = networks[typeof net == 'string' ? net : active_network()];
     return web3.currentProvider.request({
         
             method: "wallet_switchEthereumChain",

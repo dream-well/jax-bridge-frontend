@@ -246,7 +246,7 @@ void function main() {
 
     $(".copy_btn").on('click', function () {
         let id = $(this).data('id');
-        let text = $("#" + id).html();
+        let text = $("#" + id).text();
         navigator.clipboard.writeText(text);
         notifier.success("Copied to clipboard");
     })

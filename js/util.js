@@ -7,7 +7,7 @@ function parseUnit(number, decimal = 18) {
 function formatUnit(number, decimal = 18, fractionDigits = 6) {
     if(typeof number != "string") number = "0";
     if(number.length <= decimal) number = "0".repeat(decimal + 1 - number.length) + number;
-    number = Number(number.substr(0, number.length - decimal) + "." + number.substr(number.length - decimal)).toFixed(fractionDigits);
+    number = Number(number.substr(0, number.length - decimal) + "." + number.substr(number.length - decimal, fractionDigits));
     return Number(number);
 }
 
